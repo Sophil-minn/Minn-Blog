@@ -1,0 +1,73 @@
+.min-header {
+  position: sticky;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03),
+    0 1px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+  .min-row {
+    padding: 0 20px 0 16px;
+    line-height: 30px;
+    height: 64px;
+    align-items: center;
+  }
+  .ant-dropdown.css-dev-only-do-not-override-15rg2km.ant-dropdown-placement-bottom {
+    width: 100%;
+  }
+  .min-section-info .title h2 {
+    color: #333;
+  }
+  .navInfo-items-wrapper {
+    position: relative;
+    margin-top: 8px;
+    .item-title {
+      height: 30px;
+      line-height: 30px;
+      color: #999;
+      .state-type {
+        display: inline-block;
+        height: 18px;
+        margin-left: 12px;
+        padding: 2px 5px;
+        font-weight: 400;
+        font-size: 10px;
+        font-family: PingFangSC-Regular;
+        line-height: 18px;
+        border-radius: 2px;
+        &.WAIT_ONLINE {
+          color: rgba(0, 0, 0, 0.45);
+          background: rgba(0, 0, 0, 0.06);
+          cursor: not-allowed;
+        }
+        &.HOT {
+          color: #e02020;
+          background: rgba(224, 32, 32, 0.06);
+          cursor: pointer;
+        }
+        &.NEW {
+          color: #1677ff;
+          background: rgba(22, 119, 255, 0.06);
+          cursor: pointer;
+        }
+        &:hover {
+          color: #1677ff;
+        }
+        &:visited {
+          color: #1677ff;
+        }
+        &.text {
+          color: rgba(0, 0, 0, 0.25);
+          cursor: text;
+        }
+      }
+    }
+  }
+}
+.min-nav-drop-down {
+  width: 100%;
+  .min-dropdown-content {
+    position: relative;
+    width: 100%;
+    padding: 24px;
+    background-color: #fff;
+    box-shadow: 2px 3px 2px 1px rgba(0, 0, 0, 0.03),
+      2px 2px 6px 2px rgba(0, 0, 0, 0.02), 2px 2px 3px -2px rgba(0, 0, 0, 0.02);
+  }
+}
