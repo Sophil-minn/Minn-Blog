@@ -1,20 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './index.css';
+import { routeConfig } from './config/routerConfig';
+import { useRoutes } from 'react-router-dom';
+import { Button } from 'antd';
 
 function App() {
+  const routes = useRoutes(routeConfig);
   return (
     <div className="App">
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {routes}
+      {/* <Button>ann</Button> */}
+      <Button type="primary">Button</Button>
+
     </div>
   );
 }
