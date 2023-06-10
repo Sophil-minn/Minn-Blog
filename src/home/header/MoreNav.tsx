@@ -1,5 +1,4 @@
 import {
-  Button,
   Col,
   Dropdown,
   Typography,
@@ -10,10 +9,9 @@ import {
 } from "antd";
 import { defaultGetPrefixCls } from "../../util/utils";
 import "./index.scss";
-import { ReactNode } from "react";
 import { NavInfoProps } from "../types";
 import { items } from "../config";
-import { navigationEntranceList } from "../../config/menuConfig";
+import Button from "../../components/Button";
 
 const dcls = defaultGetPrefixCls("dropdown-content");
 const scls = defaultGetPrefixCls("section-info");
@@ -31,6 +29,11 @@ const SectionInfo = ({ navInfo }: { navInfo: NavInfoProps }) => (
         const tip = tips ? (
           <div className="menu-items-popover-title">{tips}</div>
         ) : null;
+        const clsMap: Record<string, string> = {
+          WAIT_ONLINE: 'wait-online',
+          HOT: 'hot',
+          NEW: 'new',
+        };
         return (
           <div
             onClick={() => {
@@ -46,9 +49,8 @@ const SectionInfo = ({ navInfo }: { navInfo: NavInfoProps }) => (
               }
             }}
             key={title}
-            className={`item-title ${
-              ["WAIT_ONLINE"].includes(statusCode) ? "text" : ""
-            }`}
+            className={`item-title ${["WAIT_ONLINE"].includes(statusCode) ? "text" : ""
+              }`}
           >
             <Popover
               content={tip}
@@ -59,7 +61,7 @@ const SectionInfo = ({ navInfo }: { navInfo: NavInfoProps }) => (
               <Text>{title}</Text>
             </Popover>
             {statusText ? (
-              <span className={`state-type ${statusCode}`}>{statusText}</span>
+              <span className={`state-type ${clsMap[statusCode]}`}>{statusText}</span>
             ) : null}
           </div>
         );
@@ -68,11 +70,14 @@ const SectionInfo = ({ navInfo }: { navInfo: NavInfoProps }) => (
   </div>
 );
 
-export default function MoreNav() {
-  const dropdownRender = (menus: ReactNode) => {
+export default function MoreNav(props: {
+  navigationList: NavInfoProps[]
+}) {
+  const { navigationList } = props;
+  const dropdownRender = () => {
     return (
       <Row className={dcls} justify={"space-evenly"}>
-        {navigationEntranceList.map((nav) => (
+        {navigationList.map((nav) => (
           <Col key={nav.title}>
             <SectionInfo navInfo={nav} />
           </Col>
@@ -84,13 +89,13 @@ export default function MoreNav() {
     <Dropdown
       menu={{ items }}
       placement="bottom"
-      //   arrow={{ pointAtCenter: true }}
+      arrow={{ pointAtCenter: true }}
       autoFocus
       dropdownRender={dropdownRender}
       trigger={["click"]}
       overlayClassName="min-nav-drop-down"
     >
-      <Button>更多</Button>
+      <Button type="link">更多</Button>
     </Dropdown>
   );
 }

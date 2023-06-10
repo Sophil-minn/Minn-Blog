@@ -1,0 +1,19 @@
+.min-btn {
+  height: 32px;
+  color: #531dab;
+  padding: 0 15px;
+  font-size: 14px;
+  border-radius: 4px;
+  background: #fafafa;
+  border: 0;
+  cursor: pointer;
+  &:hover, &:active  {
+    span, svg {
+      color: #595959;
+    }
+    background-color: #f0f0f0;
+  }
+  &:visited {
+    color: blue;
+  }
+}
