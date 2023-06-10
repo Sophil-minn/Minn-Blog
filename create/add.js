@@ -22,9 +22,8 @@ const lowCase = str => str.replace(/[A-Z]/g, m => `-${m.toLowerCase()}`).replace
   spawn('mkdir', ['-p', path.join(process.cwd(), `src/${dirName}/hooks`)]);
 
   // 创建hooks文件
-  fs.writeFile(path.join(process.cwd(), `src/${dirName}/hooks/use${componentName}Data.ts`), '');
-  fs.writeFile(path.join(process.cwd(), `src/${dirName}/config.tsx`), '');
-  fs.writeFile(path.join(process.cwd(), `src/${dirName}/const.tsx`), '');
+  const hookFilePath = path.join(process.cwd(), `src/${dirName}/hooks/use${componentName}Data.ts`);
+  fs.writeFile(hookFilePath, 'export {}');
 
   //读取模版
   const tplFiles = glob.sync(path.join(__dirname, 'template/*.hbs'));
