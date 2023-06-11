@@ -12,13 +12,15 @@ const { spawn } = require('child_process');
 
 // console.log(path, path.join(process.cwd(), 'src/' + process.argv[2]));
 
-const varCase = str => str.replace(/-[a-z]/g, m => m[1].toUpperCase()).replace(/^.{1}/g, str[0].toUpperCase());
-const lowCase = str => str.replace(/[A-Z]/g, m => `-${m.toLowerCase()}`).replace(/-[a-z]/g, str[1].toUpperCase());
+const varCase = str => str.replace(/-[a-z]/g, m => m[1].toUpperCase()).replace(/^.{1}/g, m => m[0].toUpperCase());
+console.log('varCase: ', varCase);
+const lowCase = str => str.replace(/[A-Z]/g, m => `-${m.toLowerCase()}`).replace(/-[a-z]/g, m => m[1].toUpperCase());
+console.log('lowCase: ', lowCase);
 (async () => {
   const component = process.argv[2];
   const dirName = lowCase(component);
   const componentName = varCase(component);
-  
+
   spawn('mkdir', ['-p', path.join(process.cwd(), `src/${dirName}/hooks`)]);
 
   // 创建hooks文件
@@ -40,8 +42,8 @@ const lowCase = str => str.replace(/[A-Z]/g, m => `-${m.toLowerCase()}`).replace
       .replace('.hbs', '');
     // const  newTargetPath = path.join(process.cwd(), 'src');
     await fs.writeFile(newPath, result);
-      // console.log(chalk.green(`write ${newTargetPath} success`));
-      // console.log(chalk.green(`write ${newPath} success`));
+    // console.log(chalk.green(`write ${newTargetPath} success`));
+    // console.log(chalk.green(`write ${newPath} success`));
   }));
   // const response = await fetch(`https://unpkg.com/antd@4.19.5/es/${dirName}/style/index.css`);
   // const body = await response.text();

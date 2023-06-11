@@ -46,7 +46,7 @@ const SectionInfo = ({ navInfo }: { navInfo: NavInfoProps }) => (
             message.error("该功能正在建设中～");
           }
         };
-        const disabled = [STATE.WAIT_ONLINE].includes(statusCode);
+        const disabled = item.disabled;
         const cls = classNames({
           'dropdow-nav__list__item': true,
           'disabled': disabled
@@ -69,7 +69,7 @@ const SectionInfo = ({ navInfo }: { navInfo: NavInfoProps }) => (
                 </Popover>
               </Col>
               <Col>
-                {(STATE_TEXT as any)[statusCode] ? (
+                {statusCode && (STATE_TEXT as any)[statusCode] ? (
                   <Tag className={`state-type ${clsMap[statusCode]} `} color={colorMap[statusCode]}>{(STATE_TEXT as any)[statusCode]}</Tag>
                 ) : null}
               </Col>

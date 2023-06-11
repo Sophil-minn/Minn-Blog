@@ -9,7 +9,8 @@ export const reactItem = {
     {
       title: "react理论",
       tips: "react理论总结",
-      path: "",
+      disabled: false,
+      path: "/reactTheory",
       pathType: "",
       statusCode: STATE.NEW
     },

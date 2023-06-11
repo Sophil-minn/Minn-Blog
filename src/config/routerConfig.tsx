@@ -3,6 +3,7 @@
 import NotFound from "../pages/NotFound";
 import Home from "../home";
 import Minn from "../minn";
+import ReactTheory from "../minn";
 
 export const routeConfig = [
   {
@@ -12,6 +13,10 @@ export const routeConfig = [
   {
     path: '/blog',
     element: <Home />
+  },
+  {
+    path: '/reactTheory',
+    element: <ReactTheory />
   },
   {
     path: '/minn',

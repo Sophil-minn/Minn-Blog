@@ -84,18 +84,19 @@
 
 .ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item:hover .dropdow-nav__list__item,
 .min-dropdown-content .dropdow-nav__list__item:hover {
-  cursor: pointer;
   color: #531dab;
+  cursor: pointer;
   &.disabled {
     color: #d9d9d9;
+    cursor: no-drop;
   }
 }
 .ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item .dropdow-nav__list__item,
 .min-dropdown-content .dropdow-nav__list__item {
   color: #8c8c8c;
   &.disabled {
-    cursor: no-drop;
     color: #d9d9d9;
+    cursor: no-drop;
   }
 }
 
