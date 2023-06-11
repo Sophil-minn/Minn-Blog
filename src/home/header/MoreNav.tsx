@@ -96,7 +96,7 @@ export default function MoreNav(props: {
       align={{ offset: [0, 18] }}
       autoFocus
       dropdownRender={dropdownRender}
-      trigger={["click"]}
+      // trigger={["click"]}
       overlayClassName="min-nav-drop-down"
     >
       <Button type="link">{title}</Button>
