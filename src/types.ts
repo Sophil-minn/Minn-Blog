@@ -4,7 +4,6 @@ interface ItemProps  {
   path: string;
   pathType:string;
   statusCode: string;
-  statusText: string;
 }
 export interface NavInfoProps {
   title: string;
