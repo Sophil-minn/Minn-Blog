@@ -7,11 +7,11 @@ import Menu from "./Menu";
 const rclsHeader = defaultGetPrefixCls("header");
 const rowCls = defaultGetPrefixCls("row");
 
-export default function index() {
+export default function index({ onSearch }: { onSearch: (e: any) => void }) {
   return (
     <header className={rclsHeader}>
       <Row className={rowCls} justify={"space-between"}>
-        <SearchInput />
+        <SearchInput onSearch={onSearch} />
         <Menu />
       </Row>
     </header >

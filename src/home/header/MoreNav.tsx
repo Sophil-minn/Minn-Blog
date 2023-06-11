@@ -15,6 +15,7 @@ import Button from "../../components/Button";
 import { STATE, STATE_TEXT } from "../../config/const";
 import { clsMap, colorMap } from "./config";
 import { NavInfoProps } from "../../types";
+import classNames from "classnames";
 
 const dcls = defaultGetPrefixCls("dropdown-content");
 const scls = defaultGetPrefixCls("section-info");
@@ -45,6 +46,11 @@ const SectionInfo = ({ navInfo }: { navInfo: NavInfoProps }) => (
             message.error("该功能正在建设中～");
           }
         };
+        const disabled = [STATE.WAIT_ONLINE].includes(statusCode);
+        const cls = classNames({
+          'dropdow-nav__list__item': true,
+          'disabled': disabled
+        });
         return (
           <div
             onClick={onItemClick}
@@ -59,7 +65,7 @@ const SectionInfo = ({ navInfo }: { navInfo: NavInfoProps }) => (
                   autoAdjustOverflow
                   overlayStyle={{ width: "370px" }}
                 >
-                  <Text type="secondary" className='dropdow-nav__list__item' disabled={[STATE.WAIT_ONLINE].includes(statusCode)} strong>{title}</Text>
+                  <Text type="secondary" className={cls} disabled={disabled} strong>{title}</Text>
                 </Popover>
               </Col>
               <Col>

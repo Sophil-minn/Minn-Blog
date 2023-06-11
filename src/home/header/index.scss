@@ -50,19 +50,16 @@
       font-family: PingFangSC-Regular;
       line-height: 18px;
       border-radius: 2px;
-
       &.wait_online {
         color: rgba(0, 0, 0, 0);
         background: rgba(0, 0, 0, 0.06);
         cursor: not-allowed;
       }
-
       &.hot {
         color: #e02020;
         background: rgba(224, 32, 32, 0.06);
         cursor: pointer;
       }
-
       &.new {
         color: #1677ff;
         background: rgba(22, 119, 255, 0.06);
@@ -87,12 +84,20 @@
 
 .ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item:hover .dropdow-nav__list__item,
 .min-dropdown-content .dropdow-nav__list__item:hover {
-  color: #434343;
-}
-.min-dropdown-content .dropdow-nav__list__item {
   cursor: pointer;
+  color: #531dab;
+  &.disabled {
+    color: #d9d9d9;
+  }
 }
-
+.ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item .dropdow-nav__list__item,
+.min-dropdown-content .dropdow-nav__list__item {
+  color: #8c8c8c;
+  &.disabled {
+    cursor: no-drop;
+    color: #d9d9d9;
+  }
+}
 
 .min-input-suffix {
   transform: scale(1);
