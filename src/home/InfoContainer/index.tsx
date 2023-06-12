@@ -2,7 +2,7 @@ import { Card, Col, Row } from 'antd';
 import './index.scss';
 import MenuTree from './MenuTree';
 import InfoContent from './InfoContent';
-import DirectoryTree from './DirectoryTree';
+import DirectoryTree from '../../components/DirectoryTree';
 
 export default function index(props: any) {
   const { menuData, contentData } = props;

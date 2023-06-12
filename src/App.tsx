@@ -12,7 +12,7 @@ function App() {
   const [targetOffset, setTargetOffset] = useState<number>();
 
 
-  console.log('targetOffset: ', targetOffset);
+  // console.log('targetOffset: ', targetOffset);
 
   useEffect(() => {
     const height = topRef.current?.getClientHeight();

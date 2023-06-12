@@ -1,21 +1,27 @@
-import classNames from 'classnames';
+import { Card, Col, Row } from 'antd';
 import './index.scss';
+// import MenuTree from './MenuTree';
+import DirectoryTree from '../components/DirectoryTree';
 import { breadCrumbItems } from './config';
 import Breadcrumb from '../components/Breadcrumb';
-// import InfoContainer from '../components/InfoContainer';
 
-const cls = classNames({
-  'minn-reactTheory': true
-});
-
-const ReactTheory = () => {
-
-  return (<div className={cls}>
-    <Breadcrumb
-      items={breadCrumbItems}
-    />
-    {/* <InfoContainer menu={[]} content={{}} /> */}
-  </div >);
+export default function index(props: any) {
+  const { menuData, contentData } = props;
+  return (
+    <>
+      <Breadcrumb items={breadCrumbItems} />
+      <div className='react-theory-container-root'>
+        <Row gutter={8}>
+          <Col flex="280px">
+            <DirectoryTree />
+          </Col>
+          <Col flex="auto">
+            <Card bordered={false} bodyStyle={{ minHeight: 700 }}>
+              {/* <InfoContent contentData={contentData} /> */}
+            </Card>
+          </Col>
+        </Row>
+      </div>
+    </>
+  )
 }
-
-export default ReactTheory;
