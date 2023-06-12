@@ -32,8 +32,8 @@ generateData(z);
 
 const MenuTree = (props: any) => {
   const { menuData } = props;
-  console.log('menuData: ', menuData);
-  console.log('defaultData: ', defaultData);
+  // console.log('menuData: ', menuData);
+  // console.log('defaultData: ', defaultData);
   const [gData, setGData] = useState(defaultData);
   const [expandedKeys] = useState(['0-0', '0-0-0', '0-0-0-0']);
 

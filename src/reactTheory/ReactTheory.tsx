@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import './index.scss';
 import { breadCrumbItems } from './config';
 import Breadcrumb from '../components/Breadcrumb';
-import InfoContainer from '../components/InfoContainer';
+// import InfoContainer from '../components/InfoContainer';
 
 const cls = classNames({
   'minn-reactTheory': true
@@ -11,11 +11,10 @@ const cls = classNames({
 const ReactTheory = () => {
 
   return (<div className={cls}>
-    <div style={{ height: 70 }} />
     <Breadcrumb
       items={breadCrumbItems}
     />
-    <InfoContainer menu={[]} content={{}} />
+    {/* <InfoContainer menu={[]} content={{}} /> */}
   </div >);
 }
 

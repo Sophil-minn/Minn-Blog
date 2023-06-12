@@ -1,4 +1,4 @@
-import { Affix, Row } from "antd";
+import { Row } from "antd";
 import "./index.scss";
 import { defaultGetPrefixCls } from "../../util/utils";
 import SearchInput from "./SearchInput";
@@ -27,7 +27,8 @@ function Header({ onSearch }: { onSearch: (e: any) => void }, ref: any) {
           <Menu />
         </Row>
       </header >
-
+      {/* 占位 */}
+      <div style={{ height: headerRef.current?.clientHeight }} />
     </>
   );
 }
