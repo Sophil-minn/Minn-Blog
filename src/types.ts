@@ -4,6 +4,7 @@ interface ItemProps  {
   path?: string;
   pathType?:string;
   statusCode?: string;
+  open?: boolean;
   disabled?: boolean;
 }
 export interface NavInfoProps {
@@ -11,3 +12,5 @@ export interface NavInfoProps {
   description: string;
   list: ItemProps[]
 }
+
+export interface BreadCrumbItemsProps  { href?: string; title?: string | React.ReactNode }

@@ -46,7 +46,7 @@ const SectionInfo = ({ navInfo }: { navInfo: NavInfoProps }) => (
             message.error("该功能正在建设中～");
           }
         };
-        const disabled = item.disabled;
+        const disabled = !item.open;
         const cls = classNames({
           'dropdow-nav__list__item': true,
           'disabled': disabled
