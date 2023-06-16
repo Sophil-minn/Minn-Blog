@@ -2,7 +2,7 @@ import { Card, Col, Row } from 'antd';
 import './index.scss';
 import MenuTree from './MenuTree';
 import InfoContent from './InfoContent';
-import DirectoryTree from '../../components/DirectoryTree';
+// import DirectoryTree from '../../components/DirectoryTree';
 
 export default function index(props: any) {
   const { menuData, contentData } = props;
@@ -12,7 +12,7 @@ export default function index(props: any) {
         <Col flex="280px">
           <Card bordered={false} bodyStyle={{ minHeight: 700 }}>
             <MenuTree menuData={menuData} />
-            <DirectoryTree />
+<!--             <DirectoryTree /> -->
           </Card>
         </Col>
         <Col flex="auto">
