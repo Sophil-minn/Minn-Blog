@@ -12,7 +12,6 @@ export default function index(props: any) {
         <Col flex="280px">
           <Card bordered={false} bodyStyle={{ minHeight: 700 }}>
             <MenuTree menuData={menuData} />
-<!--             <DirectoryTree /> -->
           </Card>
         </Col>
         <Col flex="auto">
