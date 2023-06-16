@@ -15,7 +15,7 @@ export const routeConfig = [
     element: <Home />
   },
   {
-    path: '/reactTheory',
+    path: '/react',
     element: <ReactTheory />
   },
   {
