@@ -15,8 +15,8 @@ function App() {
   // console.log('targetOffset: ', targetOffset);
 
   useEffect(() => {
-    const height = topRef.current?.getClientHeight();
-    setTargetOffset(height);
+    const height = topRef.current?.getClientHeight() || 0;
+    setTargetOffset(height + 32);
   }, []);
   const onSearch = useCallback((e: any) => {
     console.log('value: ', e.target.value);

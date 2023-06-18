@@ -4,6 +4,9 @@ import NotFound from "../pages/NotFound";
 import Home from "../home";
 import Minn from "../minn";
 import ReactTheory from "../reactTheory";
+import G6Demo from "../pages/g6";
+import G6TreeDemo from "../pages/g6/G6TreeDemo";
+import MindMapping from "../pages/g6/MindMapping";
 
 export const routeConfig = [
   {
@@ -21,6 +24,18 @@ export const routeConfig = [
   {
     path: '/minn',
     element: <Minn />
+  },
+  {
+    path: '/g6',
+    element: <G6Demo />
+  },
+  {
+    path: '/g6TreeDemo',
+    element: <G6TreeDemo />
+  },
+  {
+    path: '/mindMapping',
+    element: <MindMapping />
   },
   {
     path: '/*',

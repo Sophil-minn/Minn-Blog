@@ -1,7 +1,7 @@
 import { Col, Input, Space } from "antd";
 import "./index.scss";
 import Tag from "../../components/Tag";
-import SVGImg from '../../img/command.png';
+// import SVGImg from '../../img/command.png';
 import { useEffect, useRef } from "react";
 
 export default function SearchInput({ onSearch }: { onSearch: (e: any) => void }) {
@@ -26,9 +26,10 @@ export default function SearchInput({ onSearch }: { onSearch: (e: any) => void }
           ref={inputRef}
           suffix={<div className="min-input-suffix">
             <Tag mColor='gray'>
-              <img src={SVGImg} width={10} height={10} alt="command" />
+              <i className="iconfont icon-command3" />
+              <i className="iconfont icon-skipback" />
             </Tag>
-            <Tag mColor='gray'>K</Tag>
+
           </div>
           }
         />
