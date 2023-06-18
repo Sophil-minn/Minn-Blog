@@ -22,6 +22,10 @@ export const routeConfig = [
     element: <ReactTheory />
   },
   {
+    path: '/react/:questionId',
+    element: <ReactTheory />
+  },
+  {
     path: '/minn',
     element: <Minn />
   },

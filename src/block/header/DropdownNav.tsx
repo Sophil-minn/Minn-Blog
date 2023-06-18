@@ -9,8 +9,6 @@ const { Text } = Typography;
 export default function DropdownNav(props: { navigationItem: NavInfoProps, title?: string, disabled?: boolean }) {
   const { navigationItem, title } = props;
 
-
-
   const list: MenuProps['items'] = navigationItem.list.map(v => {
     const { disabled = true } = v;
     const cls = classNames({

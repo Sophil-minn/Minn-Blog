@@ -1,7 +1,7 @@
 import './index.css';
 import { routeConfig } from './config/routerConfig';
 import { useRoutes } from 'react-router-dom';
-import Header from './home/header';
+import Header from './block/header';
 import { createContext, useCallback, useEffect, useRef, useState } from 'react';
 
 export const GlobalContext = createContext<{ targetOffset?: number | undefined }>({ targetOffset: 0 });

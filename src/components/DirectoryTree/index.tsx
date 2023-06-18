@@ -1,11 +1,11 @@
 import { Affix, Card, Col, Input, Row, Space, Tree } from "antd";
-import { treeData } from "./config";
+// import { treeData } from "./config";
 import { FilterOutlined, PlusSquareOutlined } from "@ant-design/icons";
 import { useContext } from "react";
 import { GlobalContext } from "../../App";
 const { DirectoryTree } = Tree;
 
-const DTree = () => {
+const DTree = ({treeData}: any) => {
   const { targetOffset } = useContext(GlobalContext);
   const onSelect = (keys: any, info: any) => {
     console.log("Trigger Select", keys, info);
@@ -25,7 +25,7 @@ const DTree = () => {
     </Col>
   </Row>;
   return (
-    <Affix offsetTop={targetOffset}>
+    <Affix offsetTop={targetOffset ? targetOffset - 24 : 0}>
     <Card title={title} headStyle={{ padding: '4px 8px' }} style={{ minHeight: 700 }}>
       <DirectoryTree
         multiple

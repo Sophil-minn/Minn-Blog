@@ -10,7 +10,7 @@ import {
 } from "antd";
 import { defaultGetPrefixCls } from "../../util/utils";
 import "./index.scss";
-import { items } from "../config";
+import { items } from "../../home/config";
 import Button from "../../components/Button";
 import { STATE, STATE_TEXT } from "../../config/const";
 import { clsMap, colorMap } from "./config";
