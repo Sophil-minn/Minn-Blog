@@ -1,8 +1,10 @@
 import './index.css';
 import { routeConfig } from './config/routerConfig';
-import { useRoutes } from 'react-router-dom';
+import { Route, Routes, useRoutes } from 'react-router-dom';
 import Header from './block/header';
 import { createContext, useCallback, useEffect, useRef, useState } from 'react';
+import Monaco from './pages/demo/monaco';
+import RenderCode from './pages/demo/monaco/RenderCode';
 
 export const GlobalContext = createContext<{ targetOffset?: number | undefined }>({ targetOffset: 0 });
 

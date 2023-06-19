@@ -7,6 +7,9 @@ import ReactTheory from "../reactTheory";
 import G6Demo from "../pages/g6";
 import G6TreeDemo from "../pages/g6/G6TreeDemo";
 import MindMapping from "../pages/g6/MindMapping";
+import Monaco from "../pages/demo/monaco";
+import Code from "../pages/demo/monaco/Code";
+import RenderCode from "../pages/demo/monaco/RenderCode";
 
 export const routeConfig = [
   {
@@ -40,6 +43,20 @@ export const routeConfig = [
   {
     path: '/mindMapping',
     element: <MindMapping />
+  },
+  {
+    path: '/monaco',
+    element: <Monaco />,
+    children: [
+      {
+        path: '/monaco/code',
+        element: <Code />,
+      },
+      {
+        path: '/monaco/renderCode',
+        element: <RenderCode />,
+      },
+    ]
   },
   {
     path: '/*',
