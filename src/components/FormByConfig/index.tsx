@@ -9,7 +9,8 @@ const FormByConfig = (props: Record<string, any>) => {
     form,
     optionsMap = {},
     spans = 12,
-    onValuesChange = () => { },
+    onValuesChange = (values: Record<string, any>) => { },
+    onFinish = (values: Record<string, any>) => { },
     layout = 'vertical',
   } = props;
   const cols = useMemo(() => {
@@ -22,7 +23,7 @@ const FormByConfig = (props: Record<string, any>) => {
         type = 'input',
         showSearch = false,
         placeholder,
-        tooltip,
+        tooltip
       } = item;
       let colItem;
       const options =
@@ -82,7 +83,7 @@ const FormByConfig = (props: Record<string, any>) => {
           );
       }
 
-      return (
+      return colItem ? (
         <Col span={span}>
           <Form.Item
             label={label}
@@ -94,7 +95,7 @@ const FormByConfig = (props: Record<string, any>) => {
             {colItem}
           </Form.Item>
         </Col>
-      )
+      ) : null;
     });
   }, [items, optionsMap, spans]);
 
@@ -104,7 +105,7 @@ const FormByConfig = (props: Record<string, any>) => {
         form={form}
         initialValues={initialValues}
         layout={layout}
-        // onFinish={onFinish}
+        onFinish={onFinish}
         onValuesChange={onValuesChange}
       >
         <Row gutter={80} style={{ justifyContent: 'space-between' }}>

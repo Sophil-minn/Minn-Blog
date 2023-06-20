@@ -1,7 +1,4 @@
 import {
-  SendOutlined,
-  FolderOpenOutlined,
-  ApiOutlined,
   PlusOutlined,
   FilterOutlined,
   PlusSquareFilled,
@@ -9,95 +6,13 @@ import {
   FileWordOutlined,
   FileWordFilled,
   FolderOpenFilled,
-  FolderFilled,
   FolderOutlined,
   PlusCircleOutlined,
   PlusCircleFilled,
-  PlusSquareOutlined
+  PlusSquareOutlined,
+  FolderFilled
 } from "@ant-design/icons";
-import { ICON_ADD_DIR_TYPE, ICON_ADD_SQUARE_TYPE, ICON_ADD_TYPE, ICON_DIR_TYPE, ICON_FILTER_TYPE, ICON_LEAF_TYPE } from "./const";
-import TreeNode from "./TreeNode";
-
-export const treeData = [
-  {
-    title: "描述UI",
-    key: "0-0",
-    icon: <FolderOpenOutlined />,
-    children: [
-      {
-        title: "leaf 0-0",
-        key: "0-0-0",
-        isLeaf: true,
-      },
-      {
-        title: "leaf 0-0",
-        key: "0-0-0",
-        isLeaf: true,
-      },
-      {
-        title: "leaf 0-0",
-        key: "0-0-0",
-        isLeaf: true,
-      },
-      {
-        title: "leaf 0-0",
-        key: "0-0-0",
-        isLeaf: true,
-      },
-      {
-        title: "leaf 0-0",
-        key: "0-0-0",
-        isLeaf: true,
-      },
-      {
-        title: "leaf 0-0",
-        key: "0-0-0",
-        isLeaf: true,
-      },
-      {
-        title: "leaf 0-0",
-        key: "0-0-0",
-        isLeaf: true,
-      },
-    ]
-  },
-  {
-    title: "添加交互",
-    key: "0-1",
-    children: [
-      {
-        title: "leaf 1-0",
-        key: "0-1-0",
-        isLeaf: true,
-        icon: <ApiOutlined style={{ color: "#faad14" }} />
-      },
-      {
-        title: "leaf 1-1",
-        key: "0-1-1",
-        isLeaf: true,
-        icon: <SendOutlined style={{ color: "#1677ff" }} />
-      }
-    ]
-  },
-  {
-    title: "状态管理",
-    key: "0-2",
-    children: [
-      {
-        title: "leaf 2-0",
-        key: "0-2-0",
-        isLeaf: true,
-        icon: <ApiOutlined style={{ color: "#faad14" }} />
-      },
-      {
-        title: "leaf 2-1",
-        key: "0-2-1",
-        isLeaf: true,
-        icon: <SendOutlined style={{ color: "#1677ff" }} />
-      }
-    ]
-  }
-];
+import { ICON_ADD_DIR_TYPE, ICON_ADD_SQUARE_TYPE, ICON_ADD_TYPE, ICON_DIR_FOLD_TYPE, ICON_DIR_TYPE, ICON_FILTER_TYPE, ICON_LEAF_TYPE } from "./const";
 
 // 配置icon类型默认线框风格， 
 export const ICON_MAP = {
@@ -106,15 +21,17 @@ export const ICON_MAP = {
   [ICON_ADD_SQUARE_TYPE]: <PlusSquareOutlined />,
   [ICON_FILTER_TYPE]: <FilterOutlined />,
   [ICON_DIR_TYPE]: <FolderOutlined />,
-  [ICON_LEAF_TYPE]: <FileWordOutlined />,
+  [ICON_DIR_FOLD_TYPE]: <FolderFilled />,
+  [ICON_LEAF_TYPE]: < FileWordOutlined />,
 };
 // 激活时icon用对应的实底风格 
 export const ICON_ACTIVE_MAP = {
-  [ICON_ADD_TYPE]: <PlusSquareFilled style={{ color: '#1677ff' }} />,
+  [ICON_ADD_TYPE]: <PlusOutlined style={{ color: '#1677ff' }} />,
   [ICON_ADD_DIR_TYPE]: <PlusCircleFilled style={{ color: '#1677ff' }} />,
   [ICON_ADD_SQUARE_TYPE]: <PlusSquareFilled style={{ color: '#1677ff' }} />,
   [ICON_FILTER_TYPE]: <FilterFilled style={{ color: '#1677ff' }} />,
   [ICON_DIR_TYPE]: <FolderOpenFilled style={{ color: '#1677ff' }} />,
+  [ICON_DIR_FOLD_TYPE]: <FolderFilled style={{ color: '#1677ff' }} />,
   [ICON_LEAF_TYPE]: <FileWordFilled style={{ color: '#1677ff' }} />,
 }
 
@@ -125,12 +42,20 @@ export const optionsFilter = [
     value: "type",
     label: "类型",
     type: "select",
-  },
-  {
-    value: "dataSourceCode",
-    label: "系统",
-    type: "select",
-    showSearch: true,
+    options: [
+      {
+        value: "111",
+        label: "a",
+      },
+      {
+        value: "222",
+        label: "b",
+      },
+      {
+        value: "333",
+        label: "c",
+      },
+    ],
   },
   {
     value: "state",
@@ -139,15 +64,15 @@ export const optionsFilter = [
     options: [
       {
         value: "draft",
-        label: "草稿",
+        label: "r",
       },
       {
         value: "offline",
-        label: "已下线",
+        label: "h",
       },
       {
         value: "online",
-        label: "已发布",
+        label: "y",
       },
     ],
   },

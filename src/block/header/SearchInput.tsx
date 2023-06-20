@@ -3,6 +3,7 @@ import "./index.scss";
 import Tag from "../../components/Tag";
 // import SVGImg from '../../img/command.png';
 import { useEffect, useRef } from "react";
+import CommandKSuffix from "../../components/CommandKSuffix";
 
 export default function SearchInput({ onSearch }: { onSearch: (e: any) => void }) {
   const inputRef = useRef(null);
@@ -24,14 +25,7 @@ export default function SearchInput({ onSearch }: { onSearch: (e: any) => void }
           placeholder="输入关键字搜索..."
           onPressEnter={onSearch}
           ref={inputRef}
-          suffix={<div className="min-input-suffix">
-            <Tag mColor='gray'>
-              <i className="iconfont icon-command3" />
-              <i className="iconfont icon-skipback" />
-            </Tag>
-
-          </div>
-          }
+          suffix={<CommandKSuffix />}
         />
       </Space>
     </Col>

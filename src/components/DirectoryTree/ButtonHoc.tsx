@@ -2,7 +2,6 @@ import { memo } from "react";
 import { Button } from "antd";
 import { ICON_ACTIVE_MAP, ICON_MAP } from "./config";
 import { ICON_ADD_TYPE } from "./const";
-import { IconTypeProps } from "./types";
 
 function ButtonHoc({ iconType = ICON_ADD_TYPE, onClickCallback = () => { }, active = false }) {
   const onClick = (e: any) => {

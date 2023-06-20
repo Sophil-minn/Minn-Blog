@@ -7,6 +7,7 @@ export const ICON_ADD_SQUARE_TYPE = "addSquare";
 export const ICON_FILTER_TYPE = "filter";
 // 目录类型icon
 export const ICON_DIR_TYPE = "dir";
+export const ICON_DIR_FOLD_TYPE = "dirFold";
 // 叶节点icon
 export const ICON_LEAF_TYPE = "leaf";
 
