@@ -1,22 +1,21 @@
 import { fetchReactData } from "../../services/reactData"
 import { useRequest } from "ahooks"
 import { ReactTheoryProps } from "../types";
-import { formatToTreeData } from "../../util/utils";
+import { getTreeData, getAnchorItems } from "../util";
+import { useParams } from "react-router-dom";
 
 function useReactTheoryData(type: string) {
+  const { questionId = ''} = useParams();
   const { data = {}, loading } = useRequest(fetchReactData, {
-    ready: !!type,
-    defaultParams: [type]
+    // ready: !!questionId,
+    defaultParams: [questionId]
   }) as { data: Record<string, ReactTheoryProps>, loading: boolean };
 
-  const treeData: any = data &&  Object.entries(data)?.map(([key, value], index) => {
-    const { title, questionList } = value || {} as any;
-    return { title, belongTo: key, key: `${index}-0`, children: questionList && formatToTreeData(questionList, `${index}-0`) }
-  });
+  const treeData = getTreeData(data);
 
-  console.log('treeData: ', treeData);
+  const anchorItems = getAnchorItems(data);
 
-  return { treeData, loading, contentList: Object.values(data) , contentData: data?.[type] } as const;
+  return { treeData, loading, contentList: Object.values(data) , contentData: data?.[questionId] && [data?.[questionId]], anchorItems };
   
 }
 
