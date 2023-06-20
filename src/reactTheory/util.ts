@@ -1,0 +1,55 @@
+import { ICON_ADD_DIR_TYPE } from "../components/DirectoryTree/const";
+import { formatToTreeData } from "../util/utils";
+import { ReactTheoryProps } from "./types";
+
+export const getTreeData =  (data: ReactTheoryProps) => {
+  const arr =  Object.entries(data)?.map(([key, value], index) => {
+    const { title, path, type } = value || {} as any;
+    return { 
+      title, 
+      belongTo: key, 
+      key: `${index}-0`, 
+      path,
+      type
+      // children: questionList && formatToTreeData(questionList, `${index}-0`) 
+    };
+  });
+  return [
+    {
+      title: '学习react', 
+      belongTo: 0, 
+      key: 0, 
+      path: '/react',
+      type: ICON_ADD_DIR_TYPE,
+      dirIconType: ICON_ADD_DIR_TYPE,
+      children: arr
+    }
+  ]
+}
+
+export const getAnchorItems = (data: ReactTheoryProps) => data &&  Object.entries(data)?.map(([key, value], index) => {
+  const { h2, id, questionList } = value || {} as any;
+  return {
+    key: h2,
+    href: `#${id}`,
+    title:`${h2}`,
+    children: questionList?.map((v: {question: string, href: string; title: string, id?: string}) => {
+      // const theories = v.detail?.theory?.map(h => ({
+      //   key: h.id,
+      //   href: `#${h.id}`,
+      //   title: `${h.title}`,
+      // })) || [];
+      // const summary = v.detail?.summary ? [{
+      //   key: `#${v.id}__summary`,
+      //   href: `#${v.id}__summary`,
+      //   title: "总结",
+      // }]: [];
+      return {
+        key: v.question,
+        href: `#${v.id}`,
+        title: `${v.question}`,
+        // children: [...theories, ...summary]
+      }
+    })
+  }
+});
