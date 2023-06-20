@@ -23,10 +23,10 @@ export default function Question({ data, index }: { data: QuestionItemProps, ind
         </Card>
       ))}
 
-      {summary && (<>
+      {summary && (<Card bordered={false}>
         <Title level={4} className='title-4'>总结:</Title>
         <List dataSource={summary} renderItem={(item) => <List.Item>{item}</List.Item>} />
-      </>
+      </Card>
       )}
       <div>{tips && `PS:${tips}`}</div>
     </div>
