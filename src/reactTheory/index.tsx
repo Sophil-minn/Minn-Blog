@@ -1,6 +1,6 @@
 import { Card, Col, Row, Skeleton } from 'antd';
 import './index.scss';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, useLocation, useNavigate } from 'react-router-dom';
 import DirectoryTree from '../components/DirectoryTree';
 import { breadCrumbItems } from './config';
 import Breadcrumb from '../components/Breadcrumb';
@@ -11,11 +11,17 @@ import Loading from '../components/Loading';
 
 export default function ReactTheory(props: any) {
   // const { menuData, contentData } = props;
-  const params = useParams();
-  console.log('params: ', params);
-  const { treeData = [], contentData = {}, contentList = [], loading } = useReactTheoryData('descriptionUI');
-  console.log('contentList: ', contentList);
-
+  const navigate = useNavigate();
+  // const params = useParams();
+  // console.log('params: ', params);
+  const { treeData = [], anchorItems, contentData, contentList = [], loading } = useReactTheoryData('descriptionUI');
+  // console.log('contentList: ', contentList);
+  // console.log('contentData: ', contentData);
+  const onSelect = (keys: any, info: any) => {
+    // console.log('info: ', info);
+    const { node } = info;
+    navigate(node.path);
+  };
 
   return (
     <>
@@ -24,11 +30,11 @@ export default function ReactTheory(props: any) {
         <Loading loading={loading}>
           <Row gutter={8} wrap={false}>
             <Col flex="320px">
-              <DirectoryTree treeData={treeData} />
+              <DirectoryTree treeData={treeData} onSelect={onSelect} />
             </Col>
             <Col flex="auto">
               <Card bordered={false} bodyStyle={{ minHeight: 700 }}>
-                <Introductions data={contentData as ReactTheoryProps} />
+                <Introductions dataList={contentData || contentList} anchorItems={anchorItems} />
               </Card>
             </Col>
           </Row>
