@@ -1,41 +1,52 @@
 export const reactTheory: any = {
   descriptionUI: {
     h2: '描述用户界面',
+    id: 'descriptionUI',
+    path: '/react/descriptionUI',
     title: '描述UI',
+    preIconType: 'dir',
+    type: 'addSquare',
     summary: 'React 是一个用于构建用户界面（UI）的 JavaScript 库，用户界面由按钮、文本和图像等小单元内容构建而成。React 帮助你把它们组合成可重用、可嵌套的 组件。从 web 端网站到移动端应用，屏幕上的所有内容都可以被分解成组件。在本章节中，你将学习如何创建、定制以及有条件地显示 React 组件。',
     questionList: [
       {
         key: 0,
-        value: '如何创建你的第一个组件',
+        title: '如何创建你的第一个组件',
+        id: 'First Component',
         question: '创建第一个组件',
         detail: {
           description: 'React 应用是由被称为 组件 的独立 UI 片段构建而成。React 组件本质上是可以任意添加标签的 JavaScript 函数。组件可以小到一个按钮，也可以大到是整个页面。这是一个 Gallery 组件，用于渲染三个 Profile 组件',
           theory: [
             {
               title: '组件：UI 构成要素',
+              id: 'components',
               concept: '组件是 React 的核心概念之一。它们是构建用户界面（UI）的基础',
               elements:'React 允许你将标签、CSS 和 JavaScript 组合成自定义“组件”，即应用程序中可复用的 UI 元素'
             },
             {
               title: '定义组件',
+              id: 'defining-a-component ',
               concept: 'React 组件是一段可以 使用标签进行扩展 的 JavaScript 函数',
               methods: [
                 {
                   title: '第一步：导出组件', 
+                  id: 'export-the-component ',
                   content: 'export default 前缀是一种 JavaScript 标准语法（非 React 的特性）'
                 },
                 {
                   title: '第二步：定义函数',
+                  id: 'Define the function ',
                   content: '使用 function xxx() { } 定义名为 xxx 的 JavaScript 函数。',
                   tips: 'React 组件是常规的 JavaScript 函数，但组件的名称必须以大写字母开头，否则它们将无法运行！'
                 },
                 {
                   title: '第三步：添加标签', 
+                  id: 'Add markup',
                   content: ' JSX允许你在 JavaScript 中嵌入使用标签,返回语句可以全写在一行上,但是，如果你的标签和 return 关键字不在同一行，则必须把它包裹在一对括号中',
                   tips: '没有括号包裹的话，任何在 return 下一行的代码都 将被忽略！'
                 },
                 {
                   title: '使用组件 ',
+                  id: 'Using a component',
                   content: '已经定义了 Profile 组件，你可以在其他组件中使用它'
                 }
               ]
@@ -44,17 +55,20 @@ export const reactTheory: any = {
       }},
       {
         key: 1,
-        value: '在什么时候以及如何创建多文件组件',
+        title: '在什么时候以及如何创建多文件组件',
+        id: 'Importing and Exporting Components',
         question: '创建多文件组件',
         detail: {
           description: '组件的神奇之处在于它们的可重用性：你可以创建一个由其他组件构成的组件。但当你嵌套了越来越多的组件时，则需要将它们拆分成不同的文件。这样可以使得查找文件更加容易，并且能在更多地方复用这些组件',
           theory: [
             {
               title: '根组件文件',
+              id: 'The root component file ',
               concept: '在你的第一个组件 中，你创建了一个 xxx 组件，并且渲染在 根 组件里。所有组件目前都定义在根组件文件中',
             },
             {
               title: '导出和导入一个组件 ',
+              id: 'Exporting and importing a component',
               concept: '将组件移出根组件文件会更加合理。这会使组件更加模块化，并且可在其他文件中复用。你可以根据以下三个步骤对组件进行拆分：',
               methods: [
                 {
@@ -73,6 +87,7 @@ export const reactTheory: any = {
             },
             {
               title: '从同一文件中导出和导入多个组件',
+              id: 'Exporting and importing multiple components from the same file ',
               concept: '同一文件中，有且仅有一个默认导出，但可以有多个具名导出',
               methods: [
                 {
@@ -94,22 +109,23 @@ export const reactTheory: any = {
       },
       {
         key: 2,
-        value: '如何使用 JSX 为 JavaScript 添加标签',
+        title: '如何使用 JSX 为 JavaScript 添加标签',
+        id: 'Writing Markup with JSX',
         question: '使用JSX',
         detail: {
           description: 'JSX 是 JavaScript 语法扩展，可以让你在 JavaScript 文件中书写类似 HTML 的标签。虽然还有其它方式可以编写组件，但大部分 React 开发者更喜欢 JSX 的简洁性，并且在大部分代码库中使用它。每个 React 组件都是一个 JavaScript 函数，它会返回一些标签，React 会将这些标签渲染到浏览器上。React 组件使用一种被称为 JSX 的语法扩展来描述这些标签。JSX 看起来和 HTML 很像，但它的语法更加严格并且可以动态展示信息。了解这些区别最好的方式就是将一些 HTML 标签转化为 JSX 标签。由于渲染逻辑和标签是紧密相关的，所以 React 将它们存放在一个组件中',
           theory: [
             {
-              title: '1. 只能返回一个根元素 ',
+              title: '只能返回一个根元素 ',
               concept: '如果想要在一个组件中包含多个元素，需要用一个父标签把它们包裹起来,如果你不想在标签中增加一个额外的 <div>，可以用 <> 和 </> 元素来代替, 空标签被称作 Fragment. React Fragment 允许你将子元素分组，而不会在 HTML 结构中添加额外节点。',
               tips: 'JSX 虽然看起来很像 HTML，但在底层其实被转化为了 JavaScript 对象，你不能在一个函数中返回多个对象，除非用一个数组把他们包装起来。这就是为什么多个 JSX 标签必须要用一个父元素或者 Fragment 来包裹'
             },
             {
-              title: '2. 标签必须闭合',
+              title: '标签必须闭合',
               concept: 'JSX 要求标签必须正确闭合。像 <img> 这样的自闭合标签必须书写成 <img />，而像 <li>oranges 这样只有开始标签的元素必须带有闭合标签，需要改为 <li>oranges</li>。'
             },
             {
-              title: '3. 使用驼峰式命名法给 所有 大部分属性命名！',
+              title: '使用驼峰式命名法给 所有 大部分属性命名！',
               concept: 'JSX 最终会被转化为 JavaScript，而 JSX 中的属性也会变成 JavaScript 对象中的键值对。在你自己的组件中，经常会遇到需要用变量的方式读取这些属性的时候。但 JavaScript 对变量的命名有限制。例如，变量名称不能包含 - 符号或者像 class 这样的保留字,这就是为什么在 React 中，大部分 HTML 和 SVG 属性都用驼峰式命名法表示。',
               tips: '由于历史原因，aria-* 和 data-* 属性是以带 - 符号的 HTML 格式书写的'
             }, 
@@ -118,7 +134,8 @@ export const reactTheory: any = {
       },
       {
         key: 3,
-        value: '如何在 JSX 中使用花括号来从组件中使用 JavaScript 功能',
+        title: '如何在 JSX 中使用花括号来从组件中使用 JavaScript 功能',
+        id: 'JavaScript in JSX with Curly Braces',
         question: '在JSX中使用花括号',
         detail: {
           description: 'JSX 允许你在 JavaScript 中编写类似 HTML 的标签，从而使渲染的逻辑和内容可以写在一起。有时候，你可能想要在标签中添加一些 JavaScript 逻辑或者引用动态的属性。这种情况下，你可以在 JSX 的大括号内来编写 JavaScript',
@@ -134,7 +151,7 @@ export const reactTheory: any = {
             {
               title: '可以在哪使用大括号 ',
               concept: '在 JSX 中，只能在以下两种场景中使用大括号：',
-              methods: [
+              steps: [
                 `用作 JSX 标签内的文本：<h1>{name}'s To Do List</h1> 是有效的，但是 <{tag}>Gregorio Y. Zara's To Do List</{tag}> 无效。`,
                 `用作紧跟在 = 符号后的 属性：src={avatar} 会读取 avatar 变量，但是 src="{avatar}" 只会传一个字符串 {avatar}。`
               ],
@@ -151,7 +168,8 @@ export const reactTheory: any = {
       },
       {
         key: 4,
-        value: '如何用 props 配置组件',
+        title: '如何用 props 配置组件',
+        id: 'Passing Props to a Component',
         question: '用props配置组件',
         detail: {
           description: 'React 组件使用 props 来互相通信。每个父组件都可以提供 props 给它的子组件，从而将一些信息传递给它。Props 可能会让你想起 HTML 属性，但你可以通过它们传递任何 JavaScript 值，包括对象、数组和函数',
@@ -175,8 +193,8 @@ export const reactTheory: any = {
             },
             {
               title: 'Props 如何随时间变化 ',
-              content: '一个组件可能会随着时间的推移收到不同的 props。 Props 并不总是静态的！Props 反映了组件在任何时间点的数据，并不仅仅是在开始时',
-              tip: '然而，props 是 不可变的（一个计算机科学术语，意思是“不可改变”）。当一个组件需要改变它的 props（例如，响应用户交互或新数据）时，它不得不“请求”它的父组件传递 不同的 props —— 一个新对象！它的旧 props 将被丢弃，最终 JavaScript 引擎将回收它们占用的内存,不要尝试“更改 props”。 当你需要响应用户输入（例如更改所选颜色）时，你可以“设置 state”'
+              concept: '一个组件可能会随着时间的推移收到不同的 props。 Props 并不总是静态的！Props 反映了组件在任何时间点的数据，并不仅仅是在开始时',
+              tips: '然而，props 是 不可变的（一个计算机科学术语，意思是“不可改变”）。当一个组件需要改变它的 props（例如，响应用户交互或新数据）时，它不得不“请求”它的父组件传递 不同的 props —— 一个新对象！它的旧 props 将被丢弃，最终 JavaScript 引擎将回收它们占用的内存,不要尝试“更改 props”。 当你需要响应用户输入（例如更改所选颜色）时，你可以“设置 state”'
             }
           ],
           summary: [
@@ -192,7 +210,8 @@ export const reactTheory: any = {
       },
       {
         key: 5,
-        value: '如何有条件地渲染组件',
+        title: '如何有条件地渲染组件',
+        id: 'Conditional Rendering',
         question: '条件渲染组件',
         detail: {
           description: '通常你的组件会需要根据不同的情况显示不同的内容。在 React 中，你可以通过使用 JavaScript 的 if 语句、&& 和 ? : 运算符来选择性地渲染 JSX',
@@ -233,7 +252,8 @@ export const reactTheory: any = {
       },
       {
         key: 6,
-        value: '如何在同一时间渲染多个组件',
+        title: '如何在同一时间渲染多个组件',
+        id: 'Rendering Lists',
         question: '在同一时间渲染多个组件',
         detail: {
           description: '你可能经常需要通过 JavaScript 的数组方法 来操作数组中的数据，从而将一个数据集渲染成多个相似的组件。',
@@ -259,15 +279,17 @@ export const reactTheory: any = {
               concept: 'key 值在兄弟节点之间必须是唯一的。 不过不要求全局唯一，在不同的数组中可以使用相同的 key。key 值不能改变，否则就失去了使用 key 的意义！所以千万不要在渲染时动态地生成 key'
             },
             {
-              title: '如何设定 key 值',
-              concept: '来自数据库的数据： 如果你的数据是从数据库中获取的，那你可以直接使用数据表中的主键，因为它们天然具有唯一性。本地产生数据： 如果你数据的产生和保存都在本地（例如笔记软件里的笔记），那么你可以使用一个自增计数器或者一个类似 uuid 的库来生成 key'
+              title: 'React 中为什么需要 key？ ',
+              concept: '设想一下，假如你桌面上的文件都没有文件名，取而代之的是，你需要通过文件的位置顺序来区分它们———第一个文件，第二个文件，以此类推。也许你也不是不能接受这种方式，可是一旦你删除了其中的一个文件，这种组织方式就会变得混乱无比。原来的第二个文件可能会变成第一个文件，第三个文件会成为第二个文件……React 里需要 key 和文件夹里的文件需要有文件名的道理是类似的。它们（key 和文件名）都让我们可以从众多的兄弟元素中唯一标识出某一项（JSX 节点或文件）。而一个精心选择的 key 值所能提供的信息远远不止于这个元素在数组中的位置。即使元素的位置在渲染的过程中发生了改变，它提供的 key 值也能让 React 在整个生命周期中一直认得它。',
+              tips: '你可能会想直接把数组项的索引当作 key 值来用，实际上，如果你没有显式地指定 key 值，React 确实默认会这么做。但是数组项的顺序在插入、删除或者重新排序等操作中会发生改变，此时把索引顺序用作 key 值会产生一些微妙且令人困惑的 bug。与之类似，请不要在运行过程中动态地产生 key，像是 key={Math.random()} 这种方式。这会导致每次重新渲染后的 key 值都不一样，从而使得所有的组件和 DOM 元素每次都要重新创建。这不仅会造成运行变慢的问题，更有可能导致用户输入的丢失。所以，使用能从给定数据中稳定取得的值才是明智的选择。 有一点需要注意，组件不会把 key 当作 props 的一部分。Key 的存在只对 React 本身起到提示作用。如果你的组件需要一个 ID，那么请把它作为一个单独的 prop 传给组件： <Profile key={id} userId={id} />。'
             },
           ]
         }
       },
       {
         key: 7,
-        value: '如何通过保持组件的纯粹性来避免令人困惑的错误',
+        title: '如何通过保持组件的纯粹性来避免令人困惑的错误',
+        id: 'Keeping Components Pure',
         question: '保持组件纯粹',
         detail: {
           description: '部分 JavaScript 函数是 纯粹 的，这类函数通常被称为纯函数。纯函数仅执行计算操作，不做其他操作。你可以通过将组件按纯函数严格编写，以避免一些随着代码库的增长而出现的、令人困扰的 bug 以及不可预测的行为',
@@ -275,7 +297,7 @@ export const reactTheory: any = {
             {
               title: '纯函数：组件作为公式 ',
               concept: '在计算机科学中（尤其是函数式编程的世界中），纯函数 通常具有如下特征,',
-              methods: [
+              answer: [
                 `只负责自己的任务。它不会更改在该函数调用前就已存在的对象或变量`,
                 `输入相同，则输出相同。给定相同的输入，纯函数应总是返回相同的结果`
               ],
@@ -293,7 +315,7 @@ export const reactTheory: any = {
             {
               title: 'React 为何侧重于纯函数?',
               concept: '',
-              methods: [
+              answer: [
                 '你的组件可以在不同的环境下运行 — 例如，在服务器上！由于它们针对相同的输入，总是返回相同的结果，因此一个组件可以满足多个用户请求',
                 '可以为那些输入未更改的组件来 跳过渲染，以提高性能。这是安全的做法，因为纯函数总是返回相同的结果，所以可以安全地缓存它们。',
                 '如果在渲染深层组件树的过程中，某些数据发生了变化，React 可以重新开始渲染，而不会浪费时间完成过时的渲染。纯粹性使得它随时可以安全地停止计算。'
