@@ -332,7 +332,433 @@ export const reactTheory: any = {
         }
       },
     ]
+  },
+  addingInteractivity: {
+    h2: '添加交互',
+    id: 'addingInteractivity',
+    path: '/react/addingInteractivity',
+    title: '添加交互',
+    preIconType: 'dir',
+    type: 'addSquare',
+    summary: '界面上的控件会根据用户的输入而更新。在 React 中，随时间变化的数据被称为状态（state）。你可以向任何组件添加状态，并按需进行更新',
+    questionList: [
+      {
+        key: 1,
+        title: '响应事件',
+        id: 'How to handle user-initiated events',
+        question: '如何处理用户发起的事件',
+        detail: {
+          description: 'React 允许你向 JSX 中添加事件处理程序。事件处理程序是你自己的函数，它将在用户交互时被触发，如点击、悬停、焦点在表单输入框上等等。',
+          theory: [
+            {
+              title: '添加事件处理函数',
+              id: 'Adding event handlers  ',
+              concept: '如需添加一个事件处理函数，你需要先定义一个函数，然后 将其作为 prop 传入 合适的 JSX 标签',
+              elements:'按照惯例，通常将事件处理程序命名为 handle，后接事件名。你会经常看到 onClick={handleClick}，onMouseEnter={handleMouseEnter} 等',
+              tips: '传递给事件处理函数的函数应直接传递，而非调用',
+              methods: [
+                {
+                  title: '在事件处理函数中读取 props ',
+                  id: 'Reading props in event handlers ',
+                  content: '由于事件处理函数声明于组件内部，因此它们可以直接访问组件的 props',
+                },
+                {
+                  title: '将事件处理函数作为 props 传递 ',
+                  id: 'Passing event handlers as props  ',
+                  content: '通常，我们会在父组件中定义子组件的事件处理函数',
+                },
+                {
+                  title: '命名事件处理函数 prop  ',
+                  id: 'Naming event handler props  ',
+                  content: '按照惯例，事件处理函数 props 应该以 on 开头，后跟一个大写字母。',
+                },
+              ]
+            },
+            {
+              title: '事件传播',
+              id: 'Event propagation',
+              concept: '事件处理函数还将捕获任何来自子组件的事件。通常，我们会说事件会沿着树向上“冒泡”或“传播”：它从事件发生的地方开始，然后沿着树向上传播。',
+              tips: '在 React 中所有事件都会传播，除了 onScroll，它仅适用于你附加到的 JSX 标签。',
+              methods: [
+                {
+                  title: '阻止传播 ',
+                  id: 'Stopping propagation',
+                  content: '事件处理函数接收一个 事件对象 作为唯一的参数。按照惯例，它通常被称为 e ，代表 “event”（事件）。你可以使用此对象来读取有关事件的信息。这个事件对象还允许你阻止传播',
+                  answer: [
+                    `React 调用了传递给 <button> 的 onClick 处理函数。调用 e.stopPropagation()，阻止事件进一步冒泡。`
+                  ],
+                },
+                {
+                  title: '传递处理函数作为事件传播的替代方案 ',
+                  id: 'Passing handlers as alternative to propagation ',
+                  content: '它让子组件处理事件，同时也让父组件指定一些额外的行为。与事件传播不同，它并非自动。但使用这种模式的好处是你可以清楚地追踪因某个事件的触发而执行的整条代码链。如果你依赖于事件传播，而且很难追踪哪些处理程序在执行',
+                },
+                {
+                  title: '阻止默认行为',
+                  id: 'Preventing default behavior ',
+                  content: '某些浏览器事件具有与事件相关联的默认行为, 例如，点击 <form> 表单内部的按钮会触发表单提交事件，默认情况下将重新加载整个页面,可以调用事件对象中的 e.preventDefault() 来阻止这种情况发生',
+                  summary: [
+                    'e.stopPropagation() 阻止触发绑定在外层标签上的事件处理函数。',
+                    'e.preventDefault() 阻止少数事件的默认浏览器行为。'
+                  ]
+                },
+              ]
+            },
+            {
+              title: '事件处理函数可以包含副作用吗？',
+              id: 'Can event handlers have side effects? ',
+              concept: '当然可以！事件处理函数是执行副作用的最佳位置。',
+              elements: '与渲染函数不同，事件处理函数不需要是 纯函数，因此它是用来 更改 某些值的绝佳位置。例如，更改输入框的值以响应键入，或者更改列表以响应按钮的触发。',
+              tips: '为了更改某些信息，你首先需要某种方式存储它。在 React 中，这是通过 state（组件的记忆） 来完成的',
+            },
+          ],
+          summary: [
+            '你可以通过将函数作为 prop 传递给元素如 <button> 来处理事件。',
+            '必须传递事件处理函数，而非函数调用！ onClick={handleClick} ，不是 onClick={handleClick()}。',
+            '你可以单独或者内联定义事件处理函数。',
+            '事件处理函数在组件内部定义，所以它们可以访问 props。',
+            '你可以在父组件中定义一个事件处理函数，并将其作为 prop 传递给子组件。',
+            '你可以根据特定于应用程序的名称定义事件处理函数的 prop',
+            '事件会向上传播。通过事件的第一个参数调用 e.stopPropagation() 来防止这种情况',
+            '事件可能具有不需要的浏览器默认行为。调用 e.preventDefault() 来阻止这种情况。',
+            '从子组件显式调用事件处理函数 prop 是事件传播的另一种优秀替代方案。',
+          ]
+        }
+      },
+      {
+        key: 1,
+        title: 'State：组件的记忆',
+        id: "State: A Component's Memory",
+        question: '如何处理组件的记忆',
+        detail: {
+          description: '组件通常需要根据交互更改屏幕上显示的内容。在 React 中，这种组件特有的记忆被称为 state',
+          theory: [
+            {
+              title: '当普通的变量无法满足时',
+              id: 'When a regular variable isn’t enough ',
+              concept: '事件处理函数正在更新局部变量 但存在两个原因使得变化不可见',
+              steps: [
+                `局部变量无法在多次渲染中持久保存。 当 React 再次渲染这个组件时，它会从头开始渲染——不会考虑之前对局部变量的任何更改。`,
+                `更改局部变量不会触发渲染。 React 没有意识到它需要使用新数据再次渲染组件。`,
+                '要使用新数据更新组件，需要做两件事: 保留 渲染之间的数据,触发 React 使用新数据渲染组件（重新渲染）',
+                'useState Hook 提供了这两个功能：State 变量 用于保存渲染间的数据。State setter 函数 更新变量并触发 React 再次渲染组件。 '
+              ],
+            },
+            {
+              title: '添加一个 state 变量 ',
+              id: 'Adding a state variable ',
+              steps: [
+                `Hook 是特殊的函数，只在 React 渲染时有效（我们将在下一节详细介绍）。它们能让你 “hook” 到不同的 React 特性中去。`,
+                `当你调用 useState 时，你是在告诉 React 你想让这个组件记住一些东西`,
+                `惯例是将这对返回值命名为 const [thing, setThing]。你也可以将其命名为任何你喜欢的名称，但遵照约定俗成能使跨项目合作更易理解。`,
+                `useState 的唯一参数是 state 变量的初始值。每次你的组件渲染时，useState 都会给你一个包含两个值的数组`,
+                `state 变量 (index) 会保存上次渲染的值。`,
+                `state setter 函数 (setIndex) 可以更新 state 变量并触发 React 重新渲染组件。`
+              ],
+              tips: 'Hooks ——以 use 开头的函数——只能在组件或自定义 Hook 的最顶层调用。 你不能在条件语句、循环语句或其他嵌套函数内调用 Hook。Hook 是函数，但将它们视为关于组件需求的无条件声明会很有帮助。在组件顶部 “use” React 特性，类似于在文件顶部“导入”模块。'
+
+            },
+            {
+              title: '赋予一个组件多个 state 变量',
+              id: 'Giving a component multiple state variables ',
+              concept: '可以在一个组件中拥有任意多种类型的 state 变量',
+              tips: '如果它们不相关，那么存在多个 state 变量是一个好主意，如果你发现经常同时更改两个 state 变量，那么最好将它们合并为一个， 例如，如果你有一个包含多个字段的表单，那么有一个值为对象的 state 变量比每个字段对应一个 state 变量更方便',
+            },
+            {
+              title: 'State 是隔离且私有的 ',
+              id: 'State is isolated and private ',
+              concept: 'State 是屏幕上组件实例内部的状态。换句话说，如果你渲染同一个组件两次，每个副本都会有完全隔离的 state！改变其中一个不会影响另一个',
+              elements: 'State 不依赖于特定的函数调用或在代码中的位置，它的作用域“只限于”屏幕上的某块特定区域,与 props 不同，state 完全私有于声明它的组件。父组件无法更改它。这使你可以向任何组件添加或删除 state，而不会影响其他组件。',
+              tips: '如果它们不相关，那么存在多个 state 变量是一个好主意，如果你发现经常同时更改两个 state 变量，那么最好将它们合并为一个， 例如，如果你有一个包含多个字段的表单，那么有一个值为对象的 state 变量比每个字段对应一个 state 变量更方便',
+            },
+          ],
+          summary: [
+            '当一个组件需要在多次渲染间“记住”某些信息时使用 state 变量。',
+            'State 变量是通过调用 useState Hook 来声明的。',
+            'Hook 是以 use 开头的特殊函数。它们能让你 “hook” 到像 state 这样的 React 特性中。',
+            'Hook 可能会让你想起 import：它们需要在非条件语句中调用。调用 Hook 时，包括 useState，仅在组件或另一个 Hook 的顶层被调用才有效。',
+            'useState Hook 返回一对值：当前 state 和更新它的函数。',
+            '你可以拥有多个 state 变量。在内部，React 按顺序匹配它们。',
+            'State 是组件私有的。如果你在两个地方渲染它，则每个副本都有独属于自己的 state。',
+          ]
+        }
+      },
+      {
+        key: 1,
+        title: '渲染和提交',
+        id: "Render and Commit",
+        question: '渲染和提交',
+        detail: {
+          description: '组件显示到屏幕之前，其必须被 React 渲染。想象一下，您的组件是厨房里的厨师，把食材烹制成美味的菜肴。在这种场景下，React 就是一名服务员，他会帮客户们下单并为他们送来所点的菜品',
+          theory: [
+            {
+              title: '步骤 1: 触发一次渲染',
+              id: 'Step 1: Trigger a render ',
+              concept: '有两种原因会导致组件的渲染:组件的 初次渲染。组件（或者其祖先之一）的 状态发生了改变',
+              steps: [
+                `初次渲染: 当应用启动时，会触发初次渲染。框架和沙箱有时会隐藏这部分代码，但它是通过调用目标 DOM 节点的 createRoot，然后用你的组件调用 render 函数完成的`,
+                `状态更新时重新渲染: 一旦组件被初次渲染，您就可以通过使用 set 函数 更新其状态来触发之后的渲染。更新组件的状态会自动将一次渲染送入队列`,
+              ],
+            },
+            {
+              title: '步骤 2: React 渲染您的组件  ',
+              id: 'Step 2: React renders your components',
+              concept: '在您触发渲染后，React 会调用您的组件来确定要在屏幕上显示的内容。“渲染中” 即 React 在调用您的组件, 在进行初次渲染时, React 会调用根组件,对于后续的渲染, React 会调用内部状态更新触发了渲染的函数组件。渲染必须始终是一次 纯计算:',
+              elements: '如果更新后的组件会返回某个另外的组件，那么 React 接下来就会渲染 那个 组件，而如果那个组件又返回了某个组件，那么 React 接下来就会渲染 那个 组件，以此类推。这个过程会持续下去，直到没有更多的嵌套组件并且 React 确切知道哪些东西应该显示到屏幕上为止',
+              steps: [
+                `输入相同，输出相同。 给定相同的输入，组件应始终返回相同的 JSX。（当有人点了西红柿沙拉时，他们不应该收到洋葱沙拉！）`,
+                `只做它自己的事情。 它不应更改任何存在于渲染之前的对象或变量。（一个订单不应更改其他任何人的订单。）`,
+              ],
+              tips: '渲染必须始终是一次 纯计算:否则，随着代码库复杂性的增加，您可能会遇到令人困惑的错误和不可预测的行为。在 “严格模式” 下开发时，React 会调用每个组件的函数两次，这可以帮助发现由不纯函数引起的错误。'
+            },
+            {
+              title: '步骤 3: React 把更改提交到 DOM 上 ',
+              id: 'Step 3: React commits changes to the DOM ',
+              concept: '在渲染（调用）您的组件之后，React 将会修改 DOM。',
+              steps: [
+                `对于初次渲染， React 会使用 appendChild() DOM API 将其创建的所有 DOM 节点放在屏幕上。`,
+                `对于重渲染， React 将应用最少的必要操作（在渲染时计算！），以使得 DOM 与最新的渲染输出相互匹配。`
+              ],
+              tips: 'React 仅在渲染之间存在差异时才会更改 DOM 节点。',
+            },
+            {
+              title: '尾声：浏览器绘制 ',
+              id: 'State is isolated and private ',
+              concept: '在渲染完成并且 React 更新 DOM 之后，浏览器就会重新绘制屏幕。尽管这个过程被称为“浏览器渲染”（“browser rendering”），但我们还是将它称为“绘制”（“painting”），以避免在这些文档的其余部分中出现混淆。',
+             },
+          ],
+          summary: [
+            '在一个 React 应用中一次屏幕更新都会发生以下三个步骤：触发 渲染 提交',
+            '您可以使用严格模式去找到组件中的错误',
+            '如果渲染结果与上次一样，那么 React 将不会修改 DOM',
+          ]
+        }
+      },
+      {
+        key: 1,
+        title: 'state 如同一张快照',
+        id: "State as a Snapshot",
+        question: 'state 如同一张快照',
+        detail: {
+          description: '也许 state 变量看起来和一般的可读写的 JavaScript 变量类似。但 state 在其表现出的特性上更像是一张快照。设置它不会更改你已有的 state 变量，但会触发重新渲染',
+          theory: [
+            {
+              title: '设置 state 会触发渲染 ',
+              id: 'Setting state triggers renders',
+            },
+            {
+              title: '渲染会及时生成一张快照 ',
+              id: 'Rendering takes a snapshot in time ',
+              concept: '“正在渲染” 就意味着 React 正在调用你的组件——一个函数。你从该函数返回的 JSX 就像是 UI 的一张及时的快照。它的 props、事件处理函数和内部变量都是 根据当前渲染时的 state 被计算出来的。',
+              elements: '与照片或电影画面不同，你返回的 UI “快照”是可交互的。它其中包括类似事件处理函数的逻辑，这些逻辑用于指定如何对输入作出响应。React 随后会更新屏幕来匹配这张快照，并绑定事件处理函数。因此，按下按钮就会触发你 JSX 中的点击事件处理函数',
+              steps: [
+                `当 React 重新渲染一个组件时：React 会再次调用你的函数, 你的函数会返回新的 JSX 快照, React 会更新界面来匹配你返回的快照`,
+                `作为一个组件的记忆，state 不同于在你的函数返回之后就会消失的普通变量。state 实际上“活”在 React 本身中——就像被摆在一个架子上！——位于你的函数之外。当 React 调用你的组件时，它会为特定的那一次渲染提供一张 state 快照。你的组件会在其 JSX 中返回一张包含一整套新的 props 和事件处理函数的 UI 快照 ，其中所有的值都是 根据那一次渲染中 state 的值 被计算出来的`,
+                '设置 state 只会为下一次渲染变更 state 的值',
+                '一个 state 变量的值永远不会在一次渲染的内部发生变化， 即使其事件处理函数的代码是异步的。在 那次渲染的 onClick 内部，number 的值即使在调用 setNumber(number + 5) 之后也还是 0。它的值在 React 通过调用你的组件“获取 UI 的快照”时就被“固定”了。',
+                'React 会使 state 的值始终”固定“在一次渲染的各个事件处理函数内部。 你无需担心代码运行时 state 是否发生了变化。'
+              ],
+            },
+          ],
+          summary: [
+            '设置 state 请求一次新的渲染。',
+            'React 将 state 存储在组件之外，就像在架子上一样。',
+            '当你调用 useState 时，React 会为你提供该次渲染 的一张 state 快照。',
+            '变量和事件处理函数不会在重渲染中“存活”。每个渲染都有自己的事件处理函数。',
+            '每个渲染（以及其中的函数）始终“看到”的是 React 提供给这个 渲染的 state 快照。',
+            '你可以在心中替换事件处理函数中的 state，类似于替换渲染的 JSX。',
+            '过去创建的事件处理函数拥有的是创建它们的那次渲染中的 state 值',
+            '如果渲染结果与上次一样，那么 React 将不会修改 DOM',
+          ]
+        }
+      },
+      {
+        key: 1,
+        title: '把一系列 state 更新加入队列',
+        id: "Queueing a Series of State Updates",
+        question: '把一系列 state 更新加入队列',
+        detail: {
+          description: '设置组件 state 会把一次重新渲染加入队列。但有时你可能会希望在下次渲染加入队列之前对 state 的值执行多次操作',
+          theory: [
+            {
+              title: 'React 会对 state 更新进行批处理 ',
+              id: 'React batches state updates',
+              concept: 'React 会等到事件处理函数中的 所有 代码都运行完毕再处理你的 state 更新。这让你可以更新多个 state 变量——甚至来自多个组件的 state 变量——而不会触发太多的 重新渲染。但这也意味着只有在你的事件处理函数及其中任何代码执行完成 之后，UI 才会更新。这种特性也就是 批处理，它会使你的 React 应用运行得更快。它还会帮你避免处理只​​更新了一部分 state 变量的令人困惑的“半成品”渲染 ',
+              elements: 'React 不会跨 多个 需要刻意触发的事件（如点击）进行批处理——每次点击都是单独处理的。请放心，React 只会在一般来说安全的情况下才进行批处理。这可以确保，例如，如果第一次点击按钮会禁用表单，那么第二次点击就不会再次提交它'
+            },
+            {
+              title: '在下次渲染前多次更新同一个 state  ',
+              id: 'Updating the same state multiple times before the next render',
+              concept: '在下次渲染之前多次更新同一个 state，你可以像 setNumber(n => n + 1) 这样传入一个根据队列中的前一个 state 计算下一个 state 的 函数',
+              elements: '这是一种告诉 React “用 state 值做某事”而不是仅仅替换它的方法。n => n + 1 被称为 更新函数。当你将它传递给一个 state 设置函数时：',
+              steps: [
+                `React 会将此函数加入队列，以便在事件处理函数中的所有其他代码运行后进行处理。`,
+                '在下一次渲染期间，React 会遍历队列并给你更新之后的最终 state',
+                `事件处理函数执行完成后，React 将触发重新渲染。在重新渲染期间，React 将处理队列。更新函数会在渲染期间执行，因此 更新函数必须是 纯函数 并且只 返回 结果`
+              ],
+              tips: 'setState(x) 实际上会像 setState(n => x) 一样运行，只是没有使用 n！'
+            },
+            {
+              title: '命名惯例',
+              id: 'Naming conventions',
+              concept: '通常可以通过相应 state 变量的第一个字母来命名更新函数的参数'
+            }
+          ],
+          summary: [
+            '设设置 state 不会更改现有渲染中的变量，但会请求一次新的渲染。',
+            'React 会在事件处理函数执行完成之后处理 state 更新。这被称为批处理。',
+            '要在一个事件中多次更新某些 state，你可以使用 setNumber(n => n + 1) 更新函数',
+          ]
+        }
+      },
+      {
+        key: 1,
+        title: '更新state中的对象',
+        id: "Updating Objects in State",
+        question: '更新state中的对象',
+        detail: {
+          description: '状态可以持有任何类型的JavaScript值,包括对象。但是你不应该直接更改React状态中持有的对象。相反,当你想更新一个对象时,你需要创建一个新的对象(或复制现有对象),然后将状态设置为使用该副本',
+          theory: [
+            {
+              title: 'What’s a mutation? ',
+              id: 'What’s a mutation? ',
+              concept: 'although objects in React state are technically mutable, you should treat them as if they were immutable—like numbers, booleans, and strings. Instead of mutating them, you should always replace them.'
+            },
+            {
+              title: 'Treat state as read-only',
+              id: 'Treat state as read-only',
+              concept: 'you should treat any JavaScript object that you put into state as read-only.',
+              elements: ' without using the state setting function, React has no idea that object has changed. So React does not do anything in response. It’s like trying to change the order after you’ve already eaten the meal. While mutating state can work in some cases, we don’t recommend it. You should treat the state value you have access to in a render as read-only.To actually trigger a re-render in this case, create a new object and pass it to the state setting ',
+            },
+            {
+              title: 'Copying objects with the spread syntax ',
+              id: 'Copying objects with the spread syntax ',
+              concept: ' the position object is always created fresh from the current cursor position. But often, you will want to include existing data as a part of the new object you’re creating',
+              elements: 'You can use the ... object spread syntax so that you don’t need to copy every property separately.Notice how you didn’t declare a separate state variable for each input field. For large forms, keeping all data grouped in an object is very convenient—as long as you update it correctly!',
+              tips: 'Note that the ... spread syntax is “shallow”—it only copies things one level deep. This makes it fast, but it also means that if you want to update a nested property, you’ll have to use it more than once.'
+            },
+            {
+              title: 'Updating a nested object',
+              id: 'Updating a nested object',
+            },
+            {
+              title: '使用 Immer 编写简洁的更新逻辑',
+              id: 'Write concise update logic with Immer',
+              concept: 'If your state is deeply nested, you might want to consider flattening it. But, if you don’t want to change your state structure, you might prefer a shortcut to nested spreads. Immer is a popular library that lets you write using the convenient but mutating syntax and takes care of producing the copies for you. With Immer, the code you write looks like you are “breaking the rules” and mutating an object,But unlike a regular mutation, it doesn’t overwrite the past state!',
+            }
+          ],
+        }
+      },
+      {
+        key: 1,
+        title: '更新 state 中的数组',
+        id: "Updating Arrays in State",
+        question: '更新state中的数组',
+        detail: {
+          description: '数组是另外一种可以存储在 state 中的 JavaScript 对象，它虽然是可变的，但是却应该被视为不可变。同对象一样，当你想要更新存储于 state 中的数组时，你需要创建一个新的数组（或者创建一份已有数组的拷贝值），并使用新数组设置 state。',
+          theory: [
+            {
+              title: '在没有 mutation 的前提下更新数组 ',
+              id: 'Updating arrays without mutation',
+              concept: "在 JavaScript 中，数组只是另一种对象。同对象一样，你需要将 React state 中的数组视为只读的。这意味着你不应该使用类似于 arr[0] = 'bird' 这样的方式来重新分配数组中的元素，也不应该使用会直接修改原始数组的方法，例如 push() 和 pop()。 相反，每次要更新一个数组时，你需要把一个新的数组传入 state 的 setting 方法中。为此，你可以通过使用像 filter() 和 map() 这样不会直接修改原始值的方法，从原始数组生成一个新的数组。然后你就可以将 state 设置为这个新生成的数组",
+              tips: '不幸的是，虽然 slice 和 splice 的名字相似，但作用却迥然不同,slice 让你可以拷贝数组或是数组的一部分。splice 会直接修改 原始数组（插入或者删除元素）, 在 React 中，更多情况下你会使用 slice（没有 p ！），因为你不想改变 state 中的对象或数组',
+              methods: [
+                {
+                  title: '向数组中添加元素:',
+                  content: ' 展开操作可以完成 push() 和 unshift() 的工作，将新元素添加到数组的末尾和开头。'
+                },
+                {
+                  title: '从数组中删除元素:',
+                  content: ' 从数组中删除一个元素最简单的方法就是将它过滤出去。换句话说，你需要生成一个不包含该元素的新数组。这可以通过 filter 方法实现, filter 并不会改变原始数组'
+                },
+                {
+                  title: '转换数组',
+                  content: '如果你想改变数组中的某些或全部元素，你可以用 map() 创建一个新数组。你传入 map 的函数决定了要根据每个元素的值或索引（或二者都要）对元素做何处理'
+                },
+                {
+                  title: '替换数组中的元素:',
+                  content: "要替换数组中一个或多个元素是非常常见的。类似 arr[0] = 'bird' 这样的赋值语句会直接修改原始数组，所以在这种情况下，你也应该使用 map。要替换一个元素，请使用 map 创建一个新数组。在你的 map 回调里，第二个参数是元素的索引。使用索引来判断最终是返回原始的元素（即回调的第一个参数）还是替换成其他值",
+                },
+                {
+                  title: '向数组中插入元素 :',
+                  content: ' 有时，你也许想向数组特定位置插入一个元素，这个位置既不在数组开头，也不在末尾。为此，你可以将数组展开运算符 ... 和 slice() 方法一起使用。slice() 方法让你从数组中切出“一片”。为了将元素插入数组，你需要先展开原数组在插入点之前的切片，然后插入新元素，最后展开原数组中剩下的部分'
+                },
+                {
+                  title: '其他改变数组的情况',
+                  content: "总会有一些事，是你仅仅依靠展开运算符和 map() 或者 filter() 等不会直接修改原值的方法所无法做到的。例如，你可能想翻转数组，或是对数组排序。而 JavaScript 中的 reverse() 和 sort() 方法会改变原数组，所以你无法直接使用它们 然而，你可以先拷贝这个数组，再改变这个拷贝后的值。你可以用类似于 更新嵌套的 JavaScript 对象 的方式解决这个问题——拷贝想要修改的特定元素，而不是直接修改它 "
+                }
+              ],
+            },
+          ],
+        }
+      },
+      {
+        key: 1,
+        title: '更新数组内部的对象',
+        id: "Updating objects inside arrays",
+        question: '更新数组内部的对象',
+        detail: {
+          description: '对象并不是 真的 位于数组“内部”。可能他们在代码中看起来像是在数组“内部”，但其实数组中的每个对象都是这个数组“指向”的一个存储于其它位置的值。这就是当你在处理类似 list[0] 这样的嵌套字段时需要格外小心的原因。其他人的艺术品清单可能指向了数组的同一个元素！当你更新一个嵌套的 state 时，你需要从想要更新的地方创建拷贝值，一直这样，直到顶层。通常来讲，你应该只直接修改你刚刚创建的对象。如果你正在插入一个新的 artwork，你可以修改它，但是如果你想要改变的是 state 中已经存在的东西，你就需要先拷贝一份了',
+          theory: [
+            {
+              title: '使用 Immer 编写简洁的更新逻辑',
+              id: 'Write concise update logic with Immer ',
+              concept: "在 JavaScript 中，数组只是另一种对象。同对象一样，你需要将 React state 中的数组视为只读的。这意味着你不应该使用类似于 arr[0] = 'bird' 这样的方式来重新分配数组中的元素，也不应该使用会直接修改原始数组的方法，例如 push() 和 pop()。 相反，每次要更新一个数组时，你需要把一个新的数组传入 state 的 setting 方法中。为此，你可以通过使用像 filter() 和 map() 这样不会直接修改原始值的方法，从原始数组生成一个新的数组。然后你就可以将 state 设置为这个新生成的数组",
+              steps: [
+                '通常情况下，你应该不需要更新处于非常深层级的 state 。如果你有此类需求，你或许需要调整一下数据的结构，让数据变得扁平一些。',
+                '如果你不想改变 state 的数据结构，你也许会更喜欢使用 Immer ，它让你可以继续使用方便的，但会直接修改原值的语法，并负责为你生成拷贝值。',
+                '在幕后，Immer 总是会根据你对 draft 的修改来从头开始构建下一个 state。这使得你的事件处理程序非常的简洁，同时也不会直接修改 state'
+              ]
+            }
+          ]
+        },
+        summary: [
+          "你可以把数组放入 state 中，但你不应该直接修改它。",
+          "不要直接修改数组，而是创建它的一份 新的 拷贝，然后使用新的数组来更新它的状态。",
+          "你可以使用 [...arr, newItem] 这样的数组展开语法来向数组中添加元素。",
+          "你可以使用 filter() 和 map() 来创建一个经过过滤或者变换的数组。",
+          "你可以使用 Immer 来保持代码简洁。"
+        ]
+      }
+    ],
+  },
+  managingState: {
+    h2: '状态管理',
+    id: 'managingState',
+    path: '/react/managingState',
+    title: '状态管理',
+    preIconType: 'dir',
+    type: 'addSquare',
+    summary: '随着你的应用不断变大，更有意识的去关注应用状态如何组织，以及数据如何在组件之间流动会对你很有帮助。冗余或重复的状态往往是缺陷的根源。',
+    questionList: [
+      {
+        key: 1,
+        title: '响应事件',
+        id: 'How to handle user-initiated events',
+        question: '如何处理用户发起的事件',
+        detail: {
+          description: 'React 允许你向 JSX 中添加事件处理程序。事件处理程序是你自己的函数，它将在用户交互时被触发，如点击、悬停、焦点在表单输入框上等等。',
+          theory: [
+            {
+              title: '添加事件处理函数',
+              id: 'Adding event handlers  ',
+              concept: '如需添加一个事件处理函数，你需要先定义一个函数，然后 将其作为 prop 传入 合适的 JSX 标签',
+              elements:'按照惯例，通常将事件处理程序命名为 handle，后接事件名。你会经常看到 onClick={handleClick}，onMouseEnter={handleMouseEnter} 等',
+              tips: '传递给事件处理函数的函数应直接传递，而非调用',
+              methods: [
+                {
+                  title: '在事件处理函数中读取 props ',
+                  id: 'Reading props in event handlers ',
+                  content: '由于事件处理函数声明于组件内部，因此它们可以直接访问组件的 props',
+                },
+              ]
+            }
+          ]
+        }
+      }
+    ]
   }
+
 }
 
 
