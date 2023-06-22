@@ -1,4 +1,4 @@
-import { Card, Col, Row } from 'antd';
+import { Affix, Anchor, Card, Col, Row } from 'antd';
 import './index.scss';
 import DirectoryTree from '../components/DirectoryTree';
 import { breadCrumbItems } from './config';
@@ -6,16 +6,13 @@ import Breadcrumb from '../components/Breadcrumb';
 import useReactTheoryData from './hooks/useReactTheoryData';
 import Introductions from './introductions';
 import Loading from '../components/Loading';
+import { GlobalContext } from '../App';
+import { useContext } from 'react';
 
 export default function ReactTheory(props: any) {
-  // const { menuData, contentData } = props;
 
-  // const params = useParams();
-  // console.log('params: ', params);
   const { treeData = [], anchorItems, contentData, contentList = [], loading } = useReactTheoryData('descriptionUI');
-  // console.log('contentList: ', contentList);
-  // console.log('contentData: ', contentData);
-
+  const { targetOffset } = useContext(GlobalContext);
 
   return (
     <>
@@ -28,7 +25,21 @@ export default function ReactTheory(props: any) {
             </Col>
             <Col flex="auto">
               <Card bordered={false} bodyStyle={{ minHeight: 700 }}>
-                <Introductions dataList={contentData || contentList} anchorItems={anchorItems} />
+                <Row wrap={false} gutter={16} >
+                  <Col flex="auto">
+                    <Introductions dataList={contentData || contentList} anchorItems={anchorItems} />
+                  </Col>
+                  <Col flex="200px">
+                    <Affix offsetTop={targetOffset}>
+                      <Anchor
+                        affix={false}
+                        targetOffset={targetOffset}
+                        items={anchorItems}
+                        style={{ maxHeight: 700, overflow: 'auto' }}
+                      />
+                    </Affix>
+                  </Col>
+                </Row>
               </Card>
             </Col>
           </Row>

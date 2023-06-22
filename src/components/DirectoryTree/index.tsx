@@ -11,10 +11,13 @@ import { useNavigate } from "react-router-dom";
 const DTree = ({ treeData }: any) => {
   const { targetOffset } = useContext(GlobalContext);
   const [type, setType] = useState<string>();
+  const [treeNodeId, setTreeNodeId] = useState<string>();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
   const navigate = useNavigate();
-  const onClickCallback = async (type: string) => {
+  const onClickCallback = async (type: string, id?: string) => {
+    console.log('id: ', id);
+    setTreeNodeId(id);
     await setType(type);
     setIsModalOpen(true);
   }
@@ -27,10 +30,12 @@ const DTree = ({ treeData }: any) => {
 
   const onSelect = (keys: any, info: any) => {
     const { node } = info;
+    console.log('node: ', node);
     navigate(node.path);
   };
 
   const onExpand = useCallback((keys: string[]) => {
+
     setSelectedKeys(keys)
   }, [])
 
@@ -43,24 +48,27 @@ const DTree = ({ treeData }: any) => {
         <ButtonHoc
           iconType={ICON_ADD_TYPE}
           onClickCallback={() => onClickCallback?.(ICON_ADD_TYPE)}
-          active={type === ICON_ADD_TYPE}
+          active={isModalOpen && type === ICON_ADD_TYPE}
         />
         <ButtonHoc
           iconType={ICON_FILTER_TYPE}
           onClickCallback={() => onClickCallback?.(ICON_FILTER_TYPE)}
-          active={type === ICON_FILTER_TYPE}
+          active={isModalOpen && type === ICON_FILTER_TYPE}
         />
       </Col>
     </Row>
   );
-  const titleRender = useCallback((nodeData: any) => <TreeNode {...nodeData} isExpand={selectedKeys.includes(nodeData.key)} iconType={type} onTreeNodeClickCallback={onClickCallback} />, [selectedKeys, type])
+  const titleRender = useCallback((nodeData: any) => {
+    // console.log('nodeData: ', nodeData);
+    return <TreeNode {...nodeData} treeNodeIdActive={isModalOpen && treeNodeId} isExpand={selectedKeys.includes(nodeData.key)} iconType={type} onTreeNodeClickCallback={onClickCallback} />
+  }, [isModalOpen, selectedKeys, treeNodeId, type])
   return (
     <>
       <Affix offsetTop={targetOffset ? targetOffset - 24 : 0}>
         <Card title={title} headStyle={{ padding: '4px 8px' }} style={{ minHeight: 700 }}>
           <Tree
             multiple
-            defaultExpandAll
+            // defaultExpandAll
             onSelect={onSelect}
             rootClassName="min__tree"
             titleRender={titleRender}

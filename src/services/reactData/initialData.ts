@@ -605,7 +605,7 @@ export const reactTheory: any = {
             }
           ],
           summary: [
-            '设设置 state 不会更改现有渲染中的变量，但会请求一次新的渲染。',
+            '设置 state 不会更改现有渲染中的变量，但会请求一次新的渲染。',
             'React 会在事件处理函数执行完成之后处理 state 更新。这被称为批处理。',
             '要在一个事件中多次更新某些 state，你可以使用 setNumber(n => n + 1) 更新函数',
           ]
@@ -732,30 +732,719 @@ export const reactTheory: any = {
     summary: '随着你的应用不断变大，更有意识的去关注应用状态如何组织，以及数据如何在组件之间流动会对你很有帮助。冗余或重复的状态往往是缺陷的根源。',
     questionList: [
       {
-        key: 1,
-        title: '响应事件',
-        id: 'How to handle user-initiated events',
-        question: '如何处理用户发起的事件',
+        key: 2,
+        title: '用 State 响应输入',
+        id: 'Reacting to Input with State',
+        question: '用 State 响应输入',
         detail: {
-          description: 'React 允许你向 JSX 中添加事件处理程序。事件处理程序是你自己的函数，它将在用户交互时被触发，如点击、悬停、焦点在表单输入框上等等。',
+          description: 'React 控制 UI 的方式是声明式的。你不必直接控制 UI 的各个部分，只需要声明组件可以处于的不同状态，并根据用户的输入在它们之间切换。这与设计师对 UI 的思考方式很相似',
           theory: [
             {
-              title: '添加事件处理函数',
-              id: 'Adding event handlers  ',
-              concept: '如需添加一个事件处理函数，你需要先定义一个函数，然后 将其作为 prop 传入 合适的 JSX 标签',
-              elements:'按照惯例，通常将事件处理程序命名为 handle，后接事件名。你会经常看到 onClick={handleClick}，onMouseEnter={handleMouseEnter} 等',
-              tips: '传递给事件处理函数的函数应直接传递，而非调用',
+              title: '声明式 UI 与命令式 UI 的比较 ',
+              id: 'How declarative UI compares to imperative',
+              concept: '当你设计 UI 交互时，可能会去思考 UI 如何根据用户的操作而响应变化',
+              elements:'在 命令式编程 中，以上的过程直接告诉你如何去实现交互。你必须去根据要发生的事情写一些明确的命令去操作 UI。对此有另一种理解方式，想象一下，当你坐在车里的某个人旁边，然后一步一步地告诉他该去哪,他并不知道你想去哪，只想跟着命令行动。（并且如果你发出了错误的命令，那么你就会到达错误的地方）正因为你必须从加载动画到按钮地“命令”每个元素，所以这种告诉计算机如何去更新 UI 的编程方式被称为命令式编程,对于独立系统来说，命令式地控制用户界面的效果也不错，但是当处于更加复杂的系统中时，这会造成管理的困难程度指数级地增长,',
+              tips: '在 React 中，你不必直接去操作 UI —— 你不必直接启用、关闭、显示或隐藏组件。相反，你只需要 声明你想要显示的内容， React 就会通过计算得出该如何去更新 UI。想象一下，当你上了一辆出租车并且告诉司机你想去哪，而不是事无巨细地告诉他该如何走。将你带到目的地是司机的工作，他们甚至可能知道一些你没有想过并且不知道的捷径！',
+              
+            },
+            {
+              title: '声明式地考虑 UI',
+              id: 'Thinking about UI declaratively ',
               methods: [
                 {
-                  title: '在事件处理函数中读取 props ',
-                  id: 'Reading props in event handlers ',
-                  content: '由于事件处理函数声明于组件内部，因此它们可以直接访问组件的 props',
+                  title: '步骤 1：定位组件中不同的视图状态',
+                  content: '像一个设计师一样，你会想要在你添加逻辑之前去“模拟”不同的状态或创建“模拟状态”'
                 },
+                {
+                  title: '步骤 2：确定是什么触发了这些状态的改变 ',
+                  content: '像一个设计师一样，你会想要在你添加逻辑之前去“模拟”不同的状态或创建“模拟状态”',
+                  tips: '注意，人为输入通常需要 事件处理函数！'
+                },
+                {
+                  title: '步骤 3：通过 useState 表示内存中的 state ',
+                  content: '在内存中通过 useState 表示组件中的视图状态。',
+                  tips: 'state 的每个部分都是“处于变化中的”，并且你需要让“变化的部分”尽可能的少。更复杂的程序会产生更多 bug'
+                },
+                {
+                  title: '步骤 4：删除任何不必要的 state 变量 ',
+                  content: '防止出现在内存中的 state 不代表任何你希望用户看到的有效 UI 的情况',
+                  tips: '为了更精确地模块化状态，你可以 将状态提取到一个 reducer 中。Reducer 可以让您合并多个状态变量到一个对象中并巩固所有相关的逻辑！'
+                },
+                {
+                  title: '步骤 5：连接事件处理函数以设置 state ',
+                  content: '将所有的交互变为 state 的改变，可以让你避免之后引入新的视图状态后导致现有 state 被破坏。同时也使你在不必改变交互逻辑的情况下，更改每个状态对应的 UI。'
+                },
+              ],
+              summary: [
+                '声明式编程意味着为每个视图状态声明 UI 而非细致地控制 UI（命令式）',
+                '写出你的组件中所有的视图状态。确定是什么触发了这些 state 的改变。通过 useState 模块化内存中的 state。删除任何不必要的 state 变量。连接事件处理函数去设置 state。',
               ]
-            }
+            },
+
           ]
         }
-      }
+      },
+      {
+        key: 2,
+        title: '选择 State 结构',
+        id: 'Choosing the State Structure',
+        question: '选择 State 结构',
+        detail: {
+          description: '构建良好的 state 可以让组件变得易于修改和调试，而不会经常出错',
+          theory: [
+            {
+              title: '构建 state 的原则',
+              id: 'Principles for structuring state',
+              concept: '构建良好的 state 可以让组件变得易于修改和调试，而不会经常出错',
+              elements: '这些原则背后的目标是 使 state 易于更新而不引入错误。从 state 中删除冗余和重复数据有助于确保所有部分保持同步。这类似于数据库工程师想要 “规范化”数据库结构，以减少出现错误的机会。用爱因斯坦的话说，“让你的状态尽可能简单，但不要过于简单。”',
+              methods: [
+                {
+                  title: '合并关联的 state',
+                  content: '如果你总是同时更新两个或更多的 state 变量，请考虑将它们合并为一个单独的 state 变量。',
+                },
+                {
+                  title: '避免互相矛盾的 state',
+                  content: '当 state 结构中存在多个相互矛盾或“不一致”的 state 时，你就可能为此会留下隐患。应尽量避免这种情况。',
+                },
+                {
+                  title: '避免冗余的 state',
+                  content: '如果你能在渲染期间从组件的 props 或其现有的 state 变量中计算出一些信息，则不应将这些信息放入该组件的 state 中',
+                },
+                {
+                  title: '避免重复的 state',
+                  content: '当同一数据在多个 state 变量之间或在多个嵌套对象中重复时，这会很难保持它们同步。应尽可能减少重复',
+                },
+                {
+                  title: '避免深度嵌套的 state',
+                  content: '深度分层的 state 更新起来不是很方便。如果可能的话，最好以扁平化方式构建 state。',
+                },
+              ],
+              tips: '如果你的 state 变量是一个对象时，请记住，你不能只更新其中的一个字段 而不显式复制其他字段',
+              summary: [
+                '如果两个 state 变量总是一起更新，请考虑将它们合并为一个。',
+                '仔细选择你的 state 变量，以避免创建“极难处理”的 state。',
+                '用一种减少出错更新的机会的方式来构建你的 state。',
+                '避免冗余和重复的 state，这样您就不需要保持同步。',
+                '除非您特别想防止更新，否则不要将 props 放入 state 中。',
+                '对于选择类型的 UI 模式，请在 state 中保存 ID 或索引而不是对象本身。',
+                '如果深度嵌套 state 更新很复杂，请尝试将其展开扁平化。',
+              ]
+            },
+          ],
+          
+        }
+      },
+      {
+        key: 2,
+        title: '在组件间共享状态',
+        id: 'Sharing State Between Components',
+        question: '在组件间共享状态',
+        detail: {
+          description: '有时候，你希望两个组件的状态始终同步更改。要实现这一点，可以将相关 state 从这两个组件上移除，并把 state 放到它们的公共父级，再通过 props 将 state 传递给这两个组件。这被称为“状态提升”，这是编写 React 代码时常做的事',
+          theory: [
+            {
+              id: 'Lifting state up by example',
+              title: '状态提升',
+              concept: '从子组件中 移除 state,从父组件 传递 硬编码数据。为共同的父组件添加 state ，并将其与事件处理函数一起向下传递。',
+              tips: '如果你的 state 变量是一个对象时，请记住，你不能只更新其中的一个字段 而不显式复制其他字段',
+            },
+            {
+              title: '每个状态都对应唯一的数据源',
+              concept: '**对于每个独特的状态，都应该存在且只存在于一个指定的组件中作为 state **。这一原则也被称为拥有 “可信单一数据源”。它并不意味着所有状态都存在一个地方——对每个状态来说，都需要一个特定的组件来保存这些状态信息。你应该 将状态提升 到公共父级，或 将状态传递 到需要它的子级中，而不是在组件之间复制共享的状态',
+            }
+          ],
+          summary: [
+            '当你想要整合两个组件时，将它们的 state 移动到共同的父组件中。',
+            '然后在父组件中通过 props 把信息传递下去。',
+            '最后，向下传递事件处理程序，以便子组件可以改变父组件的 state 。',
+            '考虑该将组件视为“受控”（由 prop 驱动）或是“不受控”（由 state 驱动）是十分有益的。',
+          ]
+        },
+        
+      },
+      {
+        key: 2,
+        title: '对 state 进行保留和重置',
+        id: 'Preserving and Resetting State ',
+        question: '对 state 进行保留和重置',
+        detail: {
+          description: '各个组件的 state 是各自独立的。根据组件在 UI 树中的位置，React 可以跟踪哪些 state 属于哪个组件。你可以控制在重新渲染过程中何时对 state 进行保留和重置',
+          theory: [
+            {
+              title: 'UI树',
+              concept: 'React 也使用树形结构来对你创造的 UI 进行管理和建模。React 根据你的 JSX 生成 UI 树。React DOM 根据 UI 树去更新浏览器的 DOM 元素',
+              methods: [
+                {
+                  title: 'state 与树中的某个位置相关联',
+                  content: '当你为一个组件添加 state 时，你可能会觉得 state “活”在组件内部。但实际上，state 被保存在 React 内部。根据组件在 UI 树中的位置，React 将它所持有的每个 state 与正确的组件关联起来。',
+                  tips: '只要一个组件还被渲染在 UI 树的相同位置，React 就会保留它的 state。 如果它被移除，或者一个不同的组件被渲染在相同的位置，那么 React 就会丢掉它的 state。'
+                },
+                {
+                  title: '相同位置的相同组件会使得 state 被保留下来',
+                  tips: ' 对 React 来说重要的是组件在 UI 树中的位置,而不是在 JSX 中的位置！'
+                },
+                {
+                  title: '相同位置的不同组件会使 state 重置 ',
+                  content: '当你在相同位置渲染不同的组件时，组件的整个子树都会被重置, ',
+                  tips: '  永远要将组件定义在最上层并且不要把它们的定义嵌套起来',
+                },
+                {
+                  title: '在相同位置重置 state ',
+                  content: '默认情况下，React 会在一个组件保持在同一位置时保留它的 state。通常这就是你想要的，所以把它作为默认特性很合理。但有时候，你可能想要重置一个组件的 state。 ',
+                  tips: ' 有两个方法可以在它们相互切换时重置 state :将组件渲染在不同的位置, 使用 key 赋予每个组件一个明确的身份, 请记住 key 不是全局唯一的。它们只能指定 父组件内部 的顺序。',
+                },
+                
+              ]
+            },
+            {
+              title: '使用 key 重置表单 ',
+              concept: '默认情况下，React 会在一个组件保持在同一位置时保留它的 state。通常这就是你想要的，所以把它作为默认特性很合理。但有时候，你可能想要重置一个组件的 state。 ',
+              tips: ' 有两个方法可以在它们相互切换时重置 state :将组件渲染在不同的位置, 使用 key 赋予每个组件一个明确的身份, 请记住 key 不是全局唯一的。它们只能指定 父组件内部 的顺序。',
+            },
+          ],
+          tips: '如果你的 state 变量是一个对象时，请记住，你不能只更新其中的一个字段 而不显式复制其他字段',
+          summary: [
+            '只要在相同位置渲染的是相同组件， React 就会保留状态。',
+            'state 不会被保存在 JSX 标签里。它与你在树中放置该 JSX 的位置相关联。',
+            '你可以通过为一个子树指定一个不同的 key 来重置它的 state。',
+            '不要嵌套组件的定义，否则你会意外地导致 state 被重置。',
+          ]
+        }
+        
+      },
+      {
+        key: 2,
+        title: '迁移状态逻辑至 Reducer 中',
+        id: 'Extracting State Logic into a Reducer ',
+        question: '迁移状态逻辑至 Reducer 中',
+        detail: {
+          description: '对于拥有许多状态更新逻辑的组件来说，过于分散的事件处理程序可能会令人不知所措。对于这种情况，你可以将组件的所有状态更新逻辑整合到一个外部函数中，这个函数叫作 reducer。',
+          theory: [
+            {
+              title: '使用 reducer 整合状态逻辑',
+              concept: '随着组件复杂度的增加，你将很难一眼看清所有的组件状态更新逻辑。',
+              methods: [
+                {
+                  title: '第 1 步: 将设置状态的逻辑修改成 dispatch 的一个 action ',
+                  content: '使用 reducers 管理状态与直接设置状态略有不同。它不是通过设置状态来告诉 React “要做什么”，而是通过事件处理程序 dispatch 一个 “action” 来指明 “用户刚刚做了什么”。（而状态更新逻辑则保存在其他地方！）因此，我们不再通过事件处理器直接 “设置 task”，而是 dispatch 一个 “添加/修改/删除任务” 的 action。这更加符合用户的思维',
+                  tips: 'action 对象可以有多种结构'
+                },
+                {
+                  title: '第 2 步: 编写一个 reducer 函数',
+                  content: ' reducer 函数就是你放置状态逻辑的地方。它接受两个参数，分别为当前 state 和 action 对象，并且返回的是更新后的 state：',
+                  tips: '在 reducers 中使用 switch 语句 是一种惯例。两种方式结果是相同的，但 switch 语句读起来一目了然。建议将每个 case 块包装到 { 和 } 花括号中，这样在不同 case 中声明的变量就不会互相冲突。此外，case 通常应该以 return 结尾。如果你忘了 return，代码就会 进入 到下一个 case，这就会导致错误！'
+                },
+                {
+                  title: '第 3 步: 在组件中使用 reducer',
+                  content: '事件处理程序只通过派发 action 来指定 发生了什么，而 reducer 函数通过响应 actions 来决定 状态如何更新。, ',
+                },
+              ]
+            },
+            {
+              title: '编写一个好的 reducers ',
+              concept: 'reducers 必须是纯粹的。 这一点和 状态更新函数 是相似的，reducers 在是在渲染时运行的！（actions 会排队直到下一次渲染)。 这就意味着 reducers 必须纯净，即当输入相同时，输出也是相同的。它们不应该包含异步请求、定时器或者任何副作用（对组件外部有影响的操作）。它们应该以不可变值的方式去更新 对象 和 数组,每个 action 都描述了一个单一的用户交互，即使它会引发数据的多个变化。'
+            },
+            {
+              title: '使用 Immer 简化 reducers  ',
+              concept: '与在平常的 state 中 修改对象 和 数组 一样，你可以使用 Immer 这个库来简化 reducer。在这里，useImmerReducer 让你可以通过 push 或 arr[i] = 来修改 state '
+            },
+          ],
+          tips: 'Reducers 应该是纯净的，所以它们不应该去修改 state。而 Immer 为你提供了一种特殊的 draft 对象，你可以通过它安全的修改 state。在底层，Immer 会基于当前 state 创建一个副本。这就是为什么通过 useImmerReducer 来管理 reducers 时，可以修改第一个参数，且不需要返回一个新的 state 的原因。',
+          summary: [
+            '把 useState 转化为 useReducer：',
+            '通过事件处理函数 dispatch actions；',
+            '编写一个 reducer 函数，它接受传入的 state 和一个 action，并返回一个新的 state；',
+            '使用 useReducer 替换 useState；',
+            'Reducers 可能需要你写更多的代码，但是这有利于代码的调试和测试。',
+            'Reducers 必须是纯净的。',
+            '每个 action 都描述了一个单一的用户交互。',
+            '使用 Immer 来帮助你在 reducer 里直接修改状态。'
+          ]
+        }
+        
+      },
+      {
+        key: 2,
+        title: '使用 Context 深层传递参数',
+        id: 'Passing Data Deeply with Context',
+        question: '使用 Context 深层传递参数',
+        detail: {
+          description: 'Context 允许父组件向其下层无论多深的任何组件提供信息，而无需通过 props 显式传递。',
+          theory: [
+            {
+              title: '传递 props 带来的问题 ',
+              concept: '当你需要在组件树中深层传递参数以及需要在组件间复用相同的参数时，传递 props 就会变得很麻烦。最近的根节点父组件可能离需要数据的组件很远，状态提升 到太高的层级会导致 “逐层传递 props” 的情况',
+            },
+            {
+              title: 'Context：传递 props 的另一种方法',
+              concept: 'Context 让父组件可以为它下面的整个组件树提供数据',
+              methods: [
+                {
+                  title: 'Step 1：创建 context ',
+                  content: '首先，你需要创建这个 context，并 将其从一个文件中导出，这样你的组件才可以使用它'
+                },
+                {
+                  title: 'Step 2：使用 Context  ',
+                  content: '从 React 中引入 useContext Hook 以及你刚刚创建的 context:'
+                },
+                {
+                  title: 'Step 3：提供 context  ',
+                  content: '把它们用 context provider 包裹起来'
+                },
+              ]
+            },
+            {
+              title: 'Context 会穿过中间层级的组件   ',
+              concept: '你可以在提供 context 的组件和使用它的组件之间的层级插入任意数量的组件。这包括像 <div> 这样的内置组件和你自己创建的组件。 '
+            },
+            {
+              title: '写在你使用 context 之前 ',
+              concept: '使用 Context 看起来非常诱人！然而，这也意味着它也太容易被过度使用了。如果你只想把一些 props 传递到多个层级中，这并不意味着你需要把这些信息放到 context 里。',
+              methods: [
+                {
+                  title: '从 传递 props 开始。',
+                  content: '如果你的组件看起来不起眼，那么通过十几个组件向下传递一堆 props 并不罕见。这有点像是在埋头苦干，但是这样做可以让哪些组件用了哪些数据变得十分清晰！维护你代码的人会很高兴你用 props 让数据流变得更加清晰。'
+                },
+                {
+                  title: '抽象组件并 将 JSX 作为 children 传递 给它们。',
+                  content: '如果你通过很多层不使用该数据的中间组件（并且只会向下传递）来传递数据，这通常意味着你在此过程中忘记了抽象组件。举个例子，你可能想传递一些像 posts 的数据 props 到不会直接使用这个参数的组件，类似 <Layout posts={posts} />。取而代之的是，让 Layout 把 children 当做一个参数，然后渲染 <Layout><Posts posts={posts} /></Layout>。这样就减少了定义数据的组件和使用数据的组件之间的层级。'
+                },
+              ]
+            },
+            {
+              title: 'Context 的使用场景 ',
+              methods: [
+                {
+                  title: '主题',
+                  content: '如果你的应用允许用户更改其外观（例如暗夜模式），你可以在应用顶层放一个 context provider，并在需要调整其外观的组件中使用该 context。'
+                },
+                {
+                  title: '当前账户',
+                  content: '许多组件可能需要知道当前登录的用户信息。将它放到 context 中可以方便地在树中的任何位置读取它。某些应用还允许你同时操作多个账户（例如，以不同用户的身份发表评论）。在这些情况下，将 UI 的一部分包裹到具有不同账户数据的 provider 中会很方便'
+                },
+                {
+                  title: '路由',
+                  content: '大多数路由解决方案在其内部使用 context 来保存当前路由。这就是每个链接“知道”它是否处于活动状态的方式。如果你创建自己的路由库，你可能也会这么做'
+                },
+                {
+                  title: '状态管理',
+                  content: '随着你的应用的增长，最终在靠近应用顶部的位置可能会有很多 state。许多遥远的下层组件可能想要修改它们。通常 将 reducer 与 context 搭配使用来管理复杂的状态并将其传递给深层的组件来避免过多的麻烦'
+                },
+              ],
+             
+            }
+          ],
+          tips: 'Context 不局限于静态值。如果你在下一次渲染时传递不同的值，React 将会更新读取它的所有下层组件！这就是 context 经常和 state 结合使用的原因。',
+          summary: [
+            'Context 使组件向其下方的整个树提供信息',
+            '传递 Context 的方法: 通过 export const MyContext = createContext(defaultValue) 创建并导出 context。在无论层级多深的任何子组件中，把 context 传递给 useContext(MyContext) Hook 来读取它,在父组件中把 children 包在 <MyContext.Provider value={...}> 中来提供 context',
+            'Context 会穿过中间的任何组件',
+            '使Context 可以让你写出 “较为通用” 的组件。',
+            '在使用 context 之前，先试试传递 props 或者将 JSX 作为 children 传递'
+          ]
+        }
+        
+      },
+      {
+        key: 2,
+        title: '使用 Reducer 和 Context 来拓展你的应用',
+        id: 'Scaling Up with Reducer and Context',
+        question: '使用 Reducer 和 Context 来拓展你的应用',
+        detail: {
+          description: 'Reducer 可以整合组件的状态更新逻辑。Context 可以将信息深入传递给其他组件。你可以组合使用它们来共同管理一个复杂页面的状态',
+          theory: [
+            {
+              title: '结合使用 reducer 和 context ',
+              concept: '状态被 reducer 所管理。reducer 函数包含了所有的状态更新逻辑并在此文件的底部声明：Reducer 有助于保持事件处理程序的简短明了。但随着应用规模越来越庞大，你就可能会遇到别的困难',
+              methods: [
+                {
+                  title: '第一步: 创建 context ',
+                  content: 'useReducer 返回当前的 tasks 和 dispatch 函数来让你更新它们：'
+                },
+                {
+                  title: '第二步: 将 state 和 dispatch 函数 放入 context ',
+                  content: '你可以将所有的 context 导入组件。获取 useReducer() 返回的 state 和 dispatch 并将它们 提供 给整个组件树：'
+                },
+                {
+                  title: 'Step 3: 在组件树中的任何地方使用 context  ',
+                  content: 'state 仍然 “存在于” 顶层 Task 组件中，由 useReducer 进行管理'
+                },
+              ]
+            },
+            {
+              title: '将相关逻辑迁移到一个文件当中 ',
+              concept: '这不是必须的，但你可以通过将 reducer 和 context 移动到单个文件中来进一步整理组件',
+              methods: [
+                {
+                  title: 'Step 1：创建 context ',
+                  content: '首先，你需要创建这个 context，并 将其从一个文件中导出，这样你的组件才可以使用它'
+                },
+                {
+                  title: 'Step 2：使用 Context  ',
+                  content: '从 React 中引入 useContext Hook 以及你刚刚创建的 context:'
+                },
+                {
+                  title: 'Step 3：提供 context  ',
+                  content: '把它们用 context provider 包裹起来'
+                },
+              ]
+            },
+          ],
+          summary: [
+            '你可以将 reducer 与 context 相结合，让任何组件读取和更新它的状态。',
+            '为子组件提供 state 和 dispatch 函数：创建两个 context (一个用于 state,一个用于 dispatch 函数),让组件的 context 使用 reducer。使用组件中需要读取的 context',
+            '你可以通过将所有传递信息的代码移动到单个文件中来进一步整理组件。',
+            '你可以在你的应用程序中大量使用 context 和 reducer 的组合。'
+          ]
+        }
+        
+      },
+    ]
+  },
+  escapeHatches: {
+    h2: '逃脱方案',
+    id: 'escapeHatches',
+    path: '/react/escapeHatches',
+    title: '逃脱方案',
+    preIconType: 'dir',
+    type: 'addSquare',
+    summary: '您的一些组件可能需要控制和同步与React之外的系统。例如,您可能需要使用浏览器API聚焦输入,播放和暂停没有使用React实现的视频播放器,或者连接并监听来自远程服务器的消息。在这章中,您将学习可以“跳出”React并连接到外部系统的逃生舱。您的应用程序逻辑和数据流的大部分不应依赖于这些功能',
+    questionList: [
+      {
+        key: 3,
+        title: '使用 ref 引用值',
+        id: 'Referencing values with refs',
+        question: '使用 ref 引用值 ',
+        detail: {
+          description: '当你希望组件“记住”某些信息，但又不想让这些信息 触发新的渲染 时，你可以使用 ref 。',
+          theory: [
+            {
+              title: '给你的组件添加 ref ',
+              id: 'Adding a ref to your component ',
+              concept: '可以通过从 React 导入 useRef Hook 来为你的组件添加一个 ref',
+              elements: '在你的组件内，调用 useRef Hook 并传入你想要引用的初始值作为唯一参数,你可以用 ref.current 属性访问该 ref 的当前值。这个值是有意被设置为可变的，意味着你既可以读取它也可以写入它。就像一个 React 追踪不到的、用来存储组件信息的秘密“口袋”',
+              tips: '组件不会在每次递增时重新渲染。 与 state 一样，React 会在每次重新渲染之间保留 ref。但是，设置 state 会重新渲染组件，更改 ref 不会！当一条信息用于渲染时，将它保存在 state 中。当一条信息仅被事件处理器需要，并且更改它不需要重新渲染时，使用 ref 可能会更高效。',
+            },
+            {
+              title: 'ref 和 state 的不同之处',
+              id: 'Differences between refs and state',
+              concept: '可以通过从 React 导入 useRef Hook 来为你的组件添加一个 ref',
+              methods: [
+                {
+                  title: 'ref',
+                  content: 'useRef(initialValue)返回 { current: initialValue },更改时不会触发重新渲染, 可变 —— 你可以在渲染过程之外修改和更新 current 的值,你不应在渲染期间读取（或写入） current 值。'
+                },
+                {
+                  title: 'state',
+                  content: 'useState(initialValue) 返回 state 变量的当前值和一个 state 设置函数 ( [value, setValue]),更改时触发重新渲染,“不可变” —— 你必须使用 state 设置函数来修改 state 变量，从而排队重新渲染。你可以随时读取 state。但是，每次渲染都有自己不变的 state 快照。'
+                },
+              ]
+            },
+            {
+              title: '何时使用 ref ',
+              id: 'When to use refs',
+              concept: '当你的组件需要“跳出” React 并与外部 API 通信时，你会用到 ref —— 通常是不会影响组件外观的浏览器 API, 如果你的组件需要存储一些值，但不影响渲染逻辑，请选择 ref',
+              steps: [
+                '存储 timeout ID',
+                '存储和操作 DOM 元素',
+                '存储不需要被用来计算 JSX 的其他对象'
+              ]
+            },
+            {
+              title: 'ref 的最佳实践  ',
+              id: 'Best practices for refs',
+              concept: 'React state 的限制不适用于 ref。当你使用 ref 时，也无需担心 避免变更。只要你改变的对象不用于渲染，React 就不会关心你对 ref 或其内容做了什么。',
+              steps: [
+                '将 ref 视为应急方案。 当你使用外部系统或浏览器 API 时，ref 很有用。如果你很大一部分应用程序逻辑和数据流都依赖于 ref，你可能需要重新考虑你的方法',
+                '不要在渲染过程中读取或写入 ref.current。 如果渲染过程中需要某些信息，请使用 state 代替。由于 React 不知道 ref.current 何时发生变化，即使在渲染时读取它也会使组件的行为难以预测。（唯一的例外是像 if (!ref.current) ref.current = new Thing() 这样的代码，它只在第一次渲染期间设置一次 ref。）',
+              ]
+            },
+            {
+              title: 'ref 和 DOM ',
+              concept: '你可以将 ref 指向任何值。但是，ref 最常见的用法是访问 DOM 元素。例如，如果你想以编程方式聚焦一个输入框，这种用法就会派上用场。当你将 ref 传递给 JSX 中的 ref 属性时，比如 <div ref={myRef}>，React 会将相应的 DOM 元素放入 myRef.current 中。'
+            }
+          ],
+          summary: [
+            'ref 是一个应急方案，用于保留不用于渲染的值。 你不会经常需要它们。',
+            'ref 是一个普通的 JavaScript 对象，具有一个名为 current 的属性，你可以对其进行读取或设置。',
+            '你可以通过调用 useRef Hook 来让 React 给你一个 ref。',
+            '与 state 一样，ref 允许你在组件的重新渲染之间保留信息。',
+            '与 state 不同，设置 ref 的 current 值不会触发重新渲染。',
+            '不要在渲染过程中读取或写入 ref.current。这使你的组件难以预测'
+          ]
+        }
+      },
+      {
+        key: 2,
+        title: '使用 ref 操作 DOM',
+        id: 'Manipulating the DOM with Refs',
+        question: '使用 ref 操作 DOM ',
+        detail: {
+          description: '由于 React 会自动处理更新 DOM 以匹配你的渲染输出，因此你在组件中通常不需要操作 DOM。但是，有时你可能需要访问由 React 管理的 DOM 元素 —— 例如，让一个节点获得焦点、滚动到它或测量它的尺寸和位置。在 React 中没有内置的方法来做这些事情，所以你需要一个指向 DOM 节点的 ref 来实现。',
+          theory: [
+            {
+              title: '获取指向节点的 ref  ',
+              id: 'Getting a ref to the node',
+              concept: '要访问由 React 管理的 DOM 节点，首先，引入 useRef Hook：然后，在你的组件中使用它声明一个 ref,Finally, pass your ref as the ref attribute to the JSX tag for which you want to get the DOM node',
+              steps: [
+                '示例: 使文本输入框获得焦点',
+                '示例: 滚动至一个元素 ',
+                '如何使用 ref 回调管理 ref 列表 '
+              ]
+            },
+            {
+              title: '访问另一个组件的 DOM 节点 ',
+              id: 'Accessing another component’s DOM nodes',
+              concept: '当你将 ref 放在像 <input /> 这样输出浏览器元素的内置组件上时，React 会将该 ref 的 current 属性设置为相应的 DOM 节点（例如浏览器中实际的 <input /> ）。但是，如果你尝试将 ref 放在 你自己的 组件上，例如 <MyInput />，默认情况下你会得到 null',
+              tips: '在设计系统中，将低级组件（如按钮、输入框等）的 ref 转发到它们的 DOM 节点是一种常见模式。另一方面，像表单、列表或页面段落这样的高级组件通常不会暴露它们的 DOM 节点，以避免对 DOM 结构的意外依赖。'
+            },
+            {
+              title: 'React 何时添加 refs ',
+              id: 'When React attaches the refs',
+              concept: '在 React 中，每次更新都分为 两个阶段：在 渲染 阶段， React 调用你的组件来确定屏幕上应该显示什么,在 提交 阶段， React 把变更应用于 DOM。',
+            },
+            {
+              title: '用 flushSync 同步更新 state ',
+              id: 'Flushing state updates synchronously with flushSync',
+              concept: '在 React 中，state 更新是排队进行的。通常，这就是你想要的。但是，在这个示例中会导致问题，因为 setTodos 不会立即更新 DOM。因此，当你将列表滚动到最后一个元素时，尚未添加待办事项。这就是为什么滚动总是“落后”一项的原因。要解决此问题，你可以强制 React 同步更新（“刷新”）DOM。 为此，从 react-dom 导入 flushSync 并将 state 更新包裹 到 flushSync 调用中',
+
+            },
+            {
+              title: '使用 refs 操作 DOM 的最佳实践 ',
+              concept: 'Refs 是一个应急方案。你应该只在你必须“跳出 React”时使用它们。这方面的常见示例包括管理焦点、滚动位置或调用 React 未暴露的浏览器 API。如果你坚持聚焦和滚动等非破坏性操作，应该不会遇到任何问题。但是，如果你尝试手动修改 DOM，则可能会与 React 所做的更改发生冲突。'
+            }
+          ],
+          summary: [
+            'Refs 是一个通用概念，但大多数情况下你会使用它们来保存 DOM 元素。',
+            '你通过传递 <div ref={myRef}> 指示 React 将 DOM 节点放入 myRef.current。',
+            '通常，你会将 refs 用于非破坏性操作，例如聚焦、滚动或测量 DOM 元素。',
+            '默认情况下，组件不暴露其 DOM 节点。 您可以通过使用 forwardRef 并将第二个 ref 参数传递给特定节点来暴露 DOM 节点。',
+            '避免更改由 React 管理的 DOM 节点。',
+            '如果你确实修改了 React 管理的 DOM 节点，请修改 React 没有理由更新的部分'
+          ]
+        }
+      },
+      {
+        key: 3,
+        title: '使用副作用同步',
+        id: 'Synchronizing with Effects',
+        question: '使用副作用同步',
+        detail: {
+          description: '一些组件需要与外部系统同步。例如,您可能想根据React state控制非React组件,设置服务器连接,或在组件出现在屏幕上时发送分析日志。Effects允许您在渲染后运行一些代码,以便您可以将组件与React外部的某个系统同步',
+          theory: [
+            {
+              title: 'Effects和事件有什么区别?  ',
+              id: 'What are Effects and how are they different from events?',
+              steps: [
+                '*渲染代码*(在<Describing the UI>中介绍)位于组件的顶层。在这里,您可以获取props和state,对其进行转换,并返回要在屏幕上看到的JSX。<Rendering code must be pure.>就像数学公式,它应该只是_计算_结果,而不做其他任何事情。',
+                '*事件处理程序*(在<Adding Interactivity>中介绍)是组件内嵌的函数,这些函数不仅仅是计算结果,而是真正做些事情。事件处理程序可能更新输入字段,提交HTTP POST请求购买产品,或将用户导航到另一个屏幕。事件处理程序包含由特定用户操作(例如按钮点击或输入)引起的“副作用”(它们改变程序的状态)。',
+                '有时这是不够的。考虑`ChatRoom`组件,它必须在其出现在屏幕上时连接到聊天服务器。连接到服务器不是一个纯计算(它是副作用),因此它不能在渲染期间发生。然而,没有像点击这样的单一特定事件导致显示`ChatRoom`'
+              ],
+              concept: '_Effects_允许您指定由渲染本身而不是特定事件直接引起的副作用。_Effects_运行在屏幕更新后的<commit>之后。这是一个很好的时间来同步React组件与某些外部系统(如网络或第三方库)。',
+              tips: '大写的"Effect"是指上述React特定的定义,即由渲染引起的副作用。为了指代更广泛的编程概念,我们将说“副作用”。'
+            },
+            {
+              title: 'How to write an Effect',
+              id: 'How to write an Effect ',
+              steps: [
+                'Step 1: Declare an Effect',
+                'Step 2: Specify the Effect dependencies',
+                'Step 3: Add cleanup if needed ',
+              ],
+              tips: '指定正确和精确的依赖项数组对于编写高性能和稳定的 Effect 至关重要'
+            },
+            {
+              title: '在开发中,如何处理 Effect 触发两次? ',
+              concept: 'React 有意在开发中重新安装您的组件,以发现像最后一个示例中的错误。*正确的问题不是“如何只运行一个Effect”,而是“如何修复我的Effect,使其在重新安装后工作”。*通常,答案是实现清理功能。清理函数应该停止或撤消 Effect 正在做的事情。大致的规则是,用户不应该能够区分 Effect 运行一次(如在生产中)和 setup → cleanup → setup 序列(如您在开发中看到的)之间的区别。',
+              steps: [
+                '订阅Effect**:在挂载时订阅,在清理时取消订阅',
+                '手动 DOM 更新**:在挂载时更新 DOM,在清理时重置',
+                '设置定时器**:在挂载时设置定时器,在清理时清除定时器',
+                '*调用 API**:在挂载时调用 API,在清理时取消未完成的 API 调用'
+              ]
+            },
+            {
+              title: '控制非 React 组件',
+              concept: '有时您需要添加不是为 React 编写的 UI 组件。例如,假设您要在页面上添加地图组件'
+            },
+            {
+              title: '订阅事件',
+              concept: '重要的是要记住在 Effect 的清理函数中取消任何启动的订阅或侦听器。否则,您的组件可能会在卸载后保留对外部资源的引用,这可能导致性能问题或 bug'
+            },
+            {
+              title: '触发动画',
+              concept: '如果您的 Effect 在某些内容中进行动画处理,清理函数应该将动画重置为初始值,与订阅/事件相同,如果您的 Effect 启动了动画,请确保在清理函数中正确重置该动画。否则,您的组件可能在重新渲染或卸载后保留错误的动画状态。'
+            },
+            {
+              title: '获取数据',
+              concept: '如果您的 Effect 获取某些内容,清理函数应该中止获取或忽略其结果',
+              tips: '正确实现清理函数对于编写稳定的 Effect 来说至关重要'
+            },
+            {
+              title: '发送分析数据',
+              concept: '如果您的 Effect 获取某些内容,清理函数应该中止获取或忽略其结果',
+              tips: '考虑在清理函数中执行某些操作,以防止在组件快速卸载和重新挂载时错过关键操作'
+            },
+            {
+              title: '不是一个Effect:初始化应用程序',
+              concept: '一些逻辑应仅在应用程序启动时运行一次。您可以将其置于组件之外:',
+              tips: '不要在 Effects 或组件内部运行一次性的应用程序初始化逻辑。相反,在应用程序的根目录中编写一个初始化函数。这会让你的代码更加清晰和模块化。'
+            },
+          ],
+          summary: [
+            'Unlike events, Effects are caused by rendering itself rather than a particular interaction.',
+            'Effects let you synchronize a component with some external system (third-party API, network, etc).',
+            'By default, Effects run after every render (including the initial one).',
+            'React will skip the Effect if all of its dependencies have the same values as during the last render.',
+            'You can’t “choose” your dependencies. They are determined by the code inside the Effect.',
+            'Empty dependency array ([]) corresponds to the component “mounting”, i.e. being added to the screen.',
+            'In Strict Mode, React mounts components twice (in development only!) to stress-test your Effects.',
+            'If your Effect breaks because of remounting, you need to implement a cleanup function.',
+            'React will call your cleanup function before the Effect runs next time, and during the unmount.'
+          ]
+        }
+      },
+      {
+        key: 3,
+        title: '你可能不需要 Effect',
+        id: 'You Might Not Need an Effect',
+        question: '你可能不需要 Effect',
+        detail: {
+          description: 'Effect 是 React 范式中的一个逃脱方案。它们让你可以 “逃出” React 并使组件和一些外部系统同步，比如非 React 组件、网络和浏览器 DOM。如果没有涉及到外部系统（例如，你想根据 props 或 state 的变化来更新一个组件的 state），你就不应该使用 Effect。移除不必要的 Effect 可以让你的代码更容易理解，运行得更快，并且更少出错。',
+          theory: [
+            {
+              title: '如何移除不必要的 Effect  ',
+              id: 'How to remove unnecessary Effects ',
+              methods: [
+                {
+                  title: '你不必使用 Effect 来转换渲染所需的数据',
+                  content: '例如，你想在展示一个列表前先做筛选。你的直觉可能是写一个当列表变化时更新 state 变量的 Effect。然而，这是低效的。当你更新这个 state 时，React 首先会调用你的组件函数来计算应该显示在屏幕上的内容。然后 React 会把这些变化“提交”到 DOM 中来更新屏幕。然后 React 会执行你的 Effect。如果你的 Effect 也立即更新了这个 state，就会重新执行整个流程。为了避免不必要的渲染流程，应在你的组件顶层转换数据。这些代码会在你的 props 或 state 变化时自动重新执行'
+                },
+                {
+                  title: '你不必使用 Effect 来处理用户事件',
+                  content: '通常应该在相应的事件处理函数中处理用户事件'
+                }
+              ]
+            },
+            {
+              title: '根据 props 或 state 来更新 state ',
+              id: 'Updating state based on props or state',
+              concept: '如果一个值可以基于现有的 props 或 state 计算得出，不要把它作为一个 state，而是在渲染期间直接计算这个值',
+            },
+            {
+              title: '缓存昂贵的计算 ',
+              id: 'Caching expensive calculations',
+              concept: '使用 useMemo Hook 缓存（或者说 记忆（memoize））一个昂贵的计算。',
+              tips:'传入 useMemo 的函数会在渲染期间执行，所以它仅适用于 纯函数 场景'
+            },
+            {
+              title: '当 props 变化时重置所有 state',
+              id: 'Resetting all state when a prop changes',
+              concept: '根据 props 或其他 state 来调整 state 都会使数据流更难理解和调试。总是检查是否可以通过添加 key 来重置所有 state，或者 在渲染期间计算所需内容,虽然这种方式比 Effect 更高效，但大多数组件也不需要它',
+            },
+            {
+              title: '当 prop 变化时调整部分 state ',
+              id: 'Adjusting some state when a prop changes ',
+              concept: '你可以将 ref 指向任何值。但是，ref 最常见的用法是访问 DOM 元素。例如，如果你想以编程方式聚焦一个输入框，这种用法就会派上用场。当你将 ref 传递给 JSX 中的 ref 属性时，比如 <div ref={myRef}>，React 会将相应的 DOM 元素放入 myRef.current 中。'
+            },
+            {
+              title: '在事件处理函数中共享逻辑',
+              concept: '当你不确定某些代码应该放在 Effect 中还是事件处理函数中时，先自问 为什么 要执行这些代码。Effect 只用来执行那些显示给用户时组件 需要执行 的代码。',
+              tips: '删除 Effect 并将共享的逻辑放入一个被两个事件处理程序调用的函数中'
+            },
+            {
+              title: '发送 POST 请求',
+              content: '当你决定将某些逻辑放入事件处理函数还是 Effect 中时，你需要回答的主要问题是：从用户的角度来看它是 怎样的逻辑。如果这个逻辑是由某个特定的交互引起的，请将它保留在相应的事件处理函数中。如果是由用户在屏幕上 看到 组件时引起的，请将它保留在 Effect 中'
+            },
+            {
+              title: '链式计算 ',
+              content: '尽可能在渲染期间进行计算，以及在事件处理函数中调整 state',
+              tips: '在某些情况下，你 无法 在事件处理函数中直接计算出下一个 state。例如，试想一个具有多个下拉菜单的表单，如果下一个下拉菜单的选项取决于前一个下拉菜单选择的值。这时，Effect 链是合适的，因为你需要与网络进行同步。'
+            },
+            {
+              title: "初始化应用 ",
+              content: '如果某些逻辑必须在 每次应用加载时执行一次，而不是在 每次组件挂载时执行一次，可以添加一个顶层变量来记录它是否已经执行过了'
+            },
+            {
+              title: '通知父组件有关 state 变化的信息',
+              content: '“状态提升” 允许父组件通过切换自身的 state 来完全控制子组件。这意味着父组件会包含更多的逻辑，但整体上需要关心的状态变少了。每当你尝试保持两个不同的 state 变量之间的同步时，试试状态提升！'
+            },
+            {
+              title: '将数据传递给父组件 ',
+              content: '让父组件获取那些数据，并将其 向下传递 给子组件,数据从父组件流向子组件'
+            },
+            {
+              title: '订阅外部 store',
+              content: '有时候，你的组件可能需要订阅 React state 之外的一些数据。这些数据可能来自第三方库或内置浏览器 API。由于这些数据可能在 React 无法感知的情况下发变化，你需要在你的组件中手动订阅它们。这经常使用 Effect 来实现'
+            },
+            {
+              title: '获取数据',
+              content: '当你不得不编写 Effect 时，请留意是否可以将某段功能提取到专门的内置 API 或一个更具声明性的自定义 Hook 中，比如上面的 useData。你会发现组件中的原始 useEffect 调用越少，维护应用将变得更加容易'
+            }
+          ],
+          summary: [
+            '如果你可以在渲染期间计算某些内容，则不需要使用 Effect。',
+            '想要缓存昂贵的计算，请使用 useMemo 而不是 useEffect。',
+            '想要重置整个组件树的 state，请传入不同的 key。',
+            '想要在 prop 变化时重置某些特定的 state，请在渲染期间处理。',
+            '组件 显示 时就需要执行的代码应该放在 Effect 中，否则应该放在事件处理函数中。',
+            '如果你需要更新多个组件的 state，最好在单个事件处理函数中处理。',
+            '当你尝试在不同组件中同步 state 变量时，请考虑状态提升。',
+            '你可以使用 Effect 获取数据，但你需要实现清除逻辑以避免竞态条件。'
+          ]
+        }
+      },
+      {
+        key: 3,
+        title: '响应式 Effects 的生命周期',
+        id: 'Lifecycle of Reactive Effects',
+        question: '响应式 Effects 的生命周期 ',
+        detail: {
+          description: 'Effects 与组件有不同的生命周期。组件可以挂载、更新或卸载。Effect 只能做两件事:开始同步某些内容,然后停止同步它。如果您的 Effect 依赖于随时间变化的 props 和 state,则此循环可以多次发生。React 提供了一个 lint 规则来检查您是否正确指定了 Effect 的依赖项。这使您的 Effect 与最新的 props 和 state 保持同步。',
+          theory: [
+            {
+              title: 'Effect 的生命周期 ',
+              id: 'The lifecycle of an Effect',
+              steps: [
+                ' Effects 挂载,重新挂载和卸载,而不是更新',
+                ' 在挂载和重新挂载 Effect 时,都会运行 Effect 中的逻辑并指定一个清理函数',
+                '在卸载组件时,将调用最终的清理函数来卸载 Effect',
+                '为确保 Effect 与最新的依赖项 props/state 同步,请确保指定所有依赖项。否则,Effect 可能不会在需要时重新运行',
+                '您可以在 Effect 中返回的清理函数内执行任何必要的“卸载”逻辑,例如取消订阅或清除定时器。'
+              ]
+            },
+            {
+              title: '访问另一个组件的 DOM 节点 ',
+              id: 'Accessing another component’s DOM nodes',
+              concept: '当你将 ref 放在像 <input /> 这样输出浏览器元素的内置组件上时，React 会将该 ref 的 current 属性设置为相应的 DOM 节点（例如浏览器中实际的 <input /> ）。但是，如果你尝试将 ref 放在 你自己的 组件上，例如 <MyInput />，默认情况下你会得到 null',
+              tips: '在设计系统中，将低级组件（如按钮、输入框等）的 ref 转发到它们的 DOM 节点是一种常见模式。另一方面，像表单、列表或页面段落这样的高级组件通常不会暴露它们的 DOM 节点，以避免对 DOM 结构的意外依赖。'
+            },
+            {
+              title: 'React 何时添加 refs ',
+              id: 'When React attaches the refs',
+              concept: '在 React 中，每次更新都分为 两个阶段：在 渲染 阶段， React 调用你的组件来确定屏幕上应该显示什么,在 提交 阶段， React 把变更应用于 DOM。',
+            },
+            {
+              title: '用 flushSync 同步更新 state ',
+              id: 'Flushing state updates synchronously with flushSync',
+              concept: '在 React 中，state 更新是排队进行的。通常，这就是你想要的。但是，在这个示例中会导致问题，因为 setTodos 不会立即更新 DOM。因此，当你将列表滚动到最后一个元素时，尚未添加待办事项。这就是为什么滚动总是“落后”一项的原因。要解决此问题，你可以强制 React 同步更新（“刷新”）DOM。 为此，从 react-dom 导入 flushSync 并将 state 更新包裹 到 flushSync 调用中',
+
+            },
+            {
+              title: '使用 refs 操作 DOM 的最佳实践 ',
+              concept: 'Refs 是一个应急方案。你应该只在你必须“跳出 React”时使用它们。这方面的常见示例包括管理焦点、滚动位置或调用 React 未暴露的浏览器 API。如果你坚持聚焦和滚动等非破坏性操作，应该不会遇到任何问题。但是，如果你尝试手动修改 DOM，则可能会与 React 所做的更改发生冲突。'
+            }
+          ],
+          summary: [
+            'Refs 是一个通用概念，但大多数情况下你会使用它们来保存 DOM 元素。',
+            '你通过传递 <div ref={myRef}> 指示 React 将 DOM 节点放入 myRef.current。',
+            '通常，你会将 refs 用于非破坏性操作，例如聚焦、滚动或测量 DOM 元素。',
+            '默认情况下，组件不暴露其 DOM 节点。 您可以通过使用 forwardRef 并将第二个 ref 参数传递给特定节点来暴露 DOM 节点。',
+            '避免更改由 React 管理的 DOM 节点。',
+            '如果你确实修改了 React 管理的 DOM 节点，请修改 React 没有理由更新的部分'
+          ]
+        }
+      },
     ]
   }
 

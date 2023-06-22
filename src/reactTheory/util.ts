@@ -3,14 +3,12 @@ import { formatToTreeData } from "../util/utils";
 import { ReactTheoryProps } from "./types";
 
 export const getTreeData =  (data: ReactTheoryProps) => {
-  const arr =  Object.entries(data)?.map(([key, value], index) => {
-    const { title, path, type } = value || {} as any;
+  const arr = Object.entries(data)?.map(([key, value = {}], index) => {
+    // const { title, path, type } = value || {} as any;
     return { 
-      title, 
+      ...value, 
       belongTo: key, 
       key: `${index}-0`, 
-      path,
-      type
       // children: questionList && formatToTreeData(questionList, `${index}-0`) 
     };
   });
@@ -20,10 +18,21 @@ export const getTreeData =  (data: ReactTheoryProps) => {
       belongTo: 0, 
       key: 0, 
       path: '/react',
+      id: 'learn React',
       type: ICON_ADD_DIR_TYPE,
       dirIconType: ICON_ADD_DIR_TYPE,
       children: arr
-    }
+    },
+    {
+      title: 'react哲学', 
+      belongTo: 0, 
+      key: 1, 
+      path: '/react',
+      id: 'Thinking in React',
+      type: ICON_ADD_DIR_TYPE,
+      dirIconType: ICON_ADD_DIR_TYPE,
+      children: []
+    },
   ]
 }
 
