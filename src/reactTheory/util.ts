@@ -36,11 +36,12 @@ export const getTreeData =  (data: ReactTheoryProps) => {
   ]
 }
 
-export const getAnchorItems = (data: ReactTheoryProps) => data &&  Object.entries(data)?.map(([key, value], index) => {
+export const getAnchorItems = (data: ReactTheoryProps, questionId: string) => data &&  Object.entries(data)?.map(([key, value], index) => {
   const { h2, id, questionList } = value || {} as any;
   return {
     key: h2,
     href: `#${id}`,
+    id,
     title:`${h2}`,
     children: questionList?.map((v: {question: string, href: string; title: string, id?: string}) => {
       // const theories = v.detail?.theory?.map(h => ({
@@ -54,6 +55,7 @@ export const getAnchorItems = (data: ReactTheoryProps) => data &&  Object.entrie
       //   title: "总结",
       // }]: [];
       return {
+        ...v,
         key: v.question,
         href: `#${v.id}`,
         title: `${v.question}`,
@@ -61,4 +63,4 @@ export const getAnchorItems = (data: ReactTheoryProps) => data &&  Object.entrie
       }
     })
   }
-});
+}).filter(d => !questionId || d.id === questionId);

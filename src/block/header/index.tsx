@@ -1,4 +1,4 @@
-import { Row } from "antd";
+import { Affix, Row } from "antd";
 import "./index.scss";
 import { defaultGetPrefixCls } from "../../util/utils";
 import SearchInput from "./SearchInput";
@@ -20,16 +20,14 @@ function Header({ onSearch }: { onSearch: (e: any) => void }, ref: any) {
   }, []);
 
   return (
-    <>
+    <Affix offsetTop={0}>
       <header className={rclsHeader} ref={headerRef}>
         <Row className={rowCls} justify={"space-between"}>
           <SearchInput onSearch={onSearch} />
           <Menu />
         </Row>
       </header >
-      {/* 占位 */}
-      <div style={{ height: headerRef.current?.clientHeight }} />
-    </>
+    </Affix>
   );
 }
 

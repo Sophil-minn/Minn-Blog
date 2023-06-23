@@ -4,9 +4,9 @@ import { CANCEL, CONFIRM, ICON_ADD_DIR_TYPE, ICON_ADD_SQUARE_TYPE, ICON_ADD_TYPE
 import { optionsDirectory, optionsFilter } from "../config";
 import { useState } from "react";
 
-interface PropsType { type: string; submit: Function; setIsModalOpen: Function; setType: Function; }
+interface PropsType { iconType: string; submit: Function; setIsModalOpen: Function; setIconType: Function; }
 
-export default function useModalHocMapData({ type, submit, setIsModalOpen, setType }: PropsType) {
+export default function useModalHocMapData({ iconType, submit, setIsModalOpen, setIconType }: PropsType) {
   const [form] = Form.useForm();
   const [item, setItem] = useState();
   const onItemClick = (item: any) => {
@@ -19,18 +19,18 @@ export default function useModalHocMapData({ type, submit, setIsModalOpen, setTy
 
   const onHandle = (btnType: string) => {
     if (btnType === CONFIRM) {
-      if ([ICON_FILTER_TYPE, ICON_ADD_TYPE].includes(type)) {
+      if ([ICON_FILTER_TYPE, ICON_ADD_TYPE].includes(iconType)) {
         return form.submit();
-      } else if ([ICON_ADD_DIR_TYPE].includes(type)) {
+      } else if ([ICON_ADD_DIR_TYPE].includes(iconType)) {
         return submit(item);
       }
-      submit(contentMap[type])
+      submit(contentMap[iconType])
     }
     if (btnType === RESET) {
       form.resetFields();
     }
     if (btnType === CANCEL) {
-      setType(undefined);
+      setIconType(undefined);
       setIsModalOpen(false);
     }
   }

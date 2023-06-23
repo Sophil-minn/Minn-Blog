@@ -13,7 +13,7 @@ function useReactTheoryData(type: string) {
 
   const treeData = getTreeData(data);
 
-  const anchorItems = getAnchorItems(data);
+  const anchorItems = getAnchorItems(data, questionId);
 
   return { treeData, loading, contentList: Object.values(data) , contentData: data?.[questionId] && [data?.[questionId]], anchorItems };
   

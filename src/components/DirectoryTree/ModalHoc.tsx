@@ -5,18 +5,18 @@ import './index.scss';
 import useModalHocMapData from './hooks/useModalHocMapData';
 
 function ModalHoc(props: Record<string, any>) {
-  const { type, isModalOpen, setIsModalOpen, setType, submit } = props;
-  const { titleMap, contentMap, onHandle } = useModalHocMapData({ type, submit, setIsModalOpen, setType });
-  const jsx = useMemo(() => contentMap[type], [contentMap, type]);
+  const { iconType, isModalOpen, setIsModalOpen, setIconType, submit } = props;
+  const { titleMap, contentMap, onHandle } = useModalHocMapData({ iconType, submit, setIsModalOpen, setIconType });
+  const jsx = useMemo(() => contentMap[iconType], [contentMap, iconType]);
   return (
     <Modal
       open={isModalOpen}
-      title={titleMap?.[type]}
+      title={titleMap?.[iconType]}
       className='datasource-flexibility-realease__modal-hoc'
       onCancel={() => onHandle('cancel')}
       footer={[
         <Button key="back" onClick={() => onHandle(CANCEL)}> 取消</Button>,
-        type === ICON_FILTER_TYPE && <Button
+        iconType === ICON_FILTER_TYPE && <Button
           key="reset"
           onClick={() => onHandle(RESET)}
         >

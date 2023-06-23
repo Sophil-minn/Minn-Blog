@@ -1,0 +1,3 @@
+interface HTMLDivElement {
+  getBoundingRect(): DOMRect
+}

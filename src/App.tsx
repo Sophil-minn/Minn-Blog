@@ -2,7 +2,7 @@ import './index.css';
 import { routeConfig } from './config/routerConfig';
 import { Route, Routes, useRoutes } from 'react-router-dom';
 import Header from './block/header';
-import { createContext, useCallback, useEffect, useRef, useState } from 'react';
+import { Suspense, createContext, useCallback, useEffect, useRef, useState } from 'react';
 import Monaco from './pages/demo/monaco';
 import RenderCode from './pages/demo/monaco/RenderCode';
 
@@ -28,7 +28,9 @@ function App() {
     <div className="App">
       <Header onSearch={onSearch} ref={topRef} />
       <GlobalContext.Provider value={{ targetOffset }}>
-        {routes}
+        <Suspense fallback={<div>Loading...</div>}>
+          {routes}
+        </Suspense>
       </GlobalContext.Provider>
     </div >
   );

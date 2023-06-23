@@ -20,10 +20,9 @@ const Introductions = (props: { dataList: ReactTheoryProps[], anchorItems: any }
     {dataList?.map(data => {
       const { questionList = [], h2, id, summary } = data || {};
       return data && (
-
-        <div className={cls} key={id}>
-          {id !== 'descriptionUI' && <Divider />}
-          <Title level={2} className='title-2' id={id}>{h2}</Title>
+        <div className={cls} key={id} >
+          {/* {id !== 'descriptionUI' && <Divider />} */}
+          <Title level={2} className='title-2' id={id} > {h2}</Title>
           <Paragraph>{summary}</Paragraph>
           {
             questionList.map((v, i) => (<Introduction data={v} key={v.id} index={i} />))
