@@ -9,7 +9,7 @@ export const reactItem = {
       title: "react哲学",
       tips: "react哲学总结",
       disabled: false,
-      path: "/thinkingInReact",
+      path: "/thinking-in-react",
       pathType: "",
       statusCode: STATE.NEW
     },
@@ -25,28 +25,30 @@ export const reactItem = {
       title: "reactAPI实践",
       tips: "react项目实践沉淀",
       disabled: false,
-      path: "/apiPractice",
+      path: "/api-practice",
       pathType: "",
       statusCode: ""
     },
-    {
-      title: "react组件实战",
-      tips: "react项目组件沉淀",
-      path: "",
-      pathType: "",
-      statusCode: ""
-    },
+    // {
+    //   title: "react组件实战",
+    //   tips: "react项目组件沉淀",
+    //   path: "",
+    //   pathType: "",
+    //   statusCode: ""
+    // },
     {
       title: "react状态管理",
       tips: "react状态管理沉淀",
-      path: "",
+      path: "/managing-state",
+      disabled: false,
       pathType: "",
       statusCode: ""
     },
     {
       title: "react原理",
       tips: "react原理深入学习沉淀",
-      path: "",
+      path: "react-principle",
+      disabled: false,
       pathType: "",
       statusCode: ""
     },

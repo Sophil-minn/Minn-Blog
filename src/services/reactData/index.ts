@@ -1,4 +1,4 @@
-import { ReactTheoryProps } from "../../reactTheory/types";
+import { ReactTheoryProps } from "../../pages/reactTheory/types";
 import { formatToTreeData } from "../../util/utils";
 import { reactTheory } from "./initialData";
 

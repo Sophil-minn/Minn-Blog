@@ -1,12 +1,12 @@
 import { Affix, Anchor, Card, Col, Row } from 'antd';
 import './index.scss';
-import DirectoryTree from '../components/DirectoryTree';
+import DirectoryTree from '../../components/DirectoryTree';
 import { breadCrumbItems } from './config';
-import Breadcrumb from '../components/Breadcrumb';
+import Breadcrumb from '../../components/Breadcrumb';
 import useReactTheoryData from './hooks/useReactTheoryData';
 import Introductions from './introductions';
-import Loading from '../components/Loading';
-import { GlobalContext } from '../App';
+import Loading from '../../components/Loading';
+import { GlobalContext } from '../../App';
 import { useContext } from 'react';
 
 export default function ReactTheory(props: any) {

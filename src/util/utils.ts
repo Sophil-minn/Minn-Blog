@@ -1,4 +1,4 @@
-import { QuestionItemProps } from "../reactTheory/types";
+import { QuestionItemProps } from "../pages/reactTheory/types";
 
 export const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
   if (customizePrefixCls) return customizePrefixCls;

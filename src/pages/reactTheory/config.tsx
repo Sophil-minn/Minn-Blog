@@ -1,5 +1,5 @@
 import { HomeOutlined } from "@ant-design/icons";
-import { BreadCrumbItemsProps } from "../types";
+import { BreadCrumbItemsProps } from "../../types";
 
 export const breadCrumbItems: BreadCrumbItemsProps[] = [
   {

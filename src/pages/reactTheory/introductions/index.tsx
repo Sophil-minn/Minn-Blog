@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import './index.scss';
 import { ReactTheoryProps } from '../types';
 import Introduction from './Introduction';
-import { GlobalContext } from '../../App';
+import { GlobalContext } from '../../../App';
 import { useContext } from 'react';
 
 const { Title, Paragraph } = Typography;

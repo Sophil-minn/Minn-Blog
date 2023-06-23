@@ -1,5 +1,5 @@
-import { ICON_ADD_DIR_TYPE } from "../components/DirectoryTree/const";
-import { formatToTreeData } from "../util/utils";
+import { ICON_ADD_DIR_TYPE } from "../../components/DirectoryTree/const";
+import { formatToTreeData } from "../../util/utils";
 import { ReactTheoryProps } from "./types";
 
 export const getTreeData =  (data: ReactTheoryProps) => {

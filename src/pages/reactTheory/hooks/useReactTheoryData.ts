@@ -1,4 +1,4 @@
-import { fetchReactData } from "../../services/reactData"
+import { fetchReactData } from "../../../services/reactData"
 import { useRequest } from "ahooks"
 import { ReactTheoryProps } from "../types";
 import { getTreeData, getAnchorItems } from "../util";

@@ -1,5 +1,4 @@
-import React from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export default function Label({ label, keypath, path }: { label: string, keypath: string, path: string }) {
   console.log('title: ', path);
@@ -12,10 +11,5 @@ export default function Label({ label, keypath, path }: { label: string, keypath
     }}>
       {label}
     </div>
-    // <NavLink
-    //   to={label}
-    //   end
-    // // ...
-    // > {label}</NavLink>
   )
 }
