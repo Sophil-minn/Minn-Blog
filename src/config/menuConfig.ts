@@ -16,44 +16,42 @@ export const componentsItem = {
   description: "组件开发沉淀",
   list: [
     {
-      title: "组件开发环境配置",
-      tips: "组件库开发环境搭建",
-      path: "",
+      title: "组件库开发",
+      tips: "组件库开发",
+      path: "/components-development/libary-dev",
+      disabled: false,
       pathType: "",
       statusCode: ""
     },
     {
-      title: "完善组件单测",
-      tips: "组件单测",
-      path: "",
+      title: "组件开发环境配置",
+      tips: "组件开发环境配置",
+      path: "/components-development/dev-enviroment",
       pathType: "",
-      statusCode: STATE.WAIT_ONLINE
+      disabled: false,
+      // statusCode: STATE.WAIT_ONLINE
     },
     {
       title: "工程化",
       tips: "组件模版工程化",
-      path: "",
+      path: "/components-development/enginering",
+      disabled: false,
       pathType: "",
       statusCode: ""
     },
     {
       title: "组件设计理论",
       tips: "组件设计理论",
-      path: "",
+      path: "/components-development/component-theory",
+      disabled: false,
       pathType: "",
       statusCode: ""
     },
     {
-      title: "简单组件实战",
-      tips: "简单组件开发",
-      path: "",
-      pathType: "",
-      statusCode: ""
-    },
-    {
-      title: "复杂组件沉淀",
-      tips: "复杂组件实战",
-      path: "",
+      title: "组件沉淀",
+      tips: "组件沉淀",
+      path: "/components-development/component-settle-down",
+      disabled: false,
       pathType: "",
       statusCode: ""
     },
@@ -422,8 +420,6 @@ export const softwareItem = {
 };
 
 export const navigationEntranceList:NavInfoProps[] = [
-  // webpackItem,
-  // gitItem,
   nodejsItem,
   netWorkItem,
   navigationItem,
@@ -432,7 +428,31 @@ export const navigationEntranceList:NavInfoProps[] = [
   // vueItem
 ];
 
+// 前端工程化篇
+const factoryItem = {
+  title: "前端工程化",
+  description: "前端工程化概念及原理学习总结",
+  list:[
+      {
+          title: "前端模块化",
+          tips: "",
+          path: "/",
+          pathType: "",
+          statusCode: STATE.NEW,
+          
+      },
+      {
+          title: "前端组件化",
+          tips: "",
+          path: "/",
+          pathType: "",
+          statusCode: STATE.NEW,
+          
+      },
+  ]
+};
+
 // export const vueNavigation = [vueItem];
 
 
-export {reactItems, vueItems}
+export {reactItems, vueItems, webpackItem, factoryItem, gitItem}

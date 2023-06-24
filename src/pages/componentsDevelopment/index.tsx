@@ -27,11 +27,6 @@ const ComponentsDevelopment = () => {
 
   }
 
-  // const onTitleClick = ({ key }: any) => {
-  //   console.log('key: ', key);
-
-  // }
-
   return <Container cls={cls}>
     <Row gutter={8}>
       <Col flex="260px">
@@ -47,7 +42,9 @@ const ComponentsDevelopment = () => {
         </Card>
       </Col>
       <Col flex="auto">
-        <Card><Outlet /></Card>
+        <Card>
+          <Outlet />
+        </Card>
       </Col>
     </Row>
   </Container >

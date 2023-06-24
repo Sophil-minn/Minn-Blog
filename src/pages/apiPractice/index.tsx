@@ -23,7 +23,7 @@ const ApiPractice = () => {
   };
 
   const onMenuItemClick = ({ item, key, keyPath }: Record<string, any>) => {
-    console.log('item, key, keyPath: ', item, key, keyPath);
+    // console.log('item, key, keyPath: ', item, key, keyPath);
 
   }
 

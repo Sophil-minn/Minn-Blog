@@ -1,9 +1,10 @@
 import React from 'react'
 import { useParams } from 'react-router-dom';
 import { componentsMap } from './config';
+import { LIBARY_DEV, COMPONENT_SETTLE_DWON, COMPONENT_THEORY, DEV_ENVIROMENT, ENGINERING } from '../const';
 
 interface RouteParams {
-  id: "A" | "B"
+  id: typeof LIBARY_DEV | typeof COMPONENT_SETTLE_DWON | typeof COMPONENT_THEORY | typeof DEV_ENVIROMENT | typeof ENGINERING
 }
 
 export default function CDemo() {
@@ -11,7 +12,7 @@ export default function CDemo() {
   const Comp = id ? componentsMap?.[id] || undefined : undefined;
   return (
     <div>
-      {Comp ? <Comp /> : null}
+      {Comp ? <Comp /> : <div>组件库开发</div>}
     </div>
   )
 }
