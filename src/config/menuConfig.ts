@@ -1,6 +1,7 @@
 import { NavInfoProps } from "../types";
 import { STATE } from "./const";
-import { reactItem } from "./react";
+import { reactItems } from "./reactItems";
+import { vueItems } from "./vueItems";
 
 
 // vue篇
@@ -428,10 +429,10 @@ export const navigationEntranceList:NavInfoProps[] = [
   navigationItem,
   dataStructureItem,
   algorithmItem,
-  vueItem
+  // vueItem
 ];
 
-export const vueNavigation = [vueItem];
+// export const vueNavigation = [vueItem];
 
 
-export {reactItem}
+export {reactItems, vueItems}

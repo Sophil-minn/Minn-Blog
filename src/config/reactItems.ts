@@ -1,7 +1,7 @@
 import { STATE } from "./const";
 
 // react 篇
-export const reactItem = {
+export const reactItems = {
   title: "react篇",
   description: "react学习沉淀",
   list: [

@@ -69,9 +69,9 @@ const SectionInfo = ({ navInfo }: { navInfo: NavInfoProps }) => (
                 </Popover>
               </Col>
               <Col>
-                {statusCode && (STATE_TEXT as any)[statusCode] ? (
+                {/* {statusCode && (STATE_TEXT as any)[statusCode] ? (
                   <Tag className={`state-type ${clsMap[statusCode]} `} color={colorMap[statusCode]}>{(STATE_TEXT as any)[statusCode]}</Tag>
-                ) : null}
+                ) : null} */}
               </Col>
             </Row>
           </div>

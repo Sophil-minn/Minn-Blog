@@ -2,7 +2,7 @@ import { Col, Space } from "antd";
 import "./index.scss";
 import MoreNav from "./MoreNav";
 import ToGithub from "./ToGithub";
-import { navigationEntranceList, perfomanceItem, reactItem, componentsItem, softwareItem } from "../../config/menuConfig";
+import { navigationEntranceList, perfomanceItem, reactItems, componentsItem, softwareItem, vueItems } from "../../config/menuConfig";
 import DropdownNav from "./DropdownNav";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button";
@@ -13,7 +13,8 @@ export default function Menu() {
   return (
     <Col>
       <Space>
-        <DropdownNav navigationItem={reactItem} title="react" />
+        <DropdownNav navigationItem={reactItems} title="react" />
+        <DropdownNav navigationItem={vueItems} title="vue" />
         {/* <DropdownNav navigationItem={componentsItem} title="组件开发" /> */}
         <Button onClick={() => navigate('/components-development')}>组件开发</Button>
         <Button onClick={() => navigate('/performance-optimization')}>性能优化</Button>
