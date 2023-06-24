@@ -47,7 +47,7 @@ const ApiPractice = () => {
         </Card>
       </Col>
       <Col flex="auto">
-        <Outlet />
+        <Card><Outlet /></Card>
       </Col>
     </Row>
   </Container >

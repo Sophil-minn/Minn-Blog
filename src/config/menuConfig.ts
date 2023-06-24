@@ -353,33 +353,23 @@ const netWorkItem = {
   ],
 };
 // 前端工程化篇
-export const factoryItem = {
-  title: "前端工程化",
+export const nodejsItem = {
+  title: "nodejs",
   description: "前端工程化概念及原理学习总结",
   list:[
       {
-          title: "前端模块化",
+          title: "入门",
           tips: "",
           path: "/",
           pathType: "",
           statusCode: STATE.NEW,
-          
       },
       {
-          title: "前端组件化",
+          title: "深入",
           tips: "",
           path: "/",
           pathType: "",
           statusCode: STATE.NEW,
-          
-      },
-      {
-          title: "css module",
-          tips: "",
-          path: "/",
-          pathType: "",
-          statusCode: STATE.NEW,
-          
       },
   ]
 };
@@ -431,8 +421,9 @@ export const softwareItem = {
 };
 
 export const navigationEntranceList:NavInfoProps[] = [
-  webpackItem,
-  gitItem,
+  // webpackItem,
+  // gitItem,
+  nodejsItem,
   netWorkItem,
   navigationItem,
   dataStructureItem,

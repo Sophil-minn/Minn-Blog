@@ -1,6 +1,4 @@
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
-import { MenuProps } from 'antd';
-import Label from './Label';
+import MenuLabel from '../../components/MenuLabel';
 
 // submenu keys of first level
 export const rootSubmenuKeys = ['sub11', 'sub2', 'sub4'];
@@ -26,7 +24,7 @@ function getItem(
     key,
     icon,
     children,
-    label: <Label keypath={key} path={path} label={label} />,
+    label: <MenuLabel keypath={key} path={path} label={label} />,
     type,
     path
   } as MenuItem;

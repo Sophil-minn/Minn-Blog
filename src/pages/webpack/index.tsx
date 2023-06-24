@@ -8,10 +8,10 @@ import { Outlet } from 'react-router-dom';
 import { items, rootSubmenuKeys } from './config';
 
 const cls = classNames({
-  'minn-principle': true
+  'minn-components-development': true
 });
 
-const ReactPrinciple = () => {
+const ComponentsDevelopment = () => {
   const [openKeys, setOpenKeys] = useState(['sub1']);
   const onOpenChange: MenuProps['onOpenChange'] = (keys) => {
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
@@ -53,4 +53,4 @@ const ReactPrinciple = () => {
   </Container >
 }
 
-export default ReactPrinciple; 
+export default ComponentsDevelopment; 
