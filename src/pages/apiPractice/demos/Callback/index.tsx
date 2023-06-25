@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react'
 import { Checkbox, Divider, Typography } from 'antd';
-import Code from '../../../components/Code';
+import Code from '../../../../components/Code';
 import { code1 } from './code';
 import ProductPage from './ProductPage';
 
@@ -13,7 +13,7 @@ export default function Callback() {
     <>
       <Title level={4}>Callback</Title>
       <Paragraph>useCallback 是一个 React Hook,它允许你在重渲染之间缓存函数的定义。</Paragraph>
-      {/* <Code value={code1} /> */}
+      <Code value={code1} />
       <Title level={5}>示例</Title>
       {/* onChange={e => setIsDark(e.target.checked)} 每次都会渲染productPage */}
       <Title level={5}> Memoizing a function </Title>
@@ -33,9 +33,9 @@ export default function Callback() {
 
 
         <ProductPage
-          referrerId="wizard_of_oz"
+          referrer="wizard_of_oz"
           productId={123}
-        // theme={isDark ? 'dark' : 'light'}
+          theme={isDark ? 'dark' : 'light'}
         />
 
         <Title level={4}>Should you add useCallback everywhere? </Title>

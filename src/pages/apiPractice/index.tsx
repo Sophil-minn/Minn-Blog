@@ -33,14 +33,13 @@ const ApiPractice = () => {
   // }
 
   return <Container cls={cls}>
-    <Row gutter={8}>
+    <Row gutter={8} wrap={false}>
       <Col flex="260px">
         <Card>
           <Menu
             mode="inline"
             openKeys={openKeys}
             onOpenChange={onOpenChange}
-            style={{ width: 256 }}
             items={items}
             onClick={onMenuItemClick}
           />
