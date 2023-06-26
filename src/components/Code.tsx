@@ -1,60 +1,75 @@
 import Editor, { DiffEditor, useMonaco, loader } from '@monaco-editor/react';
+import { Card, Collapse } from 'antd';
+import * as monaco from 'monaco-editor';
 import { useEffect, useRef, useState } from 'react';
 // import './codeTypes.d.ts';
 
-export default function Code({ value = "// some comment" }) {
-  const [rect, setRect] = useState<{ rect?: DOMRect }>({});
+export default function Code({ value = "// some comment", title = "title", height = 200 }) {
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const editorRef = useRef(null);
-  const monaco = useMonaco();
 
   useEffect(() => {
     // do conditional chaining
-    monaco?.languages.typescript.javascriptDefaults.setEagerModelSync(true);
-    // or make sure that it exists by other ways
-    if (monaco) {
-      console.log('here is the monaco instance:', monaco);
+    try {
+      requestIdleCallback(() => {
+        monaco?.languages.typescript.javascriptDefaults.setEagerModelSync(true);
+      }, { timeout: 1000 })
+      // monaco?.languages.typescript.javascriptDefaults.setEagerModelSync(true);
+      // or make sure that it exists by other ways
+      // if (monaco) {
+      //   console.log('here is the monaco instance:', monaco);
+      // }
+    } catch (error) {
     }
+
   }, [monaco]);
 
   useEffect(() => {
     if (wrapperRef.current) {
-      // ResizeObserver 可以在元素大小变化后执行回调,所以在这里可以获取元素的最新 rect。
-      const observer = new ResizeObserver(() => {
-        const rect = wrapperRef.current?.getBoundingClientRect();
-        // 使用 rect
-        setRect({ rect })
+      // const rect = wrapperRef.current?.getBoundingClientRect();
+      monaco.editor.create(wrapperRef.current, {
+        value,
+        language: 'typescript',
       });
-      observer.observe(wrapperRef.current);
+
     }
-  });
+    // try {
+    //   requestIdleCallback(() => {
 
-  function handleEditorDidMount(editor: any, monaco: any) {
-    editorRef.current = editor;
-    console.log(editor, 1111);
-  }
+    //   }, { timeout: 1000 })
 
-  function handleEditorChange(value: string | undefined, event: any) {
-    console.log('here is the current model value:', value);
-  }
+    // } catch (error) {
 
-  function handleEditorWillMount(monaco: any) {
-    monaco.languages.typescript.javascriptDefaults.setEagerModelSync(true);
-  }
+    // }
+    return () => {
+      try {
+        if (wrapperRef.current) {
+          // wrapperRef.current = null;
+          const node = wrapperRef.current;
+          if (node) {
+            node.innerHTML = '';
+          }
+        }
+      } catch (error) {
+
+      }
+
+    }
+
+  }, []);
+
+
   return (
-    <div ref={wrapperRef}>
-      {/* <Editor height="90" defaultLanguage="javascript" defaultValue="// some comment" /> */}
-      <Editor
-        height={rect.rect?.height}
-        width={rect.rect?.width}
-        defaultLanguage="javascript"
-        defaultValue="// value comment"
-        value={value}
-        beforeMount={handleEditorWillMount}
-        onMount={handleEditorDidMount}
-        onChange={handleEditorChange}
+    <Card bordered={false} bodyStyle={{ padding: '8px 0', overflow: 'auto' }}>
+      <Collapse
+        defaultActiveKey={['1']}
+        items={[
+          {
+            key: '1',
+            label: title,
+            children: <div ref={wrapperRef} style={{ height }} />,
+          }
+        ]}
       />
-      {/* <Editor height="90vh" defaultValue="// some comment" defaultLanguage="javascript" /> */}
-    </div>
+    </Card>
   )
 }
