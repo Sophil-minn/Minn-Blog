@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { GlobalContext } from '../../../../App';
-import { Anchor, Tooltip } from 'antd';
+import { Affix, Anchor, Tooltip } from 'antd';
 import { anchorItems } from './config';
 
 export default function Ancho() {
@@ -12,11 +12,13 @@ export default function Ancho() {
     );
   const items = loop(anchorItems);
   return (
-    <Anchor
-      affix
-      offsetTop={targetOffset - 26}
-      targetOffset={targetOffset - 30}
-      items={items as any}
-    />
+    <Affix offsetTop={targetOffset - 26}>
+      <Anchor
+        affix
+        // offsetTop={targetOffset - 26}
+        // targetOffset={targetOffset - 30}
+        items={items as any}
+      />
+    </Affix>
   )
 }

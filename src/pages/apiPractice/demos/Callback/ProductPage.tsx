@@ -25,7 +25,7 @@ export default function ProductPage({ productId, referrer }: any) {
 
 
   return (
-    <div className={isDark ? 'dark' : 'light'}>
+    <div>
       <p><b>Note: <code>ShippingForm</code> is artificially slowed down!</b></p>
       <Paragraph>
         这段代码使用 performance.now() 来获取当前的高精度时间戳,并在 500ms 的时间间隔内不执行任何操作,以模拟极慢的代码执行。
@@ -43,18 +43,20 @@ export default function ProductPage({ productId, referrer }: any) {
         通过适当的设置和组合,可以达到较高的模拟真实度,更好地检验应用的健壮性。
         所以,本示例主要目的是演示如何使用 performance.now() 来人为模拟和控制代码的执行时长,以便进行相应的测试和调试工作。在实践中,需要根据具体的测试场景选择更加适合的方式来实现。
       </Paragraph>
-      <label>
-        <Checkbox
-          type="checkbox"
-          checked={isDark}
-          onChange={onChange}
-        />
-        Dark mode
-      </label>
-      <Divider />
-      <Suspense fallback={<Spin tip="loading ShippingForm" />}>
-        {showForm ? <ShippingForm onSubmit={handleSubmit} /> : <Spin tip="loading ShippingForm" />}
-      </Suspense>
+      <div className={isDark ? 'dark' : 'light'}>
+        <label>
+          <Checkbox
+            type="checkbox"
+            checked={isDark}
+            onChange={onChange}
+          />
+          Dark mode
+        </label>
+        <Divider />
+        <Suspense fallback={<Spin tip="loading ShippingForm" />}>
+          {showForm ? <ShippingForm onSubmit={handleSubmit} /> : <Spin tip="loading ShippingForm" />}
+        </Suspense>
+      </div>
     </div>
   );
 }

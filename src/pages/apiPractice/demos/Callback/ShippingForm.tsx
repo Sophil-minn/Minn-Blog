@@ -1,5 +1,5 @@
 
-import { Spin, Typography } from 'antd';
+import { Button, Form, Input, Spin, Typography } from 'antd';
 import { Suspense, lazy, memo, useState } from 'react';
 import { code9 } from './code';
 import Loading from '../../../../components/Loading';
@@ -30,30 +30,30 @@ const ShippingForm = memo(function ShippingForm({ onSubmit }: any) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <Form>
       <Suspense fallback={<Spin tip="loading code" />}>
-        <SimpleCode value={code9} id="Reference" title="1、Reference" height={100} />
+        <SimpleCode value={code9} id="artificially slowed down" title="artificially slowed down" height={100} />
       </Suspense>
       <label>
         Number of items:
-        <button type="button" onClick={() => setCount(count - 1)}>–</button>
+        <Button type="primary" onClick={() => setCount(count - 1)}>–</Button>
         {count}
-        <button type="button" onClick={() => setCount(count + 1)}>+</button>
+        <Button type="primary" onClick={() => setCount(count + 1)}>+</Button>
       </label>
       <label>
         Street:
-        <input name="street" />
+        <Input name="street" />
       </label>
       <label>
         City:
-        <input name="city" />
+        <Input name="city" />
       </label>
       <label>
         Postal code:
-        <input name="zipCode" />
+        <Input name="zipCode" />
       </label>
-      <button type="submit">Submit</button>
-    </form>
+      <Button type="primary">Submit</Button>
+    </Form>
   );
 });
 

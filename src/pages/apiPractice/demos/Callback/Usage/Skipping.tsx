@@ -1,14 +1,14 @@
-import { Typography } from 'antd';
+import { Divider, Typography } from 'antd';
 import React, { lazy } from 'react'
-import { code3, code4, code5, code6, code7, code8 } from './code';
+import { code3, code4, code5, code6, code7, code8 } from '../code';
 
-const SimpleCode = lazy(() => import('../../../../components/SimpleCode'));
-const Code = lazy(() => import('../../../../components/Code'));
-const Example = lazy(() => import('./Example'));
+const SimpleCode = lazy(() => import('../../../../../components/SimpleCode'));
+const Code = lazy(() => import('../../../../../components/Code'));
+const Example = lazy(() => import('../Example'));
 
 const { Title, Paragraph, Text } = Typography;
 
-export default function Usage() {
+export default function Skipping() {
   return (
     <>
       <Title level={2} id="用法">2、用法</Title>
@@ -24,8 +24,10 @@ export default function Usage() {
       <Paragraph>
         默认情况下,当一个组件重新渲染时,React 会递归地重新渲染其所有子组件。 这就是为什么在 ProductPage 以不同的 theme 重新渲染时,ShippingForm 组件也会重新渲染。对于不需要太多计算就能重新渲染的组件来说,这没问题。但是如果你确认重新渲染很慢,你可以告诉 ShippingForm 当其 props 与上次渲染相同时跳过重新渲染,方法是使用 memo 包装它:
       </Paragraph>
+      <Divider />
       <SimpleCode value={code4} id="memo-example" title="memo example" height={100} />
       <Paragraph>With this change, ShippingForm will skip re-rendering if all of its props are the same as on the last render. This is when caching a function becomes important! Let’s say you defined handleSubmit without useCallback:</Paragraph>
+      <Divider />
       <Title level={5} id="without-useCallback">Without useCallback</Title>
       <Code value={code5} title="without useCallback" />
       <Paragraph>
@@ -34,11 +36,13 @@ export default function Usage() {
       <Paragraph>
         In JavaScript, a function () { } or () ={'>'} { } always creates a different function, similar to how the { } object literal always creates a new object. Normally, this wouldn’t be a problem, but it means that ShippingForm props will never be the same, and your memo optimization won’t work. This is where useCallback comes in handy:
       </Paragraph>
+      <Divider />
       <Title level={5} id="with-useCallback">With useCallback</Title>
       <Code value={code6} title="with useCallback" height={300} />
       <Paragraph>
         By wrapping handleSubmit in useCallback, you ensure that it’s the same function between the re-renders (until dependencies change). You don’t have to wrap a function in useCallback unless you do it for some specific reason. In this example, the reason is that you pass it to a component wrapped in memo, and this lets it skip re-rendering. There are other reasons you might need useCallback which are described further on this page.
       </Paragraph>
+      <Divider />
       <Title level={5} id="注意事项2"> 注意事项  </Title>
       <Paragraph>
         <Text type='warning'>You should only rely on useCallback as a performance optimization. If your code doesn’t work without it, find the underlying problem and fix it first. Then you may add useCallback back.</Text>
@@ -65,6 +69,7 @@ export default function Usage() {
         </ol>
         <Text type='danger'>useCallback 是一个很有用的 Hook,但必须谨慎使用。它应该仅用于解决已知的性能问题,而非预防性地添加。</Text>
       </Paragraph>
+      <Divider />
       <Title level={4} id="深入探讨2.1">深入探讨</Title>
       <Title level={5}>How is useCallback related to useMemo? </Title>
       <Paragraph>
@@ -112,6 +117,7 @@ export default function Usage() {
       <Paragraph>
         <Text type='danger'>请注意,useCallback 不会防止_创建_函数。你总是在创建一个函数(这没问题!),但是如果没有改变,React 会忽略它,并返回一个缓存的函数。</Text>
       </Paragraph>
+      <Divider />
       <Title level={4}>
         <Text strong>在实践中,你可以通过遵循以下几个原则使许多记忆化不必要: </Text>
       </Title>

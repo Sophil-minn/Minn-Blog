@@ -52,6 +52,24 @@ export default function Example() {
       <Paragraph>
         这造成了一个问题。每一个反应值必须被声明为你的 Effect 的一个依赖项。然而,如果你将 createOptions 声明为一个依赖项,它将导致你的 Effect 不断地重新连接到聊天室。
       </Paragraph>
+      <Paragraph>
+        Quite often, code without memoization works fine. If your interactions are fast enough, you don’t need memoization.
+
+        Keep in mind that you need to run React in production mode, disable React Developer Tools, and use devices similar to the ones your app’s users have in order to get a realistic sense of what’s actually slowing down your app.
+      </Paragraph>
+      <Paragraph>
+        很多时候,没有记忆化的代码也能正常工作。如果你的交互足够快,你不需要记忆化。
+        请记住,你需要在生产环境下运行 React,禁用 React Developer Tools,并使用与你的应用程序用户使用的设备相似的设备,以便实际地理解什么正在减慢你的应用程序。
+        记忆化并不总是必要的。如果你的交互已经足够快,你就不需要记忆化。
+        要想真正地理解什么正在影响你的应用程序性能,你需要:
+        <ul>
+          <li>在生产环境下运行 React,因为开发环境的额外检查会减慢应用程序。</li>
+          <li>禁用 React 开发者工具,因为它也会减慢应用程序。</li>
+          <li>使用与你的用户群类似的设备测试你的应用程序。如果你的用户主要使用廉价安卓手机,而你在高端 Macbook Pro 上开发和测试,那么你看到的性能很可能与用户的体验不符。</li>
+          <li> 考虑用户的网络连接可能会如何影响加载时间和交互响应。</li>
+        </ul>
+        所以,在添加记忆化之前,仔细检查你的应用程序,确保性能问题不是由开发环境、高端设备或其他因素造成的。对大多数应用程序来说,没有记忆化也能良好工作,所以别过于依赖它。
+      </Paragraph>
 
 
       <Title level={5}> Optimizing a custom Hook: </Title>
