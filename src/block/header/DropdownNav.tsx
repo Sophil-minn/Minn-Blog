@@ -1,13 +1,14 @@
 import { Dropdown, MenuProps, Typography } from 'antd'
 import { NavInfoProps } from '../../types';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from '../../components/Button';
 import classNames from 'classnames';
 
 const { Text } = Typography;
 
-export default function DropdownNav(props: { navigationItem: NavInfoProps, title?: string, disabled?: boolean }) {
-  const { navigationItem, title } = props;
+export default function DropdownNav(props: { navigationItem: NavInfoProps, title?: string, disabled?: boolean, path?: string }) {
+  const { navigationItem, title, path = '' } = props;
+  const navigate = useNavigate();
 
   const list: MenuProps['items'] = navigationItem.list.map(v => {
     const { disabled = true } = v;
@@ -26,7 +27,7 @@ export default function DropdownNav(props: { navigationItem: NavInfoProps, title
 
   return (
     <Dropdown menu={{ items: list }} placement="bottom" arrow>
-      <Button>{title}</Button>
+      <Button onClick={() => navigate(path)}>{title}</Button>
     </Dropdown>
   )
 }
