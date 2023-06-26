@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import classNames from 'classnames';
 
 import './index.scss';
 import Container from '../../block/container';
-import { Card, Col, Menu, MenuProps, Row } from 'antd';
+import { Affix, Card, Col, Menu, MenuProps, Row } from 'antd';
 import { Outlet } from 'react-router-dom';
 import { items, rootSubmenuKeys } from './config';
+import { GlobalContext } from '../../App';
 
 const cls = classNames({
   'minn-apiPractice': true
@@ -13,6 +14,7 @@ const cls = classNames({
 
 const ApiPractice = () => {
   const [openKeys, setOpenKeys] = useState(['sub1']);
+  const { targetOffset } = useContext(GlobalContext) as any;
   const onOpenChange: MenuProps['onOpenChange'] = (keys) => {
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
     if (rootSubmenuKeys.indexOf(latestOpenKey!) === -1) {
@@ -27,15 +29,10 @@ const ApiPractice = () => {
 
   }
 
-  // const onTitleClick = ({ key }: any) => {
-  //   console.log('key: ', key);
-
-  // }
-
   return <Container cls={cls}>
     <Row gutter={8} wrap={false}>
       <Col flex="260px">
-        <Card>
+        <Affix offsetTop={targetOffset - 26}><Card>
           <Menu
             mode="inline"
             openKeys={openKeys}
@@ -44,6 +41,7 @@ const ApiPractice = () => {
             onClick={onMenuItemClick}
           />
         </Card>
+        </Affix>
       </Col>
       <Col flex="auto">
         <Card><Outlet /></Card>
