@@ -9,6 +9,7 @@ interface ItemProps  {
 }
 export interface NavInfoProps {
   title: string;
+  path?: string;
   description: string;
   list: ItemProps[]
 }
