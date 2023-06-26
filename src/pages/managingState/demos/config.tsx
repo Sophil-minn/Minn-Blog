@@ -1,11 +1,11 @@
 import ManagingState from "..";
-import ChoosingTheStateStructure from "./ChoosingTheStateStructure";
-import ExtractingStateLogicIntoAReducer from "./ExtractingStateLogicIntoAReducer";
-import PassingDataDeeplyWithContext from "./PassingDataDeeplyWithContext";
-import PreservingAndResettingState from "./PreservingAndResettingState";
-import ReactingToInputWithState from "./ReactingToInputWithState";
-import ScalingUpWithReducerAndContext from "./ScalingUpWithReducerAndContext";
-import SharingStateBetweenComponents from "./SharingStateBetweenComponents";
+import ChoosingTheStateStructure from "../ChoosingTheStateStructure";
+import ExtractingStateLogicIntoAReducer from "../ExtractingStateLogicIntoAReducer";
+import PassingDataDeeplyWithContext from "../PassingDataDeeplyWithContext";
+import PreservingAndResettingState from "../PreservingAndResettingState";
+import ReactingToInputWithState from "../ReactingToInputWithState";
+import ScalingUpWithReducerAndContext from "../ScalingUpWithReducerAndContext";
+import SharingStateBetweenComponents from "../SharingStateBetweenComponents";
 import { CHOOSING_THE_STATE_STRUCTURE, EXTRACTING_STATE_INTO_A_REDUCER, PASSING_DATA_DEEPLY_WITH_CONTEXT, PRESERVING_AND_RESETTING_STATE, REACTING_TO_INPUT_WITH_STATE, SCALING_UP_WITH_REDUCER_ADN_CONTEXT, SHARING_STATE_BETWEEN_COMPONENTS, } from "./const";
 
 interface ComponentsMap {
