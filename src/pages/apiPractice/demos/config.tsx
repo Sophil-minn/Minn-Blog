@@ -1,3 +1,5 @@
+import React from "react";
+import Loading from "../../../components/Loading";
 import Callback from "./Callback";
 import Components from "./Components";
 import Context from "./Context";
@@ -30,7 +32,7 @@ interface RComponentsMap {
 }
 
 export const componentsMap: ComponentsMap = {
-  useCallback: () => <Callback />,
+  useCallback: () => <React.Suspense fallback={<Loading loading />}> <Callback /></React.Suspense>,
   useContext: () => <Context />,
   useDebugValue: () => <DebugValue />,
   useDeferredValue: () => <DeferredValue />,
