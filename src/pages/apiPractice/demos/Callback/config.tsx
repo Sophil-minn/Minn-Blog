@@ -2,7 +2,7 @@ export const anchorItems = [
   {
     key: 'Reference',
     href: '#Reference',
-    title: '1、Reference',
+    title: 'Reference',
     children: [
       {
         key: '注意事项',
@@ -14,12 +14,12 @@ export const anchorItems = [
   {
     key: '用法',
     href: '#用法',
-    title: '2、用法',
+    title: '用法',
     children: [
       {
         key: 'skipping-re-rendering-of-components',
         href: '#skipping-re-rendering-of-components',
-        title: '2.1、Skipping re-rendering of components',
+        title: 'Skipping re-rendering of components',
         tooltip: true,
         children: [
           {
@@ -54,12 +54,38 @@ export const anchorItems = [
           },
         ]
       },
+      {
+        key: 'updating-state-from-a-memoized-callback',
+        href: '#updating-state-from-a-memoized-callback',
+        title: 'Updating state from a memoized callback ',
+        tooltip: true,
+      },
+      {
+        key: 'Optimizing a custom Hook ',
+        href: '#Optimizing-a-custom-Hook ',
+        title: 'Optimizing a custom Hook ',
+        tooltip: true,
+      },
 
     ],
   },
   {
-    key: 'part-3',
-    href: '#part-3',
-    title: 'Part 3',
+    key: 'Troubleshooting',
+    href: '#Troubleshooting',
+    title: 'Troubleshooting ',
+    children: [
+      {
+        key: 'Every time my component renders, useCallback returns a different function',
+        href: '#useCallback-returns-a-different-function',
+        title: 'Every time my component renders, useCallback returns a different function ',
+        tooltip: true,
+      },
+      {
+        key: 'I need to call useCallback for each list item in a loop, but it’s not allowed',
+        href: '#call-useCallback-for-each-list-item-in-a-loop',
+        title: 'I need to call useCallback for each list item in a loop, but it’s not allowed',
+        tooltip: true,
+      },
+    ]
   },
 ];
