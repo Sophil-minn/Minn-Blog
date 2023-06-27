@@ -1,3 +1,4 @@
+import { Tooltip } from 'antd';
 import MenuLabel from '../../components/MenuLabel';
 
 // submenu keys of first level
@@ -62,3 +63,10 @@ export const items: MenuItem[] = [
     getItem('startTransition', 'react-API/startTransition', '25'),
   ]),
 ];
+
+
+export const loopAnchorItems = (arr: Record<string, any>[]): Record<string, any>[] =>
+  (arr || []).map((v: Record<string, any>) =>
+    ({ ...v, title: v.tooltip ? <Tooltip title={v.title}>{v.title}</Tooltip> : v.title, children: loopAnchorItems(v.children) })
+    // ({ ...v, title: <Tooltip title={v.title}>{v.title}</Tooltip>, children: loop(v.children) })
+  );
