@@ -1,13 +1,18 @@
-import AddTask from './AddTask.js';
-import TaskList from './TaskList.js';
-import { TasksProvider } from './TasksContext.js';
+import { Col, Row, Typography } from 'antd';
+import { lazy } from 'react'
+import ContextInfo from './ContextInfo';
+import AffixAncho from '../../../../components/AffixAncho';
+import { contextAnchorItems } from './config';
 
-export default function ContextWithReducer() {
+export default function Context() {
   return (
-    <TasksProvider>
-      <h1>Day off in Kyoto</h1>
-      <AddTask />
-      <TaskList />
-    </TasksProvider>
-  );
+    <Row wrap={false}>
+      <Col flex="auto">
+        <ContextInfo />
+      </Col>
+      <Col flex="280px">
+        <AffixAncho anchorItems={contextAnchorItems} />
+      </Col>
+    </Row>
+  )
 }
