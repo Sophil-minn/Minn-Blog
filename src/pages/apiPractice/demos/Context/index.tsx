@@ -1,8 +1,8 @@
 import { Col, Row, Typography } from 'antd';
 import { lazy } from 'react'
-import ContextInfo from '../ContextInfo';
-import { contextAnchorItems } from '../config';
-import AffixAncho from '../../../../components/AffixAnchor';
+import ContextInfo from './ContextInfo';
+import { contextAnchorItems } from './config';
+import AffixAnchor from '../../../../components/AffixAnchor';
 
 export default function Context() {
   return (
@@ -11,7 +11,7 @@ export default function Context() {
         <ContextInfo />
       </Col>
       <Col flex="280px">
-        <AffixAncho anchorItems={contextAnchorItems} />
+        <AffixAnchor anchorItems={contextAnchorItems} />
       </Col>
     </Row>
   )
