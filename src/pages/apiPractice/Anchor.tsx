@@ -1,9 +1,9 @@
 import React from 'react'
-import AffixAncho from '../../components/AffixAncho'
+import AffixAnchor from '../../components/AffixAnchor'
 import { hooksAnchorItems } from './config'
 
 export default function Anchor() {
   return (
-    <AffixAncho anchorItems={hooksAnchorItems} />
+    <AffixAnchor anchorItems={hooksAnchorItems} />
   )
 }
