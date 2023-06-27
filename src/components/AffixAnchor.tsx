@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { GlobalContext } from '../App';
 import { Affix, Anchor, Tooltip } from 'antd';
 
-export default function AffixAncho({ anchorItems }: { anchorItems: Record<string, any>[] }) {
+export default function AffixAnchor({ anchorItems }: { anchorItems: Record<string, any>[] }) {
   const { targetOffset } = useContext(GlobalContext) as any;
   const loop = (arr: Record<string, any>[]): Record<string, any>[] =>
     (arr || []).map((v: Record<string, any>) =>
