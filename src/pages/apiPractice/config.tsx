@@ -1,5 +1,7 @@
 import { Tooltip } from 'antd';
 import MenuLabel from '../../components/MenuLabel';
+import { anchorItems } from './demos/Callback/config';
+import { contextAnchorItems } from './demos/Context/config';
 
 // submenu keys of first level
 export const rootSubmenuKeys = ['sub11', 'sub2', 'sub4'];
@@ -64,9 +66,14 @@ export const items: MenuItem[] = [
   ]),
 ];
 
-
 export const loopAnchorItems = (arr: Record<string, any>[]): Record<string, any>[] =>
   (arr || []).map((v: Record<string, any>) =>
     ({ ...v, title: v.tooltip ? <Tooltip title={v.title}>{v.title}</Tooltip> : v.title, children: loopAnchorItems(v.children) })
     // ({ ...v, title: <Tooltip title={v.title}>{v.title}</Tooltip>, children: loop(v.children) })
   );
+
+
+export const hooksAnchorItems = [
+  ...loopAnchorItems(anchorItems),
+  ...loopAnchorItems(contextAnchorItems)
+]
