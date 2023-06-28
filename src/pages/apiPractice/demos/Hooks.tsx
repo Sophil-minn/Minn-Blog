@@ -1,18 +1,17 @@
-import { Col, Row, Spin, Typography } from 'antd';
 import CallbackInfo from './Callback/CallbackInfo'
 import ContextInfo from './Context/ContextInfo'
-import Anchor from '../Anchor';
+import { hooksAnchorItems } from '../config';
+import { withAnchor } from '../../../hoc/withAnchor';
+import DebugValueInfo from './DebugValue/DebugValueInfo';
+
+const EnhancedComponent = withAnchor(() => (
+  <>
+    <CallbackInfo />
+    <ContextInfo />
+    <DebugValueInfo />
+  </>
+))
 
 export default function Hooks() {
-  return (
-    <Row wrap={false}>
-      <Col flex="auto">
-        <div>
-          <CallbackInfo />
-          <ContextInfo />
-        </div>
-      </Col>
-      <Col flex="260px"><Anchor /></Col>
-    </Row>
-  )
+  return <EnhancedComponent anchorItems={hooksAnchorItems} />;
 }
