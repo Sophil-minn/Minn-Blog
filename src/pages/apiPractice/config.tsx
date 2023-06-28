@@ -4,6 +4,7 @@ import { anchorItems } from './demos/Callback/config';
 import { contextAnchorItems } from './demos/Context/config';
 import { AnchorItemProps } from '../../types';
 import { debugValueAnchorItems } from './demos/DebugValue/config';
+import { deferredValueAnchorItems } from './demos/DeferredValue/config';
 
 // submenu keys of first level
 export const rootSubmenuKeys = ['sub11', 'sub2', 'sub4'];
@@ -83,4 +84,5 @@ export const hooksAnchorItems: AnchorItemProps[] = [
   ...loopAnchorItems(anchorItems),
   ...loopAnchorItems(contextAnchorItems),
   ...loopAnchorItems(debugValueAnchorItems),
+  ...loopAnchorItems(deferredValueAnchorItems),
 ]
