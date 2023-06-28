@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 // import './codeTypes.d.ts';
 const { Title, Paragraph, Text } = Typography;
 
-export default function SimpleCode({ value = "// some comment", title = "title", height = 50, id = '' }) {
+export default function SimpleCode({ value = "// some comment", title = "", height = 50, id = '' }) {
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
