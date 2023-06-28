@@ -4,7 +4,7 @@ import * as monaco from 'monaco-editor';
 import { useEffect, useRef, useState } from 'react';
 // import './codeTypes.d.ts';
 
-export default function Code({ value = "// some comment", title = "title", height = 200 }) {
+export default function Code({ value = "// some comment", title = "", height = 200 }) {
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
