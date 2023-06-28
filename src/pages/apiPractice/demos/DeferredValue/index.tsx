@@ -1,8 +1,8 @@
 import { withAnchor } from '../../../../hoc/withAnchor';
-import DebugValueInfo from './DebugValueInfo';
-import { debugValueAnchorItems } from './config';
+import DeferredValueInfo from './DeferredValueInfo';
+import { deferredValueAnchorItems } from './config';
 
 export default function DebugValue() {
-  const EnhancedComponent = withAnchor(DebugValueInfo)
-  return <EnhancedComponent anchorItems={debugValueAnchorItems} />;
+  const EnhancedComponent = withAnchor(DeferredValueInfo)
+  return <EnhancedComponent anchorItems={deferredValueAnchorItems} />;
 }
