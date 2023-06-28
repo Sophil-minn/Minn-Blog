@@ -2,7 +2,7 @@ import { Card, Typography } from 'antd';
 import { lazy } from 'react'
 import { code1, code2, code3, code4, code5 } from './code';
 import Example from './Example';
-import WithUseDefferredValue from './Example/WithUseDefferredValue copy';
+import WithUseDefferredValue from './Example/WithUseDefferredValue';
 import WithTransition from './Example/WithTransition';
 import Example2 from './Example2';
 
