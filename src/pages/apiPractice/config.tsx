@@ -2,6 +2,8 @@ import { Tooltip } from 'antd';
 import MenuLabel from '../../components/MenuLabel';
 import { anchorItems } from './demos/Callback/config';
 import { contextAnchorItems } from './demos/Context/config';
+import { AnchorItemProps } from '../../types';
+import { debugValueAnchorItems } from './demos/DebugValue/config';
 
 // submenu keys of first level
 export const rootSubmenuKeys = ['sub11', 'sub2', 'sub4'];
@@ -66,14 +68,19 @@ export const items: MenuItem[] = [
   ]),
 ];
 
-export const loopAnchorItems = (arr: Record<string, any>[]): Record<string, any>[] =>
-  (arr || []).map((v: Record<string, any>) =>
-    ({ ...v, title: v.tooltip ? <Tooltip title={v.title}>{v.title}</Tooltip> : v.title, children: loopAnchorItems(v.children) })
+export const loopAnchorItems = (arr: AnchorItemProps[]): AnchorItemProps[] =>
+  (arr || []).map((v: AnchorItemProps) =>
+  ({
+    ...v,
+    title: v.tooltip ? <Tooltip title={v.title}>{v.title}</Tooltip> : v.title,
+    children: loopAnchorItems(v.children as unknown as AnchorItemProps[])
+  } as unknown as AnchorItemProps)
     // ({ ...v, title: <Tooltip title={v.title}>{v.title}</Tooltip>, children: loop(v.children) })
   );
 
 
-export const hooksAnchorItems = [
+export const hooksAnchorItems: AnchorItemProps[] = [
   ...loopAnchorItems(anchorItems),
-  ...loopAnchorItems(contextAnchorItems)
+  ...loopAnchorItems(contextAnchorItems),
+  ...loopAnchorItems(debugValueAnchorItems),
 ]
