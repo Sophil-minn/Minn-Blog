@@ -1,17 +1,24 @@
 import { Card, Typography } from 'antd';
-import { lazy } from 'react'
+import { Suspense, lazy, useEffect, useState } from 'react'
 import { code1, code2, code3, code4, code5 } from './code';
-import Example from './Example';
-import WithUseDefferredValue from './Example/WithUseDefferredValue';
-import WithTransition from './Example/WithTransition';
-import Example2 from './Example2';
+// import WithTransition from './Example/WithTransition';
+// import Example2 from './Example2';
+// import Example from './Example';
 
+const Example = lazy(() => import('./Example'));
+const Example2 = lazy(() => import('./Example2'));
+const WithTransition = lazy(() => import('./Example/WithTransition'));
 const SimpleCode = lazy(() => import('../../../../components/SimpleCode'));
 const { Title, Paragraph, Text } = Typography;
 
 export default function DeferredValueInfo() {
+  const [showExample2, setShowExample2] = useState(false);
+  useEffect(() => {
+    // 放这里，因为这个组件会阻塞整个页面加载很慢
+    setShowExample2(true);
+  }, [])
   return (
-    <>
+    <Suspense fallback="loading-deferredValueInfo">
       <Title level={3} id="useDeferredValue">useDeferredValue</Title>
       <Paragraph>useDeferredValue 是一个 React Hook，可以让你延迟更新 UI 的某些部分</Paragraph>
       <SimpleCode value="const deferredValue = useDeferredValue(value)" title="" />
@@ -45,7 +52,6 @@ export default function DeferredValueInfo() {
       <Paragraph>在更新期间，延迟值 会“滞后于”最新的 值。具体地说，React 首先会在不更新延迟值的情况下进行重新渲染，然后在后台尝试使用新接收到的值进行重新渲染。</Paragraph>
       <Title level={4}>示例</Title>
       <Example />
-      <WithUseDefferredValue />
       <Title level={5}>如何在内部实现延迟值？ </Title>
       <Paragraph>
         你可以将其看成两个步骤：
@@ -72,12 +78,15 @@ export default function DeferredValueInfo() {
       <SimpleCode value={code3} title="" height={160} />
       <Paragraph>首先，我们可以优化 SlowList，使其在 props 不变的情况下跳过重新渲染。只需将其 用 memo 包裹 即可：</Paragraph>
       <SimpleCode value={code4} title="" height={100} />
+
       <Paragraph>然而，这仅在 SlowList 的 props 与上一次的渲染时相同才有用。你现在遇到的问题是，当这些 props 不同 时，并且实际上需要展示不同的视觉输出时，页面会变得很慢。</Paragraph>
       <Paragraph>具体而言，主要的性能问题在于，每次你输入内容时，SlowList 都会接收新的 props，并重新渲染整个树结构，这会让输入感觉很卡顿。使用 useDeferredValue 能够优先更新输入框（必须快速更新），而不是更新结果列表（可以更新慢一些），从而缓解这个问题</Paragraph>
       <SimpleCode value={code5} title="" height={180} />
       <Paragraph>这并没有让 SlowList 的重新渲染变快。然而，它告诉 React 可以将列表的重新渲染优先级降低，这样就不会阻塞按键输入。列表的更新会“滞后”于输入，然后“追赶”上来。与之前一样，React 会尽快更新列表，但不会阻塞用户输入。</Paragraph>
       <Title level={3}>useDeferredValue 和未优化的重新渲染之间的区别</Title>
-      <Example2 />
+      {/* 渲染太慢，影响整个页面性能 */}
+      {showExample2 && <Suspense fallback="loading examples 2"><Example2 /></Suspense>}
+      {/* <Example2 /> */}
       <Paragraph>
         在这个例子中，SlowList 组件中的每个 item 都被 故意减缓了渲染速度，这样你就可以看到 useDeferredValue 是如何让输入保持响应的。当你在输入框中输入时，你会发现输入很灵敏，而列表的更新会稍有延迟。
       </Paragraph>
@@ -85,6 +94,7 @@ export default function DeferredValueInfo() {
       <Paragraph>
         这个优化需要将 SlowList 包裹在 memo 中。这是因为每当 text 改变时，React 需要能够快速重新渲染父组件。在重新渲染期间，deferredText 仍然保持着之前的值，因此 SlowList 可以跳过重新渲染（它的 props 没有改变）。如果没有 memo，SlowList 仍会重新渲染，这将使优化失去意义。
       </Paragraph>
+
       <Title level={3}><Text type='warning'>深入探讨: 延迟一个值与防抖和节流之间有什么不同？ </Text></Title>
       <Paragraph>
         在上述的情景中，你可能会使用这两种常见的优化技术：
@@ -97,6 +107,6 @@ export default function DeferredValueInfo() {
       <Paragraph>与防抖或节流不同，useDeferredValue 不需要选择任何固定延迟时间。如果用户的设备很快（比如性能强劲的笔记本电脑），延迟的重渲染几乎会立即发生并且不会被察觉。如果用户的设备较慢，那么列表会相应地“滞后”于输入，滞后的程度与设备的速度有关。</Paragraph>
       <Paragraph>此外，与防抖或节流不同，useDeferredValue 执行的延迟重新渲染默认是可中断的。这意味着，如果 React 正在重新渲染一个大型列表，但用户进行了另一次键盘输入，React 会放弃该重新渲染，先处理键盘输入，然后再次开始在后台渲染。相比之下，防抖和节流仍会产生不顺畅的体验，因为它们是阻*的：它们仅仅是将渲染阻塞键盘输入的时刻推迟了。</Paragraph>
       <Paragraph>如果你要优化的工作不是在渲染期间发生的，那么防抖和节流仍然非常有用。例如，它们可以让你减少网络请求的次数。你也可以同时使用这些技术。</Paragraph>
-    </>
+    </Suspense>
   )
 }
