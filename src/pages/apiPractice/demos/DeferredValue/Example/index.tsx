@@ -1,13 +1,14 @@
 import { Suspense, useState } from 'react';
 import SearchResults from './SearchResults.js';
 import { Typography } from 'antd';
+import WithUseDefferredValue from './WithUseDefferredValue';
 
 const { Title, Paragraph, Text } = Typography;
 
 export default function Example() {
   const [query, setQuery] = useState('');
   return (
-    <>
+    <Suspense fallback="未使用useDeferredValue时">
       <Title level={5}><Text type='warning'>未使用useDeferredValue时</Text></Title>
       <label>
         Search albums:
@@ -25,6 +26,7 @@ export default function Example() {
         </ul>
         这个例子中，在获取搜索结果时，SearchResults 组件会 suspend。尝试输入 "a"，等待结果出现后，将其编辑为 "ab"。此时 "a" 的结果会被加载中的 fallback 替代。
       </Paragraph>
-    </>
+      <WithUseDefferredValue />
+    </Suspense>
   );
 }
