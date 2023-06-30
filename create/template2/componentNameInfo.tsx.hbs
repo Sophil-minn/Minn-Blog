@@ -1,0 +1,18 @@
+import { Typography } from 'antd';
+import { lazy } from 'react'
+import { code1 } from './code';
+
+const SimpleCode = lazy(() => import('../../../../components/SimpleCode'));
+const { Title, Paragraph, Text } = Typography;
+
+export default function {{componentName}}Info() {
+  return (
+    <>
+      <Title level={3} id="use{{componentName}}">use{{componentName}}</Title>
+      <Paragraph></Paragraph>
+      <SimpleCode value="use{{componentName}}(,)" />
+      <Paragraph></Paragraph>
+      
+    </>
+  )
+}
