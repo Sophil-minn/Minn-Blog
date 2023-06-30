@@ -1,14 +1,12 @@
-import React from 'react';
-import classNames from 'classnames';
-
+import { withAnchor } from '../../../../hoc/withAnchor';
+import {{componentName}}Info from './{{componentName}}Info';
+import { AnchorItems } from './config';
 import './index.scss';
 
-const cls = classNames({
-    'minn-{{dirName}}': true
-  });
-
-const {{componentName}} = () => {
-  return <div className={cls} >{{componentName}}</div>
+export default function {{componentName}}() {
+  const EnhancedComponent = withAnchor({{componentName}}Info)
+  const items = {{dirName}};
+  return <EnhancedComponent anchorItems={AnchorItems} />;
 }
 
-export default {{componentName}} ;
+
