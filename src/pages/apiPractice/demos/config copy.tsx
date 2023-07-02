@@ -1,17 +1,18 @@
-import React from "react";
-import Loading from "../../../components/Loading";
-import Callback from "./Callback";
+import React, { Suspense, lazy } from "react";
 import Components from "./Components";
-import Context from "./Context";
-import DebugValue from "./DebugValue";
-import DeferredValue from "./DeferredValue";
-import Effect from "./Effect";
-import Hooks from "./Hooks";
-import ImperativeHandle from "./ImperativeHandle";
-import InsertionEffect from "./InsertionEffect";
-import LayoutEffect from "./LayoutEffect";
-import Memo from "./Memo";
-import ReactAPI from "./ReactAPI";
+
+const Callback = lazy(() => import("./Callback"));
+const Context = lazy(() => import("./Context"));
+const DebugValue = lazy(() => import("./DebugValue"));
+const DeferredValue = lazy(() => import("./DeferredValue"));
+const Effect = lazy(() => import("./Effect/EffectInfo"));
+const Hooks = lazy(() => import("./Hooks"));
+const ImperativeHandle = lazy(() => import("./ImperativeHandle"));
+const InsertionEffect = lazy(() => import("./InsertionEffect"));
+const LayoutEffect = lazy(() => import("./LayoutEffect"));
+const Memo = lazy(() => import("./Memo"));
+const ReactAPI = lazy(() => import("./ReactAPI"));
+const Id = lazy(() => import("./Id"));
 
 interface ComponentsMap {
   useCallback: React.FC,
@@ -19,6 +20,7 @@ interface ComponentsMap {
   useDebugValue: React.FC,
   useDeferredValue: React.FC,
   useEffect: React.FC,
+  useId: React.FC,
   useImperativeHandle: React.FC,
   useInsertionEffect: React.FC,
   useLayoutEffect: React.FC,
@@ -32,11 +34,12 @@ interface RComponentsMap {
 }
 
 export const componentsMap: ComponentsMap = {
-  useCallback: () => <React.Suspense fallback={<Loading loading />}> <Callback /></React.Suspense>,
+  useCallback: () => <Callback />,
   useContext: () => <Context />,
   useDebugValue: () => <DebugValue />,
   useDeferredValue: () => <DeferredValue />,
   useEffect: () => <Effect />,
+  useId: () => <Id />,
   useImperativeHandle: () => <ImperativeHandle />,
   useInsertionEffect: () => <InsertionEffect />,
   useLayoutEffect: () => <LayoutEffect />,

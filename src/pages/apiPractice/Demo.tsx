@@ -4,7 +4,7 @@ import { componentsMap, rComponentsMap } from './config';
 
 interface RouteParams {
   pid: "Hooks" | "Components" | "react-API",
-  id: "useCallback" | "useContext" | "useDebugValue" | "useDeferredValue" | "useEffect" | "useImperativeHandle" | "useInsertionEffect" | "useLayoutEffect" | "useMemo"
+  id: "useCallback" | "useContext" | "useDebugValue" | "useDeferredValue" | "useEffect" | "useId" | "useImperativeHandle" | "useInsertionEffect" | "useLayoutEffect" | "useMemo"
 }
 export default function Demo() {
   const { pid, id } = useParams() as unknown as RouteParams;

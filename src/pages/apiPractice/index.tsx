@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useLayoutEffect, useState } from 'react';
 import classNames from 'classnames';
 
 import './index.scss';
@@ -25,9 +25,16 @@ const ApiPractice = () => {
   };
 
   const onMenuItemClick = ({ item, key, keyPath }: Record<string, any>) => {
+    // console.log("🚀 ~ file: index.tsx:28 ~ onMenuItemClick ~ onMenuItemClick:",)
     // console.log('item, key, keyPath: ', item, key, keyPath);
-
   }
+
+  useLayoutEffect(() => {
+    console.log("🚀 ~ file: index.tsx:33 ~ useLayoutEffect ~ useLayoutEffect:",)
+    if (window.scrollY) {
+      window.scrollTo({ top: 0 });
+    }
+  })
 
   return <Container cls={cls}>
     <Row gutter={8} wrap={false}>

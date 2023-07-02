@@ -5,18 +5,24 @@ import { contextAnchorItems } from './demos/Context/config';
 import { AnchorItemProps } from '../../types';
 import { debugValueAnchorItems } from './demos/DebugValue/config';
 import { deferredValueAnchorItems } from './demos/DeferredValue/config';
+import React from "react";
+import Callback from "./demos/Callback";
+import Components from "./demos/Components";
+import Context from "./demos/Context";
+import DebugValue from "./demos/DebugValue";
+import DeferredValue from "./demos/DeferredValue";
+import Effect from "./demos/Effect";
+import Hooks from "./demos/Hooks";
+import ImperativeHandle from "./demos/ImperativeHandle";
+import InsertionEffect from "./demos/InsertionEffect";
+import LayoutEffect from "./demos/LayoutEffect";
+import Memo from "./demos/Memo";
+import ReactAPI from "./demos/ReactAPI";
+import Id from "./demos/Id";
+import { ComponentsMap, MenuItem, RComponentsMap } from './types';
 
 // submenu keys of first level
-export const rootSubmenuKeys = ['sub11', 'sub2', 'sub4'];
-
-interface MenuItem {
-  label: string | React.ReactNode;
-  key: string;
-  icon?: React.ReactNode;
-  children?: MenuItem[];
-  type?: 'group';
-  title?: string;
-}
+export const rootSubmenuKeys = ['Hooks', 'Components', 'react-API'];
 
 function getItem(
   label: string,
@@ -86,3 +92,22 @@ export const hooksAnchorItems: AnchorItemProps[] = [
   ...loopAnchorItems(debugValueAnchorItems),
   ...loopAnchorItems(deferredValueAnchorItems),
 ]
+
+export const componentsMap: ComponentsMap = {
+  useCallback: () => <Callback />,
+  useContext: () => <Context />,
+  useDebugValue: () => <DebugValue />,
+  useDeferredValue: () => <DeferredValue />,
+  useEffect: () => <Effect />,
+  useId: () => <Id />,
+  useImperativeHandle: () => <ImperativeHandle />,
+  useInsertionEffect: () => <InsertionEffect />,
+  useLayoutEffect: () => <LayoutEffect />,
+  useMemo: () => <Memo />,
+};
+
+export const rComponentsMap: RComponentsMap = {
+  Hooks: () => <Hooks />,
+  Components: () => <Components />,
+  "react-API": () => <ReactAPI />,
+}

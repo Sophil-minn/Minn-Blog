@@ -1,16 +1,21 @@
-import CallbackInfo from './Callback/CallbackInfo'
-import ContextInfo from './Context/ContextInfo'
 import { hooksAnchorItems } from '../config';
 import { withAnchor } from '../../../hoc/withAnchor';
-import DebugValueInfo from './DebugValue/DebugValueInfo';
-import DeferredValueInfo from './DeferredValue/DeferredValueInfo';
+import { lazy } from 'react';
+import SpinLoading from '../../../components/common/SpinLoading';
+
+const CallbackInfo = lazy(() => import("./Callback/CallbackInfo"));
+const ContextInfo = lazy(() => import("./Context/ContextInfo"));
+const DebugValueInfo = lazy(() => import("./DebugValue/DebugValueInfo"));
+const DeferredValueInfo = lazy(() => import("./DeferredValue/DeferredValueInfo"));
+const EffectInfo = lazy(() => import("./Effect/EffectInfo"));
 
 const EnhancedComponent = withAnchor(() => (
   <>
-    <CallbackInfo />
-    <ContextInfo />
-    <DebugValueInfo />
-    <DeferredValueInfo />
+    <SpinLoading tip="Loading useCallback"><CallbackInfo /></SpinLoading>
+    <SpinLoading tip="Loading useContext"><ContextInfo /></SpinLoading>
+    <SpinLoading tip="Loading useDebugValue" ><DebugValueInfo /></SpinLoading>
+    <SpinLoading tip="Loading useDeferredValue" ><DeferredValueInfo /></SpinLoading>
+    <SpinLoading tip="Loading useEffect" ><EffectInfo /></SpinLoading>
   </>
 ))
 

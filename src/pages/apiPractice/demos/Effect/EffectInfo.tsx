@@ -2,11 +2,11 @@ import { Typography } from 'antd';
 import { lazy } from 'react'
 import { code1 } from './code';
 import Code from '../../../../components/Code';
-import Troubleshooting from './Troubleshooting';
-import Usage from './Usage';
 
 const SimpleCode = lazy(() => import('../../../../components/SimpleCode'));
-const { Title, Paragraph, Text } = Typography;
+const Troubleshooting = lazy(() => import('./Troubleshooting'));
+const Usage = lazy(() => import('./Usage'));
+const { Title, Paragraph } = Typography;
 
 export default function EffectInfo() {
   return (
