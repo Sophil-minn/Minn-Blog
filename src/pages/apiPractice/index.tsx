@@ -27,13 +27,16 @@ const ApiPractice = () => {
   const onMenuItemClick = ({ item, key, keyPath }: Record<string, any>) => {
     // console.log("🚀 ~ file: index.tsx:28 ~ onMenuItemClick ~ onMenuItemClick:",)
     // console.log('item, key, keyPath: ', item, key, keyPath);
-  }
-
-  useLayoutEffect(() => {
-    console.log("🚀 ~ file: index.tsx:33 ~ useLayoutEffect ~ useLayoutEffect:",)
     if (window.scrollY) {
       window.scrollTo({ top: 0 });
     }
+  }
+
+  useLayoutEffect(() => {
+    console.log("🚀 111111:",)
+    // if (window.scrollY) {
+    //   window.scrollTo({ top: 0 });
+    // }
   })
 
   return <Container cls={cls}>

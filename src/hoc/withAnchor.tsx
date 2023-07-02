@@ -1,6 +1,8 @@
-import { Col, Row } from "antd"
-import AffixAnchor from "../components/AffixAnchor"
+import { Card, Col, Row, Spin } from "antd";
 import { AnchorItemProps } from "../types";
+import { Suspense, lazy } from "react";
+
+const AffixAnchor = lazy(() => import("../components/AffixAnchor"));
 
 interface AffixAnchorProps {
   anchorItems?: AnchorItemProps[] | any
@@ -14,8 +16,8 @@ export const withAnchor = (Component: React.ComponentType<AffixAnchorProps>) => 
         <Col flex="auto">
           <Component />
         </Col>
-        <Col flex="280px">
-          <AffixAnchor anchorItems={anchorItems} />
+        <Col flex="280px" >
+          <Suspense fallback={<Card><Spin tip="loading anchors" /></Card>}><AffixAnchor anchorItems={anchorItems} /></Suspense>
         </Col>
       </Row>
     )

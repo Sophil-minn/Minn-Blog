@@ -352,17 +352,59 @@ export const imperativeHandleAnchorItems = [
     ],
   },
 ];
-
-
-const loopAnchorItems = (arr: AnchorItemProps[]): AnchorItemProps[] =>
-  (arr || []).map((v: AnchorItemProps) =>
-  ({
-    ...v,
-    title: v.tooltip ? <Tooltip title={v.title}>{v.title}</Tooltip> : v.title,
-    children: loopAnchorItems(v.children as unknown as AnchorItemProps[])
-  } as unknown as AnchorItemProps)
-    // ({ ...v, title: <Tooltip title={v.title}>{v.title}</Tooltip>, children: loop(v.children) })
-  );
+export const insertionEffectAnchorItems = [
+  {
+    key: "useInsertionEffect",
+    href: "#useInsertionEffect",
+    title: "useInsertionEffect",
+    children: [
+      {
+        key: "useInsertionEffectId",
+        href: "#useInsertionEffectId",
+        title: "用法",
+        children: [
+          {
+            key: "Injecting dynamic styles from CSS-in-JS libraries",
+            href: "#Injecting-dynamic-styles-from-CSS-in-JS-libraries",
+            title: "从 CSS-in-JS 库中注入动态样式",
+          },
+        ],
+      },
+    ],
+  },
+];
+export const layoutEffectInfoAnchorItems = [
+  {
+    key: "useLayoutEffectInfo",
+    href: "#useLayoutEffectInfo",
+    title: "useLayoutEffectInfo",
+    children: [
+      {
+        key: "useLayoutEffectInfoId",
+        href: "#useLayoutEffectInfoId",
+        title: "用法",
+        children: [
+          {
+            key: "Measuring layout before the browser repaints the screen",
+            href: "#Measuring-layout-before-the-browser-repaints-the-screen",
+            title: "在浏览器重新绘制屏幕前计算布局",
+          },
+        ],
+      },
+      {
+        key: "useLayoutEffect-troubleshooting",
+        href: "#useLayoutEffect-troubleshooting",
+        title: "疑难解答",
+        children: [
+          {
+            key: "useLayoutEffect does nothing on the server",
+            href: "#useLayoutEffect-does-nothing-on-the-server",
+            title: "useLayoutEffect 在服务端没有任何作用",
+          },]
+      }
+    ],
+  },
+];
 
 
 export const hooksAnchorItems: AnchorItemProps[] = [
@@ -373,4 +415,17 @@ export const hooksAnchorItems: AnchorItemProps[] = [
   ...loopAnchorItems(effectAnchorItems),
   ...loopAnchorItems(idAnchorItems),
   ...loopAnchorItems(imperativeHandleAnchorItems),
+  ...loopAnchorItems(insertionEffectAnchorItems),
+  ...loopAnchorItems(layoutEffectInfoAnchorItems),
 ]
+
+function loopAnchorItems(arr: AnchorItemProps[]): AnchorItemProps[] {
+  return (arr || []).map((v: AnchorItemProps) =>
+  ({
+    ...v,
+    title: v.tooltip ? <Tooltip title={v.title}>{v.title}</Tooltip> : v.title,
+    children: loopAnchorItems(v.children as unknown as AnchorItemProps[])
+  } as unknown as AnchorItemProps)
+    // ({ ...v, title: <Tooltip title={v.title}>{v.title}</Tooltip>, children: loop(v.children) })
+  );
+}

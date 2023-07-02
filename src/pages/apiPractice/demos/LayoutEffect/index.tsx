@@ -1,9 +1,9 @@
-import React from 'react'
+import { withAnchor } from '../../../../hoc/withAnchor';
+import { layoutEffectInfoAnchorItems } from '../../anchorConfig';
+import LayoutEffectInfo from './LayoutEffectInfo';
 
-export default function LayoutEffect() {
-  return (
-    <div>
-      LayoutEffect
-    </div>
-  )
+const EnhancedComponent = withAnchor(LayoutEffectInfo)
+
+export default function InsertionEffect() {
+  return <EnhancedComponent anchorItems={layoutEffectInfoAnchorItems} />;
 }
