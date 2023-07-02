@@ -1,23 +1,18 @@
 import { Tooltip } from 'antd';
 import MenuLabel from '../../components/MenuLabel';
-import { anchorItems } from './demos/Callback/config';
-import { contextAnchorItems } from './demos/Context/config';
-import { AnchorItemProps } from '../../types';
-import { debugValueAnchorItems } from './demos/DebugValue/config';
-import { deferredValueAnchorItems } from './demos/DeferredValue/config';
 import React from "react";
 import Callback from "./demos/Callback";
-import Components from "./demos/Components";
+import Components from "./Components";
 import Context from "./demos/Context";
 import DebugValue from "./demos/DebugValue";
 import DeferredValue from "./demos/DeferredValue";
 import Effect from "./demos/Effect";
-import Hooks from "./demos/Hooks";
+import Hooks from "./Hooks";
 import ImperativeHandle from "./demos/ImperativeHandle";
 import InsertionEffect from "./demos/InsertionEffect";
 import LayoutEffect from "./demos/LayoutEffect";
 import Memo from "./demos/Memo";
-import ReactAPI from "./demos/ReactAPI";
+import ReactAPI from "./ReactAPI";
 import Id from "./demos/Id";
 import { ComponentsMap, MenuItem, RComponentsMap } from './types';
 
@@ -74,24 +69,6 @@ export const items: MenuItem[] = [
     getItem('startTransition', 'react-API/startTransition', '25'),
   ]),
 ];
-
-export const loopAnchorItems = (arr: AnchorItemProps[]): AnchorItemProps[] =>
-  (arr || []).map((v: AnchorItemProps) =>
-  ({
-    ...v,
-    title: v.tooltip ? <Tooltip title={v.title}>{v.title}</Tooltip> : v.title,
-    children: loopAnchorItems(v.children as unknown as AnchorItemProps[])
-  } as unknown as AnchorItemProps)
-    // ({ ...v, title: <Tooltip title={v.title}>{v.title}</Tooltip>, children: loop(v.children) })
-  );
-
-
-export const hooksAnchorItems: AnchorItemProps[] = [
-  ...loopAnchorItems(anchorItems),
-  ...loopAnchorItems(contextAnchorItems),
-  ...loopAnchorItems(debugValueAnchorItems),
-  ...loopAnchorItems(deferredValueAnchorItems),
-]
 
 export const componentsMap: ComponentsMap = {
   useCallback: () => <Callback />,

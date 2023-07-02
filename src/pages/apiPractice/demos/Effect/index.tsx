@@ -1,9 +1,10 @@
 import { withAnchor } from '../../../../hoc/withAnchor';
+import { effectAnchorItems } from '../../anchorConfig';
 import EffectInfo from './EffectInfo';
-import { effectAnchorItems } from './config';
+
+const EnhancedComponent = withAnchor(EffectInfo);
 
 export default function Effect() {
-  const EnhancedComponent = withAnchor(EffectInfo)
   return <EnhancedComponent anchorItems={effectAnchorItems} />;
 }
 

@@ -1,8 +1,9 @@
 import { withAnchor } from '../../../../hoc/withAnchor';
 import DebugValueInfo from './DebugValueInfo';
-import { debugValueAnchorItems } from './config';
+import { debugValueAnchorItems } from '../../anchorConfig';
+
+const EnhancedComponent = withAnchor(DebugValueInfo);
 
 export default function DebugValue() {
-  const EnhancedComponent = withAnchor(DebugValueInfo)
   return <EnhancedComponent anchorItems={debugValueAnchorItems} />;
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Id() {
+export default function Transition() {
   return (
     <div>
-      id
+      useTransition
     </div>
   )
 }

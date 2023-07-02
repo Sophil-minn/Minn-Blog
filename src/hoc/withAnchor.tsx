@@ -3,19 +3,19 @@ import AffixAnchor from "../components/AffixAnchor"
 import { AnchorItemProps } from "../types";
 
 interface AffixAnchorProps {
-  anchorItems?: AnchorItemProps[]
+  anchorItems?: AnchorItemProps[] | any
 }
 
 export const withAnchor = (Component: React.ComponentType<AffixAnchorProps>) => {
   return (props: AffixAnchorProps) => {
-    const { anchorItems, ...rest } = props;
+    const { anchorItems } = props;
     return (
       <Row wrap={false}>
         <Col flex="auto">
-          <Component {...rest} />
+          <Component />
         </Col>
         <Col flex="280px">
-          <AffixAnchor anchorItems={props.anchorItems} />
+          <AffixAnchor anchorItems={anchorItems} />
         </Col>
       </Row>
     )

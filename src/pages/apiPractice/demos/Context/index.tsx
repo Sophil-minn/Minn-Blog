@@ -1,18 +1,9 @@
-import { Col, Row, Typography } from 'antd';
-import { lazy } from 'react'
+import { contextAnchorItems } from '../../anchorConfig';
+import { withAnchor } from '../../../../hoc/withAnchor';
 import ContextInfo from './ContextInfo';
-import { contextAnchorItems } from './config';
-import AffixAnchor from '../../../../components/AffixAnchor';
+
+const EnhancedComponent = withAnchor(ContextInfo);
 
 export default function Context() {
-  return (
-    <Row wrap={false}>
-      <Col flex="auto">
-        <ContextInfo />
-      </Col>
-      <Col flex="280px">
-        <AffixAnchor anchorItems={contextAnchorItems} />
-      </Col>
-    </Row>
-  )
+  return <EnhancedComponent anchorItems={contextAnchorItems} />;
 }

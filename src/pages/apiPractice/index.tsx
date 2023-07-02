@@ -38,16 +38,17 @@ const ApiPractice = () => {
 
   return <Container cls={cls}>
     <Row gutter={8} wrap={false}>
-      <Col flex="260px">
-        <Affix offsetTop={targetOffset - 26}><Card>
-          <Menu
-            mode="inline"
-            openKeys={openKeys}
-            onOpenChange={onOpenChange}
-            items={items}
-            onClick={onMenuItemClick}
-          />
-        </Card>
+      <Col flex="280px">
+        <Affix offsetTop={targetOffset - 26}>
+          <Card bodyStyle={{ padding: 0 }}>
+            <Menu
+              mode="inline"
+              openKeys={openKeys}
+              onOpenChange={onOpenChange}
+              items={items}
+              onClick={onMenuItemClick}
+            />
+          </Card>
         </Affix>
       </Col>
       <Col flex="auto">
