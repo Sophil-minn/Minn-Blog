@@ -1,9 +1,10 @@
-import React from 'react'
+
+import { withAnchor } from '../../../../hoc/withAnchor';
+import { reducerAnchorItems } from '../../anchorConfig';
+import ReducerInfo from './ReducerInfo';
+
+const EnhancedComponent = withAnchor(ReducerInfo)
 
 export default function Reducer() {
-  return (
-    <div>
-      Reducer
-    </div>
-  )
+  return <EnhancedComponent anchorItems={reducerAnchorItems} />;
 }
