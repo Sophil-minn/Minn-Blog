@@ -411,8 +411,8 @@ export const memoAnchorItems = [
     title: "useMemo",
     children: [
       {
-        key: "useMemoInfoId",
-        href: "#useMemoInfoId",
+        key: "useMemoId",
+        href: "#useMemoId",
         title: "用法",
         children: [
           {
