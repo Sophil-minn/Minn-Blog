@@ -15,6 +15,11 @@ import Memo from "./demos/Memo";
 import ReactAPI from "./ReactAPI";
 import Id from "./demos/Id";
 import { ComponentsMap, MenuItem, RComponentsMap } from './types';
+import Reducer from './demos/Reducer';
+import Ref from './demos/Ref';
+import State from './demos/State';
+import SyncExternalStore from './demos/SyncExternalStore';
+import Transition from './demos/Transition';
 
 // submenu keys of first level
 export const rootSubmenuKeys = ['Hooks', 'Components', 'react-API'];
@@ -81,6 +86,11 @@ export const componentsMap: ComponentsMap = {
   useInsertionEffect: () => <InsertionEffect />,
   useLayoutEffect: () => <LayoutEffect />,
   useMemo: () => <Memo />,
+  useReducer: () => <Reducer />,
+  useRef: () => <Ref />,
+  useState: () => <State />,
+  useSyncExternalStore: () => <SyncExternalStore />,
+  useTransition: () => <Transition />,
 };
 
 export const rComponentsMap: RComponentsMap = {
