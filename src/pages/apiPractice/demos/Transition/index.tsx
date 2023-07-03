@@ -1,9 +1,9 @@
-import React from 'react'
+import { withAnchor } from '../../../../hoc/withAnchor';
+import { transitionAnchorItems } from '../../anchorConfig';
+import TransitionInfo from './TransitionInfo';
+
+const EnhancedComponent = withAnchor(TransitionInfo)
 
 export default function Transition() {
-  return (
-    <div>
-      useTransition
-    </div>
-  )
+  return <EnhancedComponent anchorItems={transitionAnchorItems} />;
 }
