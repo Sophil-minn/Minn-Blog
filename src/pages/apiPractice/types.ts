@@ -9,6 +9,11 @@ export interface ComponentsMap {
   useInsertionEffect: React.FC,
   useLayoutEffect: React.FC,
   useMemo: React.FC,
+  useReducer: React.FC,
+  useRef: React.FC,
+  useState: React.FC,
+  useSyncExternalStore: React.FC,
+  useTransition: React.FC,
 }
 
 export interface RComponentsMap {
