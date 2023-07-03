@@ -1,9 +1,9 @@
-import React from 'react'
+import { withAnchor } from '../../../../hoc/withAnchor';
+import { memoAnchorItems } from '../../anchorConfig';
+import MemoInfo from './MemoInfo';
+
+const EnhancedComponent = withAnchor(MemoInfo)
 
 export default function Memo() {
-  return (
-    <div>
-      Memo
-    </div>
-  )
+  return <EnhancedComponent anchorItems={memoAnchorItems} />;
 }
