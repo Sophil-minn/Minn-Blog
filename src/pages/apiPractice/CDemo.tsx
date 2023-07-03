@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { componentsMap } from './config';
 
 interface RouteParams {
-  id: "useCallback" | "useContext" | "useDebugValue" | "useDeferredValue" | "useEffect" | "useImperativeHandle" | "useInsertionEffect" | "useLayoutEffect" | "useMemo"
+  id: "useCallback" | "useContext" | "useDebugValue" | "useDeferredValue" | "useEffect" | "useImperativeHandle" | "useInsertionEffect" | "useLayoutEffect" | "useMemo" | "useReducer" | "useRef" | "useState" | "useSyncExternalStore" | "useTransition"
 }
 
 export default function Demo() {
