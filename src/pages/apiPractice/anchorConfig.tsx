@@ -294,7 +294,6 @@ export const effectAnchorItems = [
     ]
   }
 ];
-
 export const idAnchorItems = [
   {
     key: "useId",
@@ -375,9 +374,9 @@ export const insertionEffectAnchorItems = [
 ];
 export const layoutEffectInfoAnchorItems = [
   {
-    key: "useLayoutEffectInfo",
-    href: "#useLayoutEffectInfo",
-    title: "useLayoutEffectInfo",
+    key: "useLayoutEffect",
+    href: "#useLayoutEffect",
+    title: "useLayoutEffect",
     children: [
       {
         key: "useLayoutEffectInfoId",
@@ -405,7 +404,379 @@ export const layoutEffectInfoAnchorItems = [
     ],
   },
 ];
-
+export const memoAnchorItems = [
+  {
+    key: "useMemo",
+    href: "#useMemo",
+    title: "useMemo",
+    children: [
+      {
+        key: "useMemoInfoId",
+        href: "#useMemoInfoId",
+        title: "用法",
+        children: [
+          {
+            key: "Skipping expensive recalculations",
+            href: "#Skipping-expensive-recalculations",
+            title: "跳过代价昂贵的重新计算",
+          },
+          {
+            key: "Skipping re-rendering of components",
+            href: "#Skipping-re-rendering-of-components",
+            title: "跳过组件的重新渲染",
+          },
+          {
+            key: "Memoizing a dependency of another Hook",
+            href: "#Memoizing-a-dependency-of-another-Hook",
+            title: "记忆另一个 Hook 的依赖",
+          },
+          {
+            key: "Memoizing a function",
+            href: "#Memoizing-a-function",
+            title: "记忆一个函数",
+          },
+        ],
+      },
+      {
+        key: "useMemo-troubleshooting",
+        href: "#useMemo-troubleshooting",
+        title: "故障排除",
+        children: [
+          {
+            key: "My calculation runs twice on every re-render",
+            href: "#My-calculation-runs-twice-on-every-re-render",
+            title: "我的计算函数在每次重新渲染时运行两次",
+          },
+          {
+            key: "My useMemo call is supposed to return an object, but returns undefined",
+            href: "#My-useMemo-call-is-supposed-to-return-an-object-but-returns-undefined",
+            title: "我调用的 useMemo 应该返回一个对象，但返回 undefined",
+          },
+          {
+            key: "Every time my component renders, the calculation in useMemo re-runs",
+            href: "#Every-time-my-component-renders-the-calculation-in-useMemo-re-runs",
+            title: "每次我的组件渲染时，useMemo 中的计算都会重新运行",
+          },
+          {
+            key: "I need to call useMemo for each list item in a loop, but it’s not allowed",
+            href: "#I-need-to-call-useMemo-for-each-list-item-in-a-loop-but-it’s-not-allowed",
+            title: "我需要为循环中的每个列表项调用 useMemo，但这是不允许的",
+          },
+        ]
+      }
+    ],
+  },
+];
+export const reducerAnchorItems = [
+  {
+    key: "useReducer",
+    href: "#useReducer",
+    title: "useReducer",
+    children: [
+      {
+        key: "useReducerId",
+        href: "#useReducerId",
+        title: "用法",
+        children: [
+          {
+            key: "Adding a reducer to a component",
+            href: "#Adding-a-reducer-to-a-component",
+            title: "Adding a reducer to a component",
+          },
+          {
+            key: "Writing the reducer function",
+            href: "#Writing-the-reducer-function",
+            title: "Writing the reducer function",
+          },
+          {
+            key: "Avoiding recreating the initial state",
+            href: "#Avoiding-recreating-the-initial-state",
+            title: "Avoiding recreating the initial state",
+          },
+        ],
+      },
+      {
+        key: "useReducer-troubleshooting",
+        href: "#useReducer-troubleshooting",
+        title: "故障排除",
+        children: [
+          {
+            key: "I’ve dispatched an action, but logging gives me the old state value",
+            href: "#I’ve-dispatched-an-action-but-logging-gives-me-the-old-state-value",
+            title: "I’ve dispatched an action, but logging gives me the old state value",
+          },
+          {
+            key: "I’ve dispatched an action, but the screen doesn’t update",
+            href: "#I’ve-dispatched-an-action-but-the-screen-doesn’t-update",
+            title: "I’ve dispatched an action, but the screen doesn’t update",
+          },
+          {
+            key: "A part of my reducer state becomes undefined after dispatching",
+            href: "#A-part-of-my-reducer-state-becomes-undefined-after-dispatching",
+            title: "A part of my reducer state becomes undefined after dispatching",
+          },
+          {
+            key: "My entire reducer state becomes undefined after dispatching",
+            href: "#My-entire-reducer-state-becomes-undefined-after-dispatching",
+            title: "My entire reducer state becomes undefined after dispatching",
+          },
+          {
+            key: "I’m getting an error: “Too many re-renders” ",
+            href: "#I’m-getting-an-error-“Too-many-re-renders”-",
+            title: "I’m getting an error: “Too many re-renders” ",
+          },
+          {
+            key: "My reducer or initializer function runs twice",
+            href: "#My-reducer-or-initializer-function-runs-twice",
+            title: "My reducer or initializer function runs twice",
+          },
+        ]
+      }
+    ],
+  },
+];
+export const refAnchorItems = [
+  {
+    key: "useRef",
+    href: "#useRef",
+    title: "useRef",
+    children: [
+      {
+        key: "useRefId",
+        href: "#useRefId",
+        title: "用法",
+        children: [
+          {
+            key: "Referencing a value with a ref",
+            href: "#Referencing-a-value-with-a-ref",
+            title: "用 ref 引用一个值 ",
+          },
+          {
+            key: "Manipulating the DOM with a ref",
+            href: "#Manipulating-the-DOM-with-a-ref",
+            title: "使用 ref 操作 DOM 是非常常见的。React 内置了对它的支持。",
+          },
+          {
+            key: "Avoiding recreating the ref contents",
+            href: "#Avoiding-recreating-the-ref-contents",
+            title: "避免重复创建 ref 的内容",
+          },
+        ],
+      },
+      {
+        key: "useRef-troubleshooting",
+        href: "#useRef-troubleshooting",
+        title: "故障排除",
+        children: [
+          {
+            key: "I can’t get a ref to a custom component",
+            href: "#I-can’t-get-a-ref-to-a-custom-component",
+            title: "我无法获取自定义组件的 ref",
+          },
+        ]
+      }
+    ],
+  },
+];
+export const stateAnchorItems = [
+  {
+    key: "useState",
+    href: "#useState",
+    title: "useState",
+    children: [
+      {
+        key: "useStateId",
+        href: "#useStateId",
+        title: "用法",
+        children: [
+          {
+            key: "Adding state to a component",
+            href: "#Adding-state-to-a-component",
+            title: "为组件添加状态 ",
+          },
+          {
+            key: "Updating state based on the previous state",
+            href: "#Updating-state-based-on-the-previous-state",
+            title: "根据先前的 state 更新 state",
+          },
+          {
+            key: "Updating objects and arrays in state",
+            href: "#Updating-objects-and-arrays-in-state",
+            title: "更新状态中的对象和数组",
+          },
+          {
+            key: "Avoiding recreating the initial state",
+            href: "#Avoiding-recreating-the-initial-state",
+            title: "避免重复创建初始状态",
+          },
+          {
+            key: "Resetting state with a key",
+            href: "#Resetting-state-with-a-key",
+            title: "使用 key 重置状态",
+          },
+          {
+            key: "Storing information from previous renders",
+            href: "#Storing-information-from-previous-renders",
+            title: "存储前一次渲染的信息",
+          },
+        ],
+      },
+      {
+        key: "useState-troubleshooting",
+        href: "#useState-troubleshooting",
+        title: "故障排除",
+        children: [
+          {
+            key: "I’ve updated the state, but logging gives me the old value ",
+            href: "#I’ve-updated-the-state-but-logging-gives-me-the-old-value ",
+            title: "我已经更新了状态，但日志仍显示旧值",
+          },
+          {
+            key: "I’ve updated the state, but the screen doesn’t update",
+            href: "#I’ve-updated-the-state-but-the-screen-doesn’t-update",
+            title: "我已经更新了状态，但是屏幕没有更新",
+          },
+          {
+            key: "I’m getting an error: “Too many re-renders”",
+            href: "#I’m-getting-an-error-Too-many-re-renders",
+            title: "出现错误：“Too many re-renders”",
+          },
+          {
+            key: "My initializer or updater function runs twice",
+            href: "#My-initializer-or-updater-function-runs-twice",
+            title: "初始化函数或更新函数运行了两次",
+          },
+          {
+            key: "I’m trying to set state to a function, but it gets called instead",
+            href: "#I’m-trying-to-set-state-to-a-function-but-it-gets-called-instead",
+            title: "我尝试将 state 设置为一个函数，但它却被调用了",
+          },
+        ]
+      }
+    ],
+  },
+];
+export const syncExternalStoreAnchorItems = [
+  {
+    key: "useSyncExternalStore",
+    href: "#useSyncExternalStore",
+    title: "useSyncExternalStore",
+    children: [
+      {
+        key: "useSyncExternalStoreId",
+        href: "#useSyncExternalStoreId",
+        title: "用法",
+        children: [
+          {
+            key: "Subscribing to an external store",
+            href: "#Subscribing-to-an-external-store",
+            title: "订阅外部 store ",
+          },
+          {
+            key: "Subscribing to a browser API",
+            href: "#Subscribing-to-a-browser-API",
+            title: "订阅浏览器 API",
+          },
+          {
+            key: "Extracting the logic to a custom Hook",
+            href: "#Extracting-the-logic-to-a-custom-Hook",
+            title: "把逻辑抽取到自定义 Hook",
+          },
+          {
+            key: "Adding support for server rendering",
+            href: "#Adding-support-for-server-rendering",
+            title: "添加服务端渲染支持",
+          },
+        ],
+      },
+      {
+        key: "useSyncExternal-troubleshooting",
+        href: "#useSyncExternal-troubleshooting",
+        title: "疑难解答",
+        children: [
+          {
+            key: "The result of getSnapshot should be cached",
+            href: "The-result-of-getSnapshot-should-be-cached",
+            title: "遇到一个错误：“The result of getSnapshot should be cached” ",
+          },
+          {
+            key: "My subscribe function gets called after every re-render",
+            href: "#My-subscribe-function-gets-called-after-every-re-render",
+            title: "我的 subscribe 函数每次重新渲染都被调用",
+          },
+        ]
+      }
+    ],
+  },
+];
+export const transitionAnchorItems = [
+  {
+    key: "useTransition",
+    href: "#useTransition",
+    title: "useTransition",
+    children: [
+      {
+        key: "useTransitionId",
+        href: "#useTransitionId",
+        title: "用法",
+        children: [
+          {
+            key: "Marking a state update as a non-blocking transition",
+            href: "#Marking-a-state-update-as-a-non-blocking-transition",
+            title: "将状态更新标记为非阻塞转换状态",
+          },
+          {
+            key: "Updating-the-parent-component-in-a-transition",
+            href: "#Updating-the-parent-component-in-a-transition",
+            title: "在转换中更新父组件",
+          },
+          {
+            key: "Displaying-a-pending-visual-state-during-the-transition",
+            href: "#Displaying-a-pending-visual-state-during-the-transition",
+            title: "在转换期间显示待处理的视觉状态",
+          },
+          {
+            key: "Preventing-unwanted-loading-indicators",
+            href: "#Preventing-unwanted-loading-indicators",
+            title: "避免不必要的加载指示器",
+          },
+          {
+            key: "Building-a-Suspense-enabled-router",
+            href: "#Building-a-Suspense-enabled-router",
+            title: "构建一个Suspense-enabled 的路由",
+          },
+        ],
+      },
+      {
+        key: "useSyncExternal-troubleshooting",
+        href: "#useSyncExternal-troubleshooting",
+        title: "疑难解答",
+        children: [
+          {
+            key: "Updating-an-input-in-a-transition-doesn’t-work ",
+            href: "#Updating-an-input-in-a-transition-doesn’t-work ",
+            title: "在转换过程中更新输入无法正常工作",
+          },
+          {
+            key: "React-doesn’t-treat-my-state-update-as-a-transition ",
+            href: "#React-doesn’t-treat-my-state-update-as-a-transition ",
+            title: "React 没有将我的状态更新视为转换",
+          },
+          {
+            key: "I-want-to-call-useTransition-from-outside-a-component ",
+            href: "#I-want-to-call-useTransition-from-outside-a-component ",
+            title: "我想在组件外部调用 useTransition",
+          },
+          {
+            key: "The-function-I-pass-to-startTransition-executes-immediately ",
+            href: "#The-function-I-pass-to-startTransition-executes-immediately ",
+            title: "我传递给 startTransition 的函数会立即执行",
+          },
+        ]
+      }
+    ],
+  },
+];
 
 export const hooksAnchorItems: AnchorItemProps[] = [
   ...loopAnchorItems(callbackAnchorItems),
@@ -417,6 +788,12 @@ export const hooksAnchorItems: AnchorItemProps[] = [
   ...loopAnchorItems(imperativeHandleAnchorItems),
   ...loopAnchorItems(insertionEffectAnchorItems),
   ...loopAnchorItems(layoutEffectInfoAnchorItems),
+  ...loopAnchorItems(memoAnchorItems),
+  ...loopAnchorItems(reducerAnchorItems),
+  ...loopAnchorItems(refAnchorItems),
+  ...loopAnchorItems(stateAnchorItems),
+  ...loopAnchorItems(syncExternalStoreAnchorItems),
+  ...loopAnchorItems(transitionAnchorItems),
 ]
 
 function loopAnchorItems(arr: AnchorItemProps[]): AnchorItemProps[] {
@@ -425,7 +802,5 @@ function loopAnchorItems(arr: AnchorItemProps[]): AnchorItemProps[] {
     ...v,
     title: v.tooltip ? <Tooltip title={v.title}>{v.title}</Tooltip> : v.title,
     children: loopAnchorItems(v.children as unknown as AnchorItemProps[])
-  } as unknown as AnchorItemProps)
-    // ({ ...v, title: <Tooltip title={v.title}>{v.title}</Tooltip>, children: loop(v.children) })
-  );
+  } as unknown as AnchorItemProps));
 }
