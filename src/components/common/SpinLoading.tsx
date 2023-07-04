@@ -3,7 +3,7 @@ import { Children, FC, Suspense } from 'react';
 
 interface SpinLoadingProps {
   tip?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const SpinLoading: FC<SpinLoadingProps> = ({ tip, children }) => {
