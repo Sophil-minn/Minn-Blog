@@ -2,7 +2,7 @@ import { Card, Skeleton, Spin } from 'antd';
 import { Children, FC, Suspense } from 'react';
 
 interface SpinLoadingProps {
-  tip: string;
+  tip?: string;
   children: React.ReactNode;
 }
 
