@@ -21,14 +21,12 @@ const withMenu = (component: React.ReactNode) => {
       <Affix offsetTop={74}>
         <Col flex="320px">
           <Card style={{ minHeight: 999 }}>
-
             <Menu
               mode="inline"
               defaultOpenKeys={['engineering']}
               style={{ width: 256 }}
               items={props.items}
             />
-
           </Card>
         </Col>
       </Affix>

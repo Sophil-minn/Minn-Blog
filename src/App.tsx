@@ -1,8 +1,9 @@
 import './index.css';
-import { routeConfig } from './config/routerConfig';
+import { routeConfig } from './config/routers';
 import { useRoutes } from 'react-router-dom';
 import Header from './block/header';
 import { Suspense, createContext, useCallback, useEffect, useRef, useState } from 'react';
+import { Skeleton, Spin } from 'antd';
 
 export const GlobalContext = createContext<{ targetOffset?: number | undefined }>({ targetOffset: 0 });
 
@@ -23,7 +24,7 @@ function App() {
     <div className="App">
       <Header onSearch={onSearch} ref={topRef} />
       <GlobalContext.Provider value={{ targetOffset }}>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Spin tip="loading..."><Skeleton active /></Spin>}>
           {routes}
         </Suspense>
       </GlobalContext.Provider>

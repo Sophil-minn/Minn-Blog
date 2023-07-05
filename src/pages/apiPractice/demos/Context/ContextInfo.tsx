@@ -9,7 +9,7 @@ import MultipleContexts from './MultipleContexts';
 import MultipleContexts2 from './MultipleContexts2';
 import ContextWithReducer from './ContextWithReducer';
 import OverridingATheme from './OverridingATheme';
-import AutomaticallyNestedHeadings from './AutomaticallyNestedHeadings';
+// import AutomaticallyNestedHeadings from './AutomaticallyNestedHeadings';
 
 const Code = lazy(() => import('../../../../components/Code'));
 
@@ -120,7 +120,7 @@ export default function ContextInfo() {
         <Paragraph>
           在嵌套使用 context provider 时，可以“累积”信息。在此示例中，Section 组件记录了 LevelContext，该 context 指定了 section 嵌套的深度。它从父级 section 中读取 LevelContext，然后把 LevelContext 的数值加一传递给子级。因此，Heading 组件可以根据被 Section 组件嵌套的层数自动决定使用 ，1,2,3,4,5…，中的哪种标签。
         </Paragraph>
-        <AutomaticallyNestedHeadings />
+        {/* <AutomaticallyNestedHeadings /> */}
       </Card>
       <Divider />
       <Title level={3} id="Optimizing-re-renders-when-passing-objects-and-functions">在传递对象和函数时优化重新渲染 </Title>

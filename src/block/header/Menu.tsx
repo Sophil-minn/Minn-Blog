@@ -11,19 +11,13 @@ function Menu() {
   return (
     <Col>
       <Space>
-        <DropdownNav navigationItem={reactItems} />
-        <DropdownNav navigationItem={vueItems} />
-        <DropdownNav navigationItem={componentsItem} />
-        <DropdownNav navigationItem={perfomanceItem} />
-        <DropdownNav navigationItem={webpackItem} />
-        <DropdownNav navigationItem={gitItem} />
-        {/* <Button onClick={() => navigate('/components-development')}>组件开发</Button> */}
-        {/* <Button onClick={() => navigate('/performance-optimization')}>性能优化</Button> */}
-        {/* <Button onClick={() => navigate('/engineering')}>前端工程化</Button> */}
-        {/* <Button onClick={() => navigate('/webpack')}>Webpack</Button> */}
-        {/* <Button onClick={() => navigate('/git')}>Git</Button> */}
         <DropdownNav navigationItem={factoryItem} />
-        {/* <DropdownNav navigationItem={softwareItem} title="软件工程篇" /> */}
+        <DropdownNav navigationItem={reactItems} />
+        <DropdownNav navigationItem={componentsItem} />
+        <DropdownNav navigationItem={webpackItem} />
+        <DropdownNav navigationItem={perfomanceItem} />
+        <DropdownNav navigationItem={gitItem} />
+        <DropdownNav navigationItem={vueItems} />
         <MoreNav navigationList={navigationEntranceList} title="更多" />
         <ToGithub />
       </Space>

@@ -29,13 +29,6 @@ export const reactItems = {
       pathType: "",
       statusCode: ""
     },
-    // {
-    //   title: "react组件实战",
-    //   tips: "react项目组件沉淀",
-    //   path: "",
-    //   pathType: "",
-    //   statusCode: ""
-    // },
     {
       title: "react状态管理",
       tips: "react状态管理沉淀",
