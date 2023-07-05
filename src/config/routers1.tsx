@@ -6,7 +6,7 @@ const ComponentsDevelopmentDemo = lazy(() => import('../pages/componentsDevelopm
 const ComponentsDevelopment = lazy(() => import('../pages/componentsDevelopment'));
 const PerformanceOptimizationDemo = lazy(() => import('../pages/performanceOptimization/demos/CDemo'));
 const PerformanceOptimization = lazy(() => import('../pages/performanceOptimization'));
-const EngineeringDemo = lazy(() => import('../pages/engineering/demos/CDemo'));
+const EngineeringDemo = lazy(() => import('../pages/engineering/engineeringDemo'));
 const Engineering = lazy(() => import('../pages/engineering'));
 const WebpackDemo = lazy(() => import('../pages/webpack/demos/CDemo'));
 const Webpack = lazy(() => import('../pages/webpack'));
