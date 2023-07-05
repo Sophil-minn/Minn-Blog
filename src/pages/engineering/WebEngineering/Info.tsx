@@ -16,7 +16,7 @@ export default function WebEngineeringInfo() {
       <Paragraph>
         阶段的前端工程化，需要考虑到各个方面，包括但不限于以下这几点：
       </Paragraph>
-      <Title level={4}>2.1、提升开发效率</Title>
+      <Title level={4} id="Efficiency">2.1、提升开发效率</Title>
       <Title level={5}>webpack-dev-server 热加载</Title>
       <Paragraph>
         webpack-dev-server 替我们解决了这个问题，它有两种模式，两种模式，一种是 watch 模式，功能是你修改代码，自动帮你刷新页面，无需手动刷新；另一种更加强大，基于 websocket 全双工通信技术，直接无刷新帮你把修改的代码替换掉。 从而极大程度上提高了开发效率。
@@ -25,7 +25,7 @@ export default function WebEngineeringInfo() {
       <Paragraph>
         在后端接口还没提供的时候，前后端制定好共同的接口协议，开发时前端可以使用mock模拟数据，与后端彻底分离，并行开发。<Text strong>面向接口编程</Text>，尽可能减少前后端沟通成本。
       </Paragraph>
-      <Title level={4}>2.2、优化性能</Title>
+      <Title level={4} id="performance">2.2、优化性能</Title>
       <Title level={5}>代码合并压缩，混淆加密</Title>
       <Title level={5}>减少小图片请求</Title>
       <Paragraph>
@@ -33,7 +33,7 @@ export default function WebEngineeringInfo() {
       </Paragraph>
       <Title level={5}>部署静态文件缓存管理</Title>
       <Paragraph>使用webpack的内置的chunkhash功能，可以给生成的js文件添加hash后缀，标识文件版本</Paragraph>
-      <Title level={4}>2.3、提高代码质量</Title>
+      <Title level={4} id="qulity">2.3、提高代码质量</Title>
       <Title level={5}>模块化</Title>
       主要指 js 代码的模块化。以前的前端开发并没有模块化这个概念，这给维护大型项目带来了极大的困难。发展到现在的前端有很多模块化的方法可供选择，如seajs ，requirejs， webpack 等。 模块化能很大程度上提高了代码的可维护性。
       <Title level={5}>CSS 预处理</Title>
