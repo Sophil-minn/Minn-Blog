@@ -426,21 +426,24 @@ export const navigationEntranceList: NavInfoProps[] = [
 // 前端工程化篇
 const factoryItem = {
   title: "前端工程化",
+  path: '/engineering',
   description: "前端工程化概念及原理学习总结",
   list: [
     {
       title: "前端模块化",
       tips: "",
-      path: "/",
+      path: "/engineering/modularization",
+      disabled: false,
       pathType: "",
-      statusCode: STATE.NEW,
+      // statusCode: STATE.NEW,
     },
     {
       title: "前端组件化",
       tips: "",
-      path: "/",
+      disabled: false,
+      path: "/engineering/componentization",
       pathType: "",
-      statusCode: STATE.NEW,
+      // statusCode: STATE.NEW,
     },
   ],
 };
