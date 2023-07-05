@@ -3,14 +3,16 @@ import { NavInfoProps } from '../../types';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from '../../components/Button';
 import classNames from 'classnames';
+import { memo, useMemo } from 'react';
 
 const { Text } = Typography;
 
-export default function DropdownNav(props: { navigationItem: NavInfoProps, title?: string, disabled?: boolean, path?: string }) {
-  const { navigationItem, title, path = '' } = props;
+function DropdownNav(props: { navigationItem: NavInfoProps }) {
+  const { navigationItem } = props;
+  const { title, path = '', list = [] } = navigationItem || {};
   const navigate = useNavigate();
 
-  const list: MenuProps['items'] = navigationItem.list.map(v => {
+  const items: MenuProps['items'] = useMemo(() => list.map(v => {
     const { disabled = true } = v;
     const cls = classNames({
       'dropdow-nav__list__item': true,
@@ -23,11 +25,14 @@ export default function DropdownNav(props: { navigationItem: NavInfoProps, title
         <Text type="secondary" className={cls} disabled={disabled} strong>{v.title}</Text>
       </Link>) : <Text type="secondary" className={cls} disabled={disabled} strong>{v.title}</Text>
     }
-  });
+  }), [navigationItem]);
 
   return (
-    <Dropdown menu={{ items: list }} placement="bottom" arrow>
+    <Dropdown menu={{ items }} placement="bottom" arrow>
       <Button onClick={() => navigate(path)}>{title}</Button>
     </Dropdown>
   )
 }
+
+
+export default memo(DropdownNav);
