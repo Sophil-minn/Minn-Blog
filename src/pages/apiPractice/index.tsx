@@ -4,16 +4,18 @@ import classNames from 'classnames';
 import './index.scss';
 import Container from '../../block/container';
 import { Affix, Card, Col, Menu, MenuProps, Row } from 'antd';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 import { items, rootSubmenuKeys } from './config';
 import { GlobalContext } from '../../App';
+import Hooks from './Hooks';
 
 const cls = classNames({
   'minn-apiPractice': true
 });
 
 const ApiPractice = () => {
-  const [openKeys, setOpenKeys] = useState(['sub1']);
+  const [openKeys, setOpenKeys] = useState(['Hooks']);
+  const { pid, id } = useParams() as unknown as { pid: string, id: string };
   const { targetOffset } = useContext(GlobalContext) as any;
   const onOpenChange: MenuProps['onOpenChange'] = (keys) => {
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
@@ -55,7 +57,7 @@ const ApiPractice = () => {
         </Affix>
       </Col>
       <Col flex="auto">
-        <Card><Outlet /></Card>
+        <Card>{pid || id ? <Outlet /> : <Hooks />}</Card>
       </Col>
     </Row>
   </Container >

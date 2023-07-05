@@ -1,6 +1,7 @@
 import React, { useLayoutEffect } from 'react'
 import { Outlet, useParams } from 'react-router-dom';
 import { componentsMap, rComponentsMap } from './config';
+import Hooks from './Hooks';
 
 interface RouteParams {
   pid: "Hooks" | "Components" | "react-API",
@@ -13,7 +14,7 @@ export default function Demo() {
 
   return (
     <div>
-      {CComp ? <CComp /> : (Comp ? < Comp /> : null)}
+      {CComp ? <CComp /> : (Comp ? < Comp /> : <Hooks />)}
     </div>
   )
 }
