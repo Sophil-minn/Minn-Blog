@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 // import './codeTypes.d.ts';
 
 export default function Code({ value = "// some comment", title = "", height = 200 }) {
-  const wrapperRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<any>(null);
 
   useEffect(() => {
     // do conditional chaining
@@ -43,11 +43,11 @@ export default function Code({ value = "// some comment", title = "", height = 2
     return () => {
       try {
         if (wrapperRef.current) {
-          // wrapperRef.current = null;
-          const node = wrapperRef.current;
-          if (node) {
-            node.innerHTML = '';
-          }
+          wrapperRef.current = null;
+          // const node = wrapperRef.current;
+          // if (node) {
+          //   node.innerHTML = '';
+          // }
         }
       } catch (error) {
 
