@@ -18,8 +18,8 @@ const cls = classNames({
 const withMenu = (component: React.ReactNode) => {
   return (props: MenuTypes) => (<Container cls={cls}>
     <Row gutter={8} wrap={false} justify="space-between">
-      <Affix offsetTop={74}>
-        <Col flex="320px">
+      <Col flex="320px">
+        <Affix offsetTop={74}>
           <Card>
             <Menu
               mode="inline"
@@ -28,10 +28,10 @@ const withMenu = (component: React.ReactNode) => {
               items={props.items}
             />
           </Card>
-        </Col>
-      </Affix>
+        </Affix>
+      </Col>
       <Col flex="auto">
-        <Card key={props.id}>{props.id ? <Outlet /> : component} </Card>
+        {props.id ? <Card key={props.id}> <Outlet /></Card> : component}
       </Col>
     </Row>
   </Container>);

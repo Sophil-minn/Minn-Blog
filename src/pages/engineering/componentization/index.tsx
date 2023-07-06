@@ -1,9 +1,10 @@
-import React from 'react'
+import { withAnchor } from '../../../hoc/withAnchor';
+import { componentizationAnchorItems } from '../config';
+import Info from './Info';
+import './index.scss';
+
+const EnhancedComponent = withAnchor(Info)
 
 export default function Componentization() {
-  return (
-    <div>Componentization</div>
-  )
+  return <EnhancedComponent anchorItems={componentizationAnchorItems} />;
 }
-
-

@@ -1,7 +1,7 @@
 import Modularization from "../modularization";
 import Componentization from "../componentization";
 import { ComponentsMap } from "./types";
-import ModularizationHistory from "../modularization/ModularizationHistory";
+import ModularizationHistory from "../ModularizationHistory";
 
 
 export const componentsMap: ComponentsMap = {

@@ -280,3 +280,68 @@ export const modularizationHistoryAnchorItems = [
     title: "使用 webpack 实现工程化",
   },
 ];
+
+export const componentizationAnchorItems = [
+  {
+    key: "c-1",
+    href: "#c-1",
+    title: "什么是组件化",
+  },
+  {
+    key: "c-2",
+    href: "#c-2",
+    title: "组件化与模块化的区别",
+  },
+  {
+    key: "c-3",
+    href: "#c-3",
+    title: "组件的划分",
+    children: [
+      {
+        key: "c-3-1",
+        href: "#c-3-1",
+        title: '划分方法'
+      },
+      {
+        key: "c-3-2",
+        href: "#c-3-2",
+        title: '组件分类'
+      },
+      {
+        key: "c-3-3",
+        href: "#c-3-3",
+        title: '组件的隔离'
+      },
+      {
+        key: "c-3-4",
+        href: "#c-3-4",
+        title: '组件间通信'
+      },
+      {
+        key: "c-3-5",
+        href: "#c-3-5",
+        title: '组件的按需加载'
+      },
+    ]
+  },
+  {
+    key: "c-4",
+    href: "#c-4",
+    title: "组件的设计原则",
+  },
+  {
+    key: "c-5",
+    href: "#c-5",
+    title: "可配置性",
+  },
+  {
+    key: "c-6",
+    href: "#c-6",
+    title: "组件的生命周期",
+  },
+  {
+    key: "c-7",
+    href: "#c-7",
+    title: "事件传递",
+  },
+];

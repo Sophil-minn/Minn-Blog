@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 
 export default function EngineeringDemo() {
   const { id } = useParams() as unknown as RouteParams;
-  const Comp = id ? componentsMap?.[id] || undefined : undefined;
+  const Comp = id ? componentsMap?.[id] || undefined : null;
   useEffect(() => {
     window.scrollTo({ top: 0 });
   }, [id])

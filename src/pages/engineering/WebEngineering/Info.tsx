@@ -4,7 +4,7 @@ const { Title, Paragraph, Text } = Typography;
 
 export default function WebEngineeringInfo() {
   return (
-    <div className='info-container'>
+    <Card className='info-container'>
       <Title level={3} id="theory">一、概念</Title>
       <Paragraph>
         将前端项目当成一项系统工程进行分析、组织和构建从而达到项目结构清晰、分工明确、团队配合默契、开发效率提升的目的
@@ -35,22 +35,35 @@ export default function WebEngineeringInfo() {
       <Paragraph>使用webpack的内置的chunkhash功能，可以给生成的js文件添加hash后缀，标识文件版本</Paragraph>
       <Title level={4} id="qulity">2.3、提高代码质量</Title>
       <Title level={5}>模块化</Title>
-      主要指 js 代码的模块化。以前的前端开发并没有模块化这个概念，这给维护大型项目带来了极大的困难。发展到现在的前端有很多模块化的方法可供选择，如seajs ，requirejs， webpack 等。 模块化能很大程度上提高了代码的可维护性。
+      <Paragraph>主要指 js 代码的模块化。以前的前端开发并没有模块化这个概念，这给维护大型项目带来了极大的困难。发展到现在的前端有很多模块化的方法可供选择，如seajs ，requirejs， webpack 等。 模块化能很大程度上提高了代码的可维护性。
+      </Paragraph>
       <Title level={5}>CSS 预处理</Title>
-      通过sass，less 等css 预处理器，可以实现 css 文件的拆分，颗粒化，实现css可复用。而且通过autoprefixer或postcss 还可以让 css 样式对老旧浏览器向下兼容。
-      此外，通过使用 css-modules 能够避免css全局污染的问题，极大提高css代码的可控性，不需要设定一堆命名空间与命名规范来限制。
+      <Paragraph>
+        通过sass，less 等css 预处理器，可以实现 css 文件的拆分，颗粒化，实现css可复用。而且通过autoprefixer或postcss 还可以让 css 样式对老旧浏览器向下兼容。
+        此外，通过使用 css-modules 能够避免css全局污染的问题，极大提高css代码的可控性，不需要设定一堆命名空间与命名规范来限制。
+      </Paragraph>
       <Title level={5}>ES6 + babel 编译</Title>
-      javascript本身设计存在一定程度上的缺陷，例如“没有模块化”，“没有块级作用域”，“全局变量污染”，“回调地狱”等等之类的问题，为了改善这些缺陷，计算机协会在2015年推出了ECMAScript 6 标准（今年已经ES8 已经发布了），使用ES6的语法除了能有效减少代码量之外，还引入了块级作用域，模块化，类的语法糖，promise以及一些新的API，很大程度上填了以前javascript的遗留下的坑，以及提高了代码质量。
-      不过即便过了两年，ES6也并没有被市面的主流浏览器完全支持，所以我们还需用 babel 将ES6 编译成ES5，再将一些不支持的API polyfill 处理。
+      <Paragraph>
+        javascript本身设计存在一定程度上的缺陷，例如“没有模块化”，“没有块级作用域”，“全局变量污染”，“回调地狱”等等之类的问题，为了改善这些缺陷，计算机协会在2015年推出了ECMAScript 6 标准（今年已经ES8 已经发布了），使用ES6的语法除了能有效减少代码量之外，还引入了块级作用域，模块化，类的语法糖，promise以及一些新的API，很大程度上填了以前javascript的遗留下的坑，以及提高了代码质量。
+        不过即便过了两年，ES6也并没有被市面的主流浏览器完全支持，所以我们还需用 babel 将ES6 编译成ES5，再将一些不支持的API polyfill 处理。
+      </Paragraph>
       <Title level={5}>eslint 代码检查</Title>
-      一直一来，代码风格都是一场无休止的争论，每个人都有自己的代码风格习惯，而这些习惯无非就是tab还是空格，换不换行，加不加空格等等之类的琐事，与其通过制定规范去强行限制开发者的编写习惯，不如从工具层面彻底解决代码风格的问题。eslint可以自动处理一些代码风格的问题，直接将代码通过指定的规则格式化，使代码整体风格统一。
-      更进一步，eslint 还可以禁止代码的一些可能造成不良影响的行为（例如eval，未定义变量），使其抛出错误。降低代码产生bug的可能性。
+      <Paragraph>
+        一直一来，代码风格都是一场无休止的争论，每个人都有自己的代码风格习惯，而这些习惯无非就是tab还是空格，换不换行，加不加空格等等之类的琐事，与其通过制定规范去强行限制开发者的编写习惯，不如从工具层面彻底解决代码风格的问题。eslint可以自动处理一些代码风格的问题，直接将代码通过指定的规则格式化，使代码整体风格统一。
+        更进一步，eslint 还可以禁止代码的一些可能造成不良影响的行为（例如eval，未定义变量），使其抛出错误。降低代码产生bug的可能性。
+      </Paragraph>
       <Title level={5}>单元测试</Title>
-      集成单元测试，提高代码可靠性。前端较为流行的单元测试 mocha，qunit 等
+      <Paragraph>
+        集成单元测试，提高代码可靠性。前端较为流行的单元测试 mocha，qunit 等
+      </Paragraph>
       <Title level={5}>UI 自动化测试</Title>
-      UI 自动化测试是 软件通过模拟浏览器，对页面进行UI操作，判断是否产生预想的UI效果。目前较为流行的UI自动化测试套件主要是 基于phantomjs的 nightmare
+      <Paragraph>
+        UI 自动化测试是 软件通过模拟浏览器，对页面进行UI操作，判断是否产生预想的UI效果。目前较为流行的UI自动化测试套件主要是 基于phantomjs的 nightmare
+      </Paragraph>
       <Title level={5}>web组件化</Title>
-      web组件化是通过自定义标签，从UI层面对代码的拆分，提高前端代码的可复用性。尽管w3c已经初步对web组件化制定了规范， 但目前浏览器对web 组件化的支持惨不忍睹，无法通过原生的方法来实现web组件，但目前流行的前端框架，如vue，angular，react都有提供自己的web组件化，从而提高代码可复用性
-    </div>
+      <Paragraph>
+        web组件化是通过自定义标签，从UI层面对代码的拆分，提高前端代码的可复用性。尽管w3c已经初步对web组件化制定了规范， 但目前浏览器对web 组件化的支持惨不忍睹，无法通过原生的方法来实现web组件，但目前流行的前端框架，如vue，angular，react都有提供自己的web组件化，从而提高代码可复用性
+      </Paragraph>
+    </Card>
   )
 }

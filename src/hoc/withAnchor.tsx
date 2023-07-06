@@ -1,4 +1,4 @@
-import { Card, Col, Row, Spin } from "antd";
+import { Col, Row, Spin } from "antd";
 import { AnchorItemProps } from "../types";
 import { Suspense, lazy } from "react";
 
@@ -17,7 +17,9 @@ export const withAnchor = (Component: React.ComponentType<AffixAnchorProps>) => 
           <Component />
         </Col>
         <Col flex="280px" >
-          <Suspense fallback={<Card><Spin tip="loading anchors" /></Card>}><AffixAnchor anchorItems={anchorItems} /></Suspense>
+          <Suspense fallback={<Spin tip="loading anchors" />}>
+            <AffixAnchor anchorItems={anchorItems} />
+          </Suspense>
         </Col>
       </Row>
     )

@@ -1,7 +1,6 @@
 import { Card, Typography } from 'antd';
-import OverView from './OverView';
 import SimpleCode from '../../../components/SimpleCode';
-import { code1, code15, code16, code17, code18 } from './code';
+import { code15, code16, code17, code18 } from './code';
 const { Title, Paragraph, Text } = Typography;
 
 export default function History() {
