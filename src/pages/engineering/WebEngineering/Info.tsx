@@ -4,7 +4,7 @@ const { Title, Paragraph, Text } = Typography;
 
 export default function WebEngineeringInfo() {
   return (
-    <Card>
+    <div className='info-container'>
       <Title level={3} id="theory">一、概念</Title>
       <Paragraph>
         将前端项目当成一项系统工程进行分析、组织和构建从而达到项目结构清晰、分工明确、团队配合默契、开发效率提升的目的
@@ -51,6 +51,6 @@ export default function WebEngineeringInfo() {
       UI 自动化测试是 软件通过模拟浏览器，对页面进行UI操作，判断是否产生预想的UI效果。目前较为流行的UI自动化测试套件主要是 基于phantomjs的 nightmare
       <Title level={5}>web组件化</Title>
       web组件化是通过自定义标签，从UI层面对代码的拆分，提高前端代码的可复用性。尽管w3c已经初步对web组件化制定了规范， 但目前浏览器对web 组件化的支持惨不忍睹，无法通过原生的方法来实现web组件，但目前流行的前端框架，如vue，angular，react都有提供自己的web组件化，从而提高代码可复用性
-    </Card>
+    </div>
   )
 }
