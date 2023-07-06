@@ -17,10 +17,10 @@ const cls = classNames({
 
 const withMenu = (component: React.ReactNode) => {
   return (props: MenuTypes) => (<Container cls={cls}>
-    <Row gutter={16} wrap={false} justify="space-between">
+    <Row gutter={8} wrap={false} justify="space-between">
       <Affix offsetTop={74}>
         <Col flex="320px">
-          <Card style={{ minHeight: 999 }}>
+          <Card>
             <Menu
               mode="inline"
               defaultOpenKeys={['engineering']}
@@ -31,7 +31,7 @@ const withMenu = (component: React.ReactNode) => {
         </Col>
       </Affix>
       <Col flex="auto">
-        <Card style={{ minHeight: 999 }}>{props.id ? <Outlet /> : component} </Card>
+        <Card key={props.id}>{props.id ? <Outlet /> : component} </Card>
       </Col>
     </Row>
   </Container>);
