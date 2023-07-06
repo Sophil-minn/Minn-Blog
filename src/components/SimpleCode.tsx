@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 const { Title, Paragraph, Text } = Typography;
 
 export default function SimpleCode({ value = "// some comment", title = "", height = 50, id = '' }) {
-  const wrapperRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<any>(null);
 
   useEffect(() => {
     // do conditional chaining
@@ -42,12 +42,11 @@ export default function SimpleCode({ value = "// some comment", title = "", heig
     return () => {
       try {
         if (wrapperRef.current) {
-          // wrapperRef.current = null;
-
-          const node = wrapperRef.current;
-          if (node) {
-            node.innerHTML = '';
-          }
+          wrapperRef.current = null;
+          // const node = wrapperRef.current;
+          // if (node) {
+          //   node.innerHTML = '';
+          // }
         }
       } catch (error) {
 
