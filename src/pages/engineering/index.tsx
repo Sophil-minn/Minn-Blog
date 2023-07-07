@@ -1,11 +1,11 @@
 import { items } from './config';
-import WebEngineering from './WebEngineering';
+import EngineeringDemo from './engineeringDemo';
 import withMenu from '../../hoc/withMenu';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import './index.scss';
 
-const EnhancedComponent = withMenu(<WebEngineering />);
+const EnhancedComponent = withMenu(<EngineeringDemo />);
 
 export default function Engineering() {
   const { id } = useParams() as { id: string };
