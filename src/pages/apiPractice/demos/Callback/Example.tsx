@@ -1,5 +1,5 @@
 import React, { Suspense, lazy, useCallback, useState } from 'react'
-import { Card, Checkbox, Collapse, Divider, Spin, Typography } from 'antd';
+import { Card, Checkbox, Collapse, Divider, Skeleton, Spin, Typography } from 'antd';
 import { code1, code2 } from './code';
 import Loading from '../../../../components/Loading';
 // import Code from '../../../../components/Code';
@@ -27,7 +27,7 @@ export default function Example() {
             {
               key: '1',
               label: "示例",
-              children: <Suspense fallback={<Spin tip="loading collapse" />}><ProductPage /></Suspense>,
+              children: <Suspense fallback={<Spin tip="loading collapse"><Skeleton /></Spin>}><ProductPage /></Suspense>,
             }
           ]}>
           <ProductPage />
