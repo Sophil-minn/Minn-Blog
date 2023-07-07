@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom';
-import { componentsMap } from './config';
-import { RouteParams } from './types';
 import { useEffect } from 'react';
 import WebEngineering from '../WebEngineering';
+import { RouteParams } from './types';
+import { componentsMap } from './config';
 
 
 export default function EngineeringDemo() {

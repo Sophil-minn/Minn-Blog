@@ -18,32 +18,33 @@ export default function ReactTheory(props: any) {
     <>
       <Breadcrumb items={breadCrumbItems} />
       <div className='react-theory-container-root'>
-        <Loading loading={loading}>
+        <Card bordered={false} bodyStyle={{ minHeight: 700 }}>
+          <Row wrap={false} gutter={16} >
+            <Col flex="auto">
+              <Introductions dataList={contentData || contentList} anchorItems={anchorItems} />
+            </Col>
+            <Col flex="200px">
+              <Affix offsetTop={targetOffset}>
+                <Anchor
+                  affix={false}
+                  targetOffset={targetOffset}
+                  items={anchorItems}
+                  style={{ maxHeight: 700, overflow: 'auto' }}
+                />
+              </Affix>
+            </Col>
+          </Row>
+        </Card>
+        {/* <Loading loading={loading}>
           <Row gutter={8} wrap={false}>
             <Col flex="320px">
               <DirectoryTree treeData={treeData} />
             </Col>
             <Col flex="auto">
-              <Card bordered={false} bodyStyle={{ minHeight: 700 }}>
-                <Row wrap={false} gutter={16} >
-                  <Col flex="auto">
-                    <Introductions dataList={contentData || contentList} anchorItems={anchorItems} />
-                  </Col>
-                  <Col flex="200px">
-                    <Affix offsetTop={targetOffset}>
-                      <Anchor
-                        affix={false}
-                        targetOffset={targetOffset}
-                        items={anchorItems}
-                        style={{ maxHeight: 700, overflow: 'auto' }}
-                      />
-                    </Affix>
-                  </Col>
-                </Row>
-              </Card>
+             
             </Col>
           </Row>
-        </Loading>
+        </Loading> */}
       </div>
     </>
   )

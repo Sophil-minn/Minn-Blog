@@ -4,6 +4,7 @@ import { STATE } from "./const";
 export const reactItems = {
   title: "react篇",
   description: "react学习沉淀",
+  path: "/thinking-in-react",
   list: [
     {
       title: "react哲学",

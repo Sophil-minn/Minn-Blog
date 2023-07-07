@@ -25,12 +25,13 @@ const withMenu = (component: React.ReactNode) => {
               defaultOpenKeys={['engineering']}
               style={{ width: 256 }}
               items={props.items}
+              defaultSelectedKeys={[props.id]}
             />
           </Card>
         </Affix>
       </Col>
       <Col flex="auto">
-        <Card key={props.id}> {component}</Card>
+        <Card key={props.id}>{component}</Card>
       </Col>
     </Row>
   </Container>);

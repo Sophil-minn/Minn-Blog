@@ -110,7 +110,6 @@ const FormByConfig = (props: Record<string, any>) => {
       >
         <Row gutter={80} style={{ justifyContent: 'space-between' }}>
           {cols}
-
         </Row>
       </Form>
     ) : null

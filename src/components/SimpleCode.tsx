@@ -37,13 +37,14 @@ export default function SimpleCode({ value = "// some comment", title = "", heig
       monaco.editor.create(wrapperRef.current, {
         value,
         language: 'typescript',
+        theme: "vs-dark"
       });
     }
     return () => {
       try {
         if (wrapperRef.current) {
           wrapperRef.current = null;
-          // const node = wrapperRef.current;
+          // const node = wrapperRef.current;    
           // if (node) {
           //   node.innerHTML = '';
           // }

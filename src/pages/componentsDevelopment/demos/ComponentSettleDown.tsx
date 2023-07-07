@@ -1,9 +1,11 @@
 import React from 'react'
+import DirectoryTree from '../../../components/DirectoryTree';
 
-export default function B() {
+export default function ComponentSettleDown() {
+  // const treeData = getTreeData(data);
   return (
     <div>
-      componentSettleDown
+      <DirectoryTree treeData={[]} />
     </div>
   )
 }

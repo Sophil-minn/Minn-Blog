@@ -430,12 +430,25 @@ const factoryItem = {
   description: "前端工程化概念及原理学习总结",
   list: [
     {
+      title: "前端开发规范",
+      tips: "",
+      path: "/engineering/webDevStandard",
+      disabled: false,
+      pathType: "",
+    },
+    {
+      title: "前端模块化历史",
+      tips: "",
+      disabled: false,
+      path: "/engineering/modularizationHistory",
+      pathType: "",
+    },
+    {
       title: "前端模块化",
       tips: "",
       path: "/engineering/modularization",
       disabled: false,
       pathType: "",
-      // statusCode: STATE.NEW,
     },
     {
       title: "前端组件化",
@@ -443,7 +456,6 @@ const factoryItem = {
       disabled: false,
       path: "/engineering/componentization",
       pathType: "",
-      // statusCode: STATE.NEW,
     },
   ],
 };

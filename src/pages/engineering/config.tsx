@@ -1,12 +1,11 @@
 import { getMenuItem } from '../../util/config';
 import { MenuItem } from '../apiPractice/types';
 
-// submenu keys of first level
 export const rootSubmenuKeys = ['sub11', 'sub2', 'sub4'];
-
 
 export const items: MenuItem[] = [
   getMenuItem('前端工程化', '/engineering', 'engineering', [
+    getMenuItem('前端开发规范', '/engineering/webDevStandard', 'webDevStandard'),
     getMenuItem('前端模块化历史', '/engineering/modularizationHistory', 'modularizationHistory'),
     getMenuItem('前端模块化', '/engineering/modularization', 'modularization'),
     getMenuItem('前端组件化', '/engineering/componentization', 'componentization'),
@@ -345,3 +344,162 @@ export const componentizationAnchorItems = [
     title: "事件传递",
   },
 ];
+
+export const webDevStandardAnchorItems = [
+  {
+    key: "w-1",
+    href: "#w-1",
+    title: "基础规则",
+  },
+  {
+    key: "w-2",
+    href: "#w-2",
+    title: "组件声明",
+  },
+  {
+    key: "w-3",
+    href: "#w-3",
+    title: "React 中的命名",
+    children: [
+      {
+        key: "w-3-1",
+        href: "#w-3-1",
+        title: '不要嫌弃函数名过长'
+      },
+      {
+        key: "w-3-2",
+        href: "#w-3-2",
+        title: '变量 / 函数 命名头部'
+      },
+      {
+        key: "w-3-3",
+        href: "#w-3-3",
+        title: '什么时候用 has ， 什么时候用 is'
+      },
+      {
+        key: "w-3-4",
+        href: "#w-3-4",
+        title: '命名规则'
+      },
+      {
+        key: "w-3-5",
+        href: "#w-3-5",
+        title: '使用缩写'
+      },
+      {
+        key: "w-3-6",
+        href: "#w-3-6",
+        title: '常量命名'
+      },
+      {
+        key: "w-3-7",
+        href: "#w-3-7",
+        title: '单词拼接 加深语义化'
+      },
+    ]
+  },
+  {
+    key: "w-4",
+    href: "#w-4",
+    title: "JSX 写法注意",
+    children: [
+      {
+        key: "w-4-1",
+        href: "#w-4-1",
+        title: '标签'
+      },
+      {
+        key: "w-4-2",
+        href: "#w-4-2",
+        title: '对齐'
+      },
+      {
+        key: "w-4-3",
+        href: "#w-4-3",
+        title: '引号'
+      },
+    ]
+  },
+  {
+    key: "w-5",
+    href: "#w-5",
+    title: "样式写法",
+  },
+  {
+    key: "w-6",
+    href: "#w-6",
+    title: "key 属性设置",
+  },
+  {
+    key: "w-7",
+    href: "#w-7",
+    title: "事件传递",
+  },
+  {
+    key: "w-8",
+    href: "#w-8",
+    title: "状态提升",
+  },
+  {
+    key: "w-9",
+    href: "#w-9",
+    title: "推荐使用 Context",
+  },
+  {
+    key: "w-10",
+    href: "#w-10",
+    title: "路由加载",
+  },
+  {
+    key: "w-11",
+    href: "#w-11",
+    title: "逻辑拆分",
+  },
+  {
+    key: "w-12",
+    href: "#w-12",
+    title: "组件拆分规则",
+  },
+  {
+    key: "w-13",
+    href: "#w-13",
+    title: "CSS BEM规范",
+    children: [
+      {
+        key: "w-13-1",
+        href: "#w-13-1",
+        title: '1）、块（Block）'
+      },
+      {
+        key: "w-13-2",
+        href: "#w-13-2",
+        title: '2）、元素(Element)'
+      },
+      {
+        key: "w-13-3",
+        href: "#w-13-3",
+        title: '3）、修饰符(modifier)'
+      },
+      {
+        key: "w-13-4",
+        href: "#w-13-4",
+        title: '4）、书写原则'
+      },
+      {
+        key: "w-13-5",
+        href: "#w-13-5",
+        title: '5）、无意义的__'
+      },
+      {
+        key: "w-13-6",
+        href: "#w-13-6",
+        title: '6）、用新的块来保存新元素'
+      },
+      {
+        key: "w-13-7",
+        href: "#w-13-7",
+        title: '7）、命名空间'
+      },
+    ]
+  },
+]

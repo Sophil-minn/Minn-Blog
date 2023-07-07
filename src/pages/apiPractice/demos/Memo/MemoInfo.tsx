@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Card, Typography } from 'antd';
 import { lazy } from 'react'
 import { code1, code10, code11, code12, code13, code14, code15, code16, code17, code18, code19, code2, code20, code21, code22, code3, code4, code5, code6, code7, code8, code9 } from './code';
-// import { code1, } from './code';
+
 
 const SimpleCode = lazy(() => import('../../../../components/SimpleCode'));
 const { Title, Paragraph, Text } = Typography;
