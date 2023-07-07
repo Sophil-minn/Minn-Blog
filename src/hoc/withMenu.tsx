@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import { Affix, Card, Col, Menu, Row } from 'antd';
-import { Outlet } from 'react-router-dom';
 import Container from '../block/container';
 import { MenuItemType } from 'antd/es/menu/hooks/useItems';
 import { Key } from 'antd/es/table/interface';
@@ -19,7 +18,7 @@ const withMenu = (component: React.ReactNode) => {
   return (props: MenuTypes) => (<Container cls={cls}>
     <Row gutter={8} wrap={false} justify="space-between">
       <Col flex="320px">
-        <Affix offsetTop={74}>
+        <Affix offsetTop={70}>
           <Card>
             <Menu
               mode="inline"
@@ -31,7 +30,7 @@ const withMenu = (component: React.ReactNode) => {
         </Affix>
       </Col>
       <Col flex="auto">
-        {props.id ? <Card key={props.id}> <Outlet /></Card> : component}
+        <Card key={props.id}> {component}</Card>
       </Col>
     </Row>
   </Container>);
