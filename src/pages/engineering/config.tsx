@@ -1,14 +1,15 @@
 import { getMenuItem } from '../../util/config';
-import { MenuItem } from '../apiPractice/types';
+import { MenuItem } from '../react/apiPractice/types';
 
 export const rootSubmenuKeys = ['sub11', 'sub2', 'sub4'];
 
 export const items: MenuItem[] = [
   getMenuItem('前端工程化', '/engineering', 'engineering', [
-    getMenuItem('前端开发规范', '/engineering/webDevStandard', 'webDevStandard'),
-    getMenuItem('前端模块化历史', '/engineering/modularizationHistory', 'modularizationHistory'),
+    getMenuItem('前端开发规范', '/engineering/web-dev-standard', 'web-dev-standard'),
+    getMenuItem('前端模块化历史', '/engineering/modularization-history', 'modularizationHistory'),
     getMenuItem('前端模块化', '/engineering/modularization', 'modularization'),
     getMenuItem('前端组件化', '/engineering/componentization', 'componentization'),
+    getMenuItem('模版脚手架工具', '/engineering/template-cli', 'templateCli'),
   ]),
 ];
 

@@ -4,13 +4,13 @@ import { STATE } from "./const";
 export const reactItems = {
   title: "react篇",
   description: "react学习沉淀",
-  path: "/thinking-in-react",
+  path: "/react",
   list: [
     {
       title: "react哲学",
       tips: "react哲学总结",
       disabled: false,
-      path: "/thinking-in-react",
+      path: "/react/thinking-in-react",
       pathType: "",
       statusCode: STATE.NEW
     },
@@ -18,7 +18,7 @@ export const reactItems = {
       title: "react理论",
       tips: "react理论总结",
       disabled: false,
-      path: "/react",
+      path: "/react/react-theory",
       pathType: "",
       statusCode: STATE.NEW
     },
@@ -26,14 +26,14 @@ export const reactItems = {
       title: "reactAPI实践",
       tips: "react项目实践沉淀",
       disabled: false,
-      path: "/api-practice",
+      path: "/react/api-practice",
       pathType: "",
       statusCode: ""
     },
     {
       title: "react状态管理",
       tips: "react状态管理沉淀",
-      path: "/managing-state",
+      path: "/react/managing-state",
       disabled: false,
       pathType: "",
       statusCode: ""
@@ -41,7 +41,7 @@ export const reactItems = {
     {
       title: "react原理",
       tips: "react原理深入学习沉淀",
-      path: "react-principle",
+      path: "/react/react-principle",
       disabled: false,
       pathType: "",
       statusCode: ""

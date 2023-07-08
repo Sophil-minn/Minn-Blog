@@ -3,11 +3,11 @@ import withMenu from '../../hoc/withMenu';
 import { Outlet, useOutlet, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import './index.scss';
-import LibaryDev from './demos/LibaryDev';
-import DevEnviroment from './demos/DevEnviroment';
-import Enginering from './demos/Enginering';
-import ComponentTheory from './demos/ComponentTheory';
-import ComponentSettleDown from './demos/ComponentSettleDown';
+import LibaryDev from './LibaryDev';
+import DevEnviroment from './DevEnviroment';
+import ComponentEnginering from './ComponentEnginering';
+import ComponentTheory from './ComponentTheory';
+import ComponentSettleDown from './ComponentSettleDown';
 
 export default function Engineering() {
   const outlet = useOutlet();
@@ -15,7 +15,7 @@ export default function Engineering() {
   let component = (<>
     <LibaryDev />
     <DevEnviroment />
-    <Enginering />
+    <ComponentEnginering />
     <ComponentTheory />
     <ComponentSettleDown />
   </>)

@@ -16,8 +16,6 @@ function Menu() {
         <DropdownNav navigationItem={componentsItem} />
         <DropdownNav navigationItem={webpackItem} />
         <DropdownNav navigationItem={perfomanceItem} />
-        <DropdownNav navigationItem={gitItem} />
-        <DropdownNav navigationItem={vueItems} />
         <MoreNav navigationList={navigationEntranceList} title="更多" />
         <ToGithub />
       </Space>

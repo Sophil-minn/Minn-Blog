@@ -1,9 +1,8 @@
-import Editor, { DiffEditor, useMonaco, loader } from '@monaco-editor/react';
 import { Card, Collapse, Divider, Typography } from 'antd';
 import * as monaco from 'monaco-editor';
-import { useEffect, useRef, useState } from 'react';
-// import './codeTypes.d.ts';
-const { Title, Paragraph, Text } = Typography;
+import { useEffect, useRef } from 'react';
+
+const { Title } = Typography;
 
 export default function SimpleCode({ value = "// some comment", title = "", height = 50, id = '' }) {
   const wrapperRef = useRef<any>(null);
@@ -14,9 +13,7 @@ export default function SimpleCode({ value = "// some comment", title = "", heig
       requestIdleCallback(() => {
         monaco?.languages.typescript.javascriptDefaults.setEagerModelSync(true);
       }, { timeout: 1000 })
-      // or make sure that it exists by other ways
       if (monaco) {
-        // console.log('here is the monaco instance:', monaco);
       }
     } catch (error) {
 
@@ -25,14 +22,6 @@ export default function SimpleCode({ value = "// some comment", title = "", heig
   }, [monaco]);
 
   useEffect(() => {
-
-    // const rect = wrapperRef.current?.getBoundingClientRect();
-    // try {
-    //   requestIdleCallback(() => {
-
-    //   }, { timeout: 1000 })
-
-    // } catch (error) { }
     if (wrapperRef.current) {
       monaco.editor.create(wrapperRef.current, {
         value,
@@ -44,10 +33,6 @@ export default function SimpleCode({ value = "// some comment", title = "", heig
       try {
         if (wrapperRef.current) {
           wrapperRef.current = null;
-          // const node = wrapperRef.current;    
-          // if (node) {
-          //   node.innerHTML = '';
-          // }
         }
       } catch (error) {
 

@@ -3,6 +3,7 @@ import { Affix, Card, Col, Menu, Row } from 'antd';
 import Container from '../block/container';
 import { MenuItemType } from 'antd/es/menu/hooks/useItems';
 import { Key } from 'antd/es/table/interface';
+import { ReactNode } from 'react';
 
 interface MenuTypes {
   items?: MenuItemType[];
@@ -14,7 +15,7 @@ const cls = classNames({
   'minn-container': true
 });
 
-const withMenu = (component: React.ReactNode) => {
+const withMenu = (component: ReactNode) => {
   return (props: MenuTypes) => (<Container cls={cls}>
     <Row gutter={8} wrap={false} justify="space-between">
       <Col flex="320px">

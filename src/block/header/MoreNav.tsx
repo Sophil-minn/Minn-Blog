@@ -6,14 +6,12 @@ import {
   Row,
   Tooltip,
   message,
-  Tag,
 } from "antd";
 import { defaultGetPrefixCls } from "../../util/utils";
 import "./index.scss";
 import { items } from "../../home/config";
 import Button from "../../components/Button";
-import { STATE, STATE_TEXT } from "../../config/const";
-import { clsMap, colorMap } from "./config";
+import { STATE } from "../../config/const";
 import { NavInfoProps } from "../../types";
 import classNames from "classnames";
 
@@ -61,7 +59,6 @@ const SectionInfo = ({ navInfo }: { navInfo: NavInfoProps }) => (
               <Col>
                 <Popover
                   content={tip}
-                  // getPopupContainer={() => document.getElementById(title)}
                   autoAdjustOverflow
                   overlayStyle={{ width: "370px" }}
                 >

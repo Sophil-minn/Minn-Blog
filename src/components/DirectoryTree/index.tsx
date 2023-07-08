@@ -6,7 +6,7 @@ import './index.scss';
 import ButtonHoc from "./ButtonHoc";
 import { ICON_ADD_TYPE, ICON_FILTER_TYPE } from "./const";
 import ModalHoc from "./ModalHoc";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const DTree = ({ treeData }: any) => {
   const { targetOffset } = useContext(GlobalContext);
@@ -15,7 +15,7 @@ const DTree = ({ treeData }: any) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
   const [expandedKeys, setExpandedKeys] = useState<string[]>([]);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const onClickCallback = async (type: string, id?: string) => {
     setTreeNodeId(id);
     await setIconType(type);
@@ -29,10 +29,9 @@ const DTree = ({ treeData }: any) => {
 
 
   const onSelect = (keys: any, info: any) => {
-    console.log('keys: ', keys);
     const { node } = info;
     setSelectedKeys([node.key]);
-    navigate(node.path);
+    // navigate(node.path);
   };
 
   const onExpand = useCallback((keys: string[]) => {

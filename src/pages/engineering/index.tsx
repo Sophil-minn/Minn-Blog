@@ -2,7 +2,7 @@ import { items } from './config';
 import EngineeringDemo from './EngineeringDemo';
 import withMenu from '../../hoc/withMenu';
 import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { ReactNode, useEffect } from 'react';
 import './index.scss';
 
 const EnhancedComponent = withMenu(<EngineeringDemo />);

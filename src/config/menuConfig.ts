@@ -432,7 +432,7 @@ const factoryItem = {
     {
       title: "前端开发规范",
       tips: "",
-      path: "/engineering/webDevStandard",
+      path: "/engineering/web-dev-standard",
       disabled: false,
       pathType: "",
     },
@@ -440,7 +440,7 @@ const factoryItem = {
       title: "前端模块化历史",
       tips: "",
       disabled: false,
-      path: "/engineering/modularizationHistory",
+      path: "/engineering/modularization-history",
       pathType: "",
     },
     {
@@ -455,6 +455,13 @@ const factoryItem = {
       tips: "",
       disabled: false,
       path: "/engineering/componentization",
+      pathType: "",
+    },
+    {
+      title: "模板脚手架",
+      tips: "",
+      disabled: false,
+      path: "/engineering/template-cli",
       pathType: "",
     },
   ],

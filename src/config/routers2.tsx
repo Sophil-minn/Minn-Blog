@@ -1,39 +1,43 @@
 import { lazy } from "react";
 
-const CDemo = lazy(() => import('../pages/apiPractice/CDemo'));
-const MDemo = lazy(() => import('../pages/managingState/demos/MDemo'));
-const ReactTheory = lazy(() => import('../pages/reactTheory'));
-const ApiPracticeDemo = lazy(() => import('../pages/apiPractice/Demo'));
-const ThinkingInReact = lazy(() => import('../pages/thinkingInReact'));
-const ApiPractice = lazy(() => import('../pages/apiPractice'));
-const ReactPrinciple = lazy(() => import('../pages/reactPrinciple'));
-const RManagingState = lazy(() => import('../pages/managingState'));
-const CManagingStateDemo = lazy(() => import('../pages/managingState/demos/Demo'));
-const ReactPrincipleDemo = lazy(() => import('../pages/reactPrinciple/demos/CDemo'));
+const CDemo = lazy(() => import('../pages/react/apiPractice/CDemo'));
+const MDemo = lazy(() => import('../pages/react/managingState/demos/MDemo'));
+const ReactTheory = lazy(() => import('../pages/react/ReactTheory'));
+const ApiPracticeDemo = lazy(() => import('../pages/react/apiPractice/Demo'));
+const ThinkingInReact = lazy(() => import('../pages/react/ThinkingInReact'));
+const ApiPractice = lazy(() => import('../pages/react/apiPractice'));
+const ReactPrinciple = lazy(() => import('../pages/react/reactPrinciple'));
+const RManagingState = lazy(() => import('../pages/react/managingState'));
+const CManagingStateDemo = lazy(() => import('../pages/react/managingState/demos/Demo'));
+const ReactPrincipleDemo = lazy(() => import('../pages/react/reactPrinciple/demos/CDemo'));
 
 export const reactRouters = [
   {
     path: '/react',
-    element: <ReactTheory />
+    element: <ReactTheory />,
   },
   {
     path: '/react/:questionId',
     element: <ReactTheory />
   },
   {
-    path: '/thinking-in-react',
+    path: '/react/react-theory',
+    element: <ReactTheory />
+  },
+  {
+    path: '/react/thinking-in-react',
     element: <ThinkingInReact />
   },
   {
-    path: '/api-practice',
+    path: '/react/api-practice',
     element: <ApiPractice />,
     children: [
       {
-        path: '/api-practice/:pid',
+        path: '/react/api-practice/:pid',
         element: <ApiPracticeDemo />,
         children: [
           {
-            path: '/api-practice/:pid/:id',
+            path: '/react/api-practice/:pid/:id',
             element: <CDemo />,
           },
         ]
@@ -41,25 +45,25 @@ export const reactRouters = [
     ]
   },
   {
-    path: '/react-principle',
+    path: '/react/react-principle',
     element: <ReactPrinciple />,
     children: [
       {
-        path: '/react-principle/:id',
+        path: '/react/react-principle/:id',
         element: <ReactPrincipleDemo />,
       },
     ]
   },
   {
-    path: '/managing-state',
+    path: '/react/managing-state',
     element: <RManagingState />,
     children: [
       {
-        path: '/managing-state/:pid',
+        path: '/react/managing-state/:pid',
         element: <CManagingStateDemo />,
         children: [
           {
-            path: '/managing-state/:pid/:id',
+            path: '/react/managing-state/:pid/:id',
             element: <MDemo />,
           },
         ]

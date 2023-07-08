@@ -1,10 +1,13 @@
+import { COMPONENTIZATION, MODULARIZATION, MODULARIZATION_HISTORY, TEMPLATE_CLI, WEB_DEV_STANDARD } from "./const";
+
 export interface ComponentsMap {
-  modularization: React.FC,
-  modularizationHistory: React.FC,
-  componentization: React.FC,
-  webDevStandard: React.FC,
+  [MODULARIZATION]: React.FC,
+  [MODULARIZATION_HISTORY]: React.FC,
+  [COMPONENTIZATION]: React.FC,
+  [WEB_DEV_STANDARD]: React.FC,
+  [TEMPLATE_CLI]: React.FC,
 }
 
 export interface RouteParams {
-  id: "modularization" | "componentization" | "modularizationHistory" | "webDevStandard"
+  id: typeof MODULARIZATION | typeof COMPONENTIZATION | typeof MODULARIZATION_HISTORY | typeof WEB_DEV_STANDARD | typeof TEMPLATE_CLI
 }

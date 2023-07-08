@@ -2,7 +2,7 @@
 
 import { lazy } from "react";
 
-const ComponentsDevelopmentDemo = lazy(() => import('../pages/componentsDevelopment/demos/CDemo'));
+const ComponentsDevelopmentDemo = lazy(() => import('../pages/componentsDevelopment/CDemo'));
 const ComponentsDevelopment = lazy(() => import('../pages/componentsDevelopment'));
 const PerformanceOptimizationDemo = lazy(() => import('../pages/performanceOptimization/demos/CDemo'));
 const PerformanceOptimization = lazy(() => import('../pages/performanceOptimization'));
