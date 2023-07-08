@@ -17,11 +17,11 @@ export const reactRouters = [
     element: <ReactTheory />,
   },
   {
-    path: '/react/:questionId',
+    path: '/react/react-theory',
     element: <ReactTheory />
   },
   {
-    path: '/react/react-theory',
+    path: '/react/react-theory/:questionId',
     element: <ReactTheory />
   },
   {

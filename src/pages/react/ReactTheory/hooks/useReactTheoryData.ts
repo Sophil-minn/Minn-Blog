@@ -1,10 +1,8 @@
 import { fetchReactData } from "../../../../services/reactData"
 import { useRequest } from "ahooks"
-import { useParams } from "react-router-dom";
 import { ReactTheoryProps } from "../types";
 
-function useReactTheoryData(type: string) {
-  const { questionId = ''} = useParams();
+function useReactTheoryData(questionId: string) {
   const { data = {}, loading } = useRequest(fetchReactData, {
     defaultParams: [questionId]
   }) as { data: Record<string, ReactTheoryProps>, loading: boolean };

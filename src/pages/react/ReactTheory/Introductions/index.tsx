@@ -10,7 +10,7 @@ const cls = classNames({
   'min-introductions': true
 });
 
-const Introductions = (props: { dataList: ReactTheoryProps[], anchorItems: any }) => {
+const Introductions = (props: { dataList?: ReactTheoryProps[], anchorItems: any }) => {
   const { dataList } = props;
 
   return (<>

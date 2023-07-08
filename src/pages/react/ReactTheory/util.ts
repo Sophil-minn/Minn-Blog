@@ -51,8 +51,18 @@ export const getAnchorItems = (data: ReactTheoryProps, questionId: string) => da
   }
 }).filter(d => !questionId || d.id === questionId);
 
+export const getMenuItems = (data: ReactTheoryProps) => data &&  Object.entries(data)?.map(([key, value], index) => {
+  const { h2, id } = value || {} as any;
+  return {
+    key: h2,
+    path: `#/react/react-theory/${id}`,
+    id,
+    title:`${h2}`,
+  }
+})
+
 export const getTheoryData = (data: Record<string, ReactTheoryProps>, questionId: string) => {
   const anchorItems = getAnchorItems(data, questionId);
-  const contentData =  [data?.[questionId]];
+  const contentData =  questionId ? [data?.[questionId]]: undefined;
   return { contentList: Object.values(data) , contentData, anchorItems}
 }

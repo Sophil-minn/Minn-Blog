@@ -17,8 +17,6 @@ export const items: MenuItem[] = [
   getMenuItem('组件沉淀', `/components-development/${COMPONENT_SETTLE_DWON}`, COMPONENT_SETTLE_DWON),
 ];
 
-
-
 interface ComponentsMap {
   [LIBARY_DEV]: React.FC;
   [COMPONENT_SETTLE_DWON]: React.FC;

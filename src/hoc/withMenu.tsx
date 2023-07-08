@@ -6,9 +6,9 @@ import { Key } from 'antd/es/table/interface';
 import { ReactNode } from 'react';
 
 interface MenuTypes {
-  items?: MenuItemType[];
-  defaultOpenKeys: Key[];
-  id: string;
+  items: MenuItemType[];
+  defaultOpenKeys?: Key[];
+  id?: string | undefined;
 }
 
 const cls = classNames({
@@ -16,6 +16,7 @@ const cls = classNames({
 });
 
 const withMenu = (component: ReactNode) => {
+
   return (props: MenuTypes) => (<Container cls={cls}>
     <Row gutter={8} wrap={false} justify="space-between">
       <Col flex="320px">
@@ -23,10 +24,10 @@ const withMenu = (component: ReactNode) => {
           <Card>
             <Menu
               mode="inline"
-              defaultOpenKeys={['engineering']}
+              defaultOpenKeys={['sub1']}
               style={{ width: 256 }}
               items={props.items}
-              defaultSelectedKeys={[props.id]}
+              defaultSelectedKeys={[props.id as string]}
             />
           </Card>
         </Affix>

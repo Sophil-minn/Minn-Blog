@@ -1,12 +1,11 @@
 import React from 'react'
-import DirectoryTree from '../../../components/DirectoryTree';
 import { Card } from 'antd';
 
-export default function ComponentSettleDown() {
-  // const treeData = getTreeData(data);
+export default function LibaryDev() {
+
   return (
-    <Card title="高亮按钮和弹窗封装">
-      <DirectoryTree treeData={[]} />
+    <Card title="组建库开发">
+      组建库开发
     </Card>
   )
 }
