@@ -104,7 +104,7 @@ export default function Info() {
           每一个组件都应该有其独特的划分目的，有的是为了复用实现，有的是为了封装复杂度、清晰业务实现。
         </Text>
       </Paragraph>
-      <Title level={5} id="c-3-1">3.2、组件分类</Title>
+      <Title level={5} id="c-3-2">3.2、组件分类</Title>
       <Paragraph>
         <Text strong>
           (1)、基础UI组件
@@ -150,7 +150,7 @@ export default function Info() {
       <Paragraph>
         特点：UI可配置，业务逻辑完整。有完整的后台流程，数据结构。
       </Paragraph>
-      <Title level={5} id="c-3-1">3.3、组件的隔离</Title>
+      <Title level={5} id="c-3-3">3.3、组件的隔离</Title>
       <Paragraph>
         由于前端基础技术栈自身的原因，html 、css 、js 运行在一个页面上时是没有隔离的，也就是说 js 可以根据选择器获取到任意的 dom 节点，一条 css 规则也会应用在文档中所有满足规则的节点， js 代码中可以随意的创建和使用全局变量。
       </Paragraph>
@@ -160,14 +160,14 @@ export default function Info() {
       <Paragraph>
         组件隔离其实就是模块化，这里我们需要实现 CSS 模块化和 JS 模块化
       </Paragraph>
-      <Title level={5} id="c-3-1">3.4、组件间通信</Title>
+      <Title level={5} id="c-3-4">3.4、组件间通信</Title>
       <Paragraph>
         高内聚低耦合必然会带来数据流动上的壁垒，所以隔离后的组件就要解决组件之间的通信处理。组件通信分为父子组件通信和非父子组件通信，这就涉及到接口设计、事件处理和状态管理三块内容
       </Paragraph>
       <Paragraph>
         在 vue 中，可以使用 props ，事件监听 ，EventBus 的方式来实现组件间的通信。
       </Paragraph>
-      <Title level={5} id="c-3-1">3.5、组件的按需加载</Title>
+      <Title level={5} id="c-3-5">3.5、组件的按需加载</Title>
       <Paragraph>
         iview 、antd 使用的都是 babel-plugin-import 插件，可以实现组件的按需加载。
       </Paragraph>
@@ -177,7 +177,7 @@ export default function Info() {
       <Paragraph>
         如果所用 ui 组件库不符合 babel-plugin-import 的转换规则，可以通过 babel-plugin-import 提供的 customName 字段来自定义转换后的路径。通过 style 字段，来进一步自定义转换后的 style 路径
       </Paragraph>
-      <Title level={4} id="c-3">4、组件的设计原则</Title>
+      <Title level={4} id="c-4">4、组件的设计原则</Title>
       <Paragraph>
         <ol>
           <li>标准性：任何一个组件都应该遵守一套标准，可以使得不同区域的开发人员据此标准开发出一套标准统一的组件。</li>
@@ -195,7 +195,7 @@ export default function Info() {
           <li>良好的接口设计，API 尽量和已知概念保持一致</li>
         </ol>
       </Paragraph>
-      <Title level={4} id="c-3">5、可配置性</Title>
+      <Title level={4} id="c-5">5、可配置性</Title>
 
       <Paragraph>
         一个组件，要明确它的输入和输出分别是什么。
@@ -224,7 +224,7 @@ export default function Info() {
       <Paragraph>
         函数的参数校验，校验函数的入参和出参。
       </Paragraph>
-      <Title level={4} id="c-3">6、组件的生命周期</Title>
+      <Title level={4} id="c-6">6、组件的生命周期</Title>
       <Paragraph>
         一个组件，需要明确知道在生命周期的不同阶段做该做的事。
       </Paragraph>
@@ -248,7 +248,7 @@ export default function Info() {
           <li>destroy,解除所有事件监听，删除所有组件节点</li>
         </ul>
       </Paragraph>
-      <Title level={4} id="c-3">7、事件传递</Title>
+      <Title level={4} id="c-7">7、事件传递</Title>
       <Paragraph>
         组件接收用户的输入后，需要反馈给外部。
       </Paragraph>

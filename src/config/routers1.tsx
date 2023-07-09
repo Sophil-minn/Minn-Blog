@@ -4,6 +4,13 @@ import { lazy } from "react";
 
 const ComponentsDevelopmentDemo = lazy(() => import('../pages/componentsDevelopment/CDemo'));
 const ComponentsDevelopment = lazy(() => import('../pages/componentsDevelopment'));
+const BuildingDemo = lazy(() => import('../pages/building/CDemo'));
+const Building = lazy(() => import('../pages/building'));
+const DataStructureAlgorithmDemo = lazy(() => import('../pages/dataStructureAlgorithm/CDemo'));
+const DataStructureAlgorithm = lazy(() => import('../pages/dataStructureAlgorithm'));
+const DesignPatternDemo = lazy(() => import('../pages/designPattern/Demo'));
+const DesignPatternCDemo = lazy(() => import('../pages/designPattern/CDemo'));
+const DesignPattern = lazy(() => import('../pages/designPattern'));
 const PerformanceOptimizationDemo = lazy(() => import('../pages/performanceOptimization/demos/CDemo'));
 const PerformanceOptimization = lazy(() => import('../pages/performanceOptimization'));
 const EngineeringDemo = lazy(() => import('../pages/engineering/EngineeringDemo'));
@@ -12,8 +19,7 @@ const WebpackDemo = lazy(() => import('../pages/webpack/demos/CDemo'));
 const Webpack = lazy(() => import('../pages/webpack'));
 const GitDemo = lazy(() => import('../pages/git/demos/CDemo'));
 const Git = lazy(() => import('../pages/git'));
-const Home = lazy(() => import('../home'));
-const Minn = lazy(() => import('../minn'));
+const Home = lazy(() => import('../pages/home'));
 const G6Demo = lazy(() => import('../pages/g6'));
 const G6TreeDemo = lazy(() => import('../pages/g6/G6TreeDemo'));
 const MindMapping = lazy(() => import('../pages/g6/MindMapping'));
@@ -30,10 +36,6 @@ export const routers1 = [
   {
     path: '/home',
     element: <Home />
-  },
-  {
-    path: '/minn',
-    element: <Minn />
   },
   {
     path: '/g6',
@@ -68,6 +70,42 @@ export const routers1 = [
       {
         path: '/components-development/:id',
         element: <ComponentsDevelopmentDemo />,
+      }
+    ]
+  },
+  {
+    path: '/building',
+    element: <Building />,
+    children: [
+      {
+        path: '/building/:id',
+        element: <BuildingDemo />,
+      }
+    ]
+  },
+  {
+    path: '/dataStructureAlgorithm',
+    element: <DataStructureAlgorithm />,
+    children: [
+      {
+        path: '/dataStructureAlgorithm/:id',
+        element: <DataStructureAlgorithmDemo />,
+      }
+    ]
+  },
+  {
+    path: '/designPattern',
+    element: <DesignPattern />,
+    children: [
+      {
+        path: '/designPattern/:id',
+        element: <DesignPatternDemo />,
+        children: [
+          {
+            path: '/designPattern/:id/:cid',
+            element: <DesignPatternCDemo />,
+          }
+        ]
       }
     ]
   },

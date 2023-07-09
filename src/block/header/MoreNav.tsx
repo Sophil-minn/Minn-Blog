@@ -9,9 +9,8 @@ import {
 } from "antd";
 import { defaultGetPrefixCls } from "../../util/utils";
 import "./index.scss";
-import { items } from "../../home/config";
 import Button from "../../components/Button";
-import { STATE } from "../../config/const";
+import { STATE } from "./const";
 import { NavInfoProps } from "../../types";
 import classNames from "classnames";
 
@@ -94,7 +93,7 @@ export default function MoreNav(props: {
   );
   return (
     <Dropdown
-      menu={{ items }}
+      menu={{ items: [] }}
       placement="bottom"
       align={{ offset: [0, 18] }}
       autoFocus

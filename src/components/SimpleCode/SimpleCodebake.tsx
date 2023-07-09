@@ -42,7 +42,6 @@ export default function SimpleCode({ value = "// some comment", title = "", heig
 
   }, []);
 
-
   return (
     <>
       <Title level={5} id={id}>{title}</Title>

@@ -3,21 +3,20 @@ import withMenu from '../../hoc/withMenu';
 import { Outlet, useOutlet, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import './index.scss';
-import LibaryDev from './LibaryDev';
-import DevEnviroment from './DevEnviroment';
-import ComponentEnginering from './ComponentEnginering';
-import ComponentTheory from './ComponentTheory';
-import ComponentSettleDown from './ComponentSettleDown';
+import DesignRule from './DesignRule';
+import UncommonPatterns from './UncommonPatterns';
+import CommonPatterns from './CommonPatterns';
+import LawOfDemeter from './LawOfDemeter';
 
-export default function Engineering() {
+export default function DesignPattern() {
   const outlet = useOutlet();
   const { id } = useParams() as { id: string };
   let component = (<>
-    <LibaryDev />
-    <DevEnviroment />
-    <ComponentEnginering />
-    <ComponentTheory />
-    <ComponentSettleDown />
+    <LawOfDemeter />
+    <DesignRule />
+    <CommonPatterns />
+    <UncommonPatterns />
+
   </>)
 
   if (outlet) {

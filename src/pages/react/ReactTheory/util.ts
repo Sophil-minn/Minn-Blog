@@ -63,6 +63,6 @@ export const getMenuItems = (data: ReactTheoryProps) => data &&  Object.entries(
 
 export const getTheoryData = (data: Record<string, ReactTheoryProps>, questionId: string) => {
   const anchorItems = getAnchorItems(data, questionId);
-  const contentData =  questionId ? [data?.[questionId]]: undefined;
-  return { contentList: Object.values(data) , contentData, anchorItems}
+  const contentData =  questionId ? [data?.[questionId]]: Object.values(data);
+  return { contentList: contentData, anchorItems}
 }

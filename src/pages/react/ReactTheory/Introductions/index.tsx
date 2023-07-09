@@ -3,6 +3,9 @@ import classNames from 'classnames';
 import './index.scss';
 import { ReactTheoryProps } from '../types';
 import Introduction from './Introduction';
+import { getTheoryData } from '../util';
+import { withAnchor } from '../../../../hoc/withAnchor';
+import { memo } from 'react';
 
 const { Title, Paragraph } = Typography;
 
@@ -10,11 +13,12 @@ const cls = classNames({
   'min-introductions': true
 });
 
-const Introductions = (props: { dataList?: ReactTheoryProps[], anchorItems: any }) => {
-  const { dataList } = props;
+const Introductions = (props: { data: Record<string, ReactTheoryProps>, questionId: string }) => {
+  const { data, questionId } = props;
+  const { anchorItems, contentList = [] } = getTheoryData(data, questionId);
 
-  return (<>
-    {dataList?.map(data => {
+  const comp = () => (<>
+    {contentList?.map(data => {
       const { questionList = [], h2, id, summary } = data || {};
       return data && (
         <div className={cls} key={id} >
@@ -27,8 +31,12 @@ const Introductions = (props: { dataList?: ReactTheoryProps[], anchorItems: any 
       );
     })}
   </>);
+  const WithAnchor = withAnchor(comp);
+
+  return <WithAnchor anchorItems={anchorItems} />
 
 }
 
 
-export default Introductions;
+
+export default memo(Introductions);

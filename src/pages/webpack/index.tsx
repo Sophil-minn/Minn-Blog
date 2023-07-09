@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import classNames from 'classnames';
-
 import './index.scss';
 import Container from '../../block/container';
 import { Card, Col, Menu, MenuProps, Row } from 'antd';
@@ -24,13 +23,7 @@ const ComponentsDevelopment = () => {
 
   const onMenuItemClick = ({ item, key, keyPath }: Record<string, any>) => {
     // console.log('item, key, keyPath: ', item, key, keyPath);
-
   }
-
-  // const onTitleClick = ({ key }: any) => {
-  //   console.log('key: ', key);
-
-  // }
 
   return <Container cls={cls}>
     <Row gutter={8}>

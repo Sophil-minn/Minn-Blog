@@ -50,23 +50,15 @@ const lowCase = (str) =>
 })();
 `;
 export const code2 = `
-import { Typography } from 'antd';
-import { lazy } from 'react'
-import { code1 } from './code';
+import { withAnchor } from '../../../../hoc/withAnchor';
+import {{componentName}}Info from './{{componentName}}Info';
+import { AnchorItems } from './config';
+import './index.scss';
 
-const SimpleCode = lazy(() => import('../../../../components/SimpleCode'));
-const { Title, Paragraph, Text } = Typography;
-
-export default function {{componentName}}Info() {
-  return (
-    <>
-      <Title level={3} id="use{{componentName}}">use{{componentName}}</Title>
-      <Paragraph></Paragraph>
-      <SimpleCode value="use{{componentName}}(,)" />
-      <Paragraph></Paragraph>
-      
-    </>
-  )
+export default function {{componentName}}() {
+  const EnhancedComponent = withAnchor({{componentName}}Info)
+  const items = {{dirName}};
+  return <EnhancedComponent anchorItems={AnchorItems} />;
 }
 `;
 

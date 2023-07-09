@@ -24,7 +24,7 @@ const withMenu = (component: ReactNode) => {
           <Card>
             <Menu
               mode="inline"
-              defaultOpenKeys={['sub1']}
+              defaultOpenKeys={['engineering']}
               style={{ width: 256 }}
               items={props.items}
               defaultSelectedKeys={[props.id as string]}

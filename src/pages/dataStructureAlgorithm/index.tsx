@@ -3,21 +3,15 @@ import withMenu from '../../hoc/withMenu';
 import { Outlet, useOutlet, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import './index.scss';
-import LibaryDev from './LibaryDev';
-import DevEnviroment from './DevEnviroment';
-import ComponentEnginering from './ComponentEnginering';
-import ComponentTheory from './ComponentTheory';
-import ComponentSettleDown from './ComponentSettleDown';
+import Algorithm from './Algorithm';
+import DataStructure from './DataStructure';
 
-export default function Engineering() {
+export default function Building() {
   const outlet = useOutlet();
   const { id } = useParams() as { id: string };
   let component = (<>
-    <LibaryDev />
-    <DevEnviroment />
-    <ComponentEnginering />
-    <ComponentTheory />
-    <ComponentSettleDown />
+    <DataStructure />
+    <Algorithm />
   </>)
 
   if (outlet) {
@@ -31,3 +25,5 @@ export default function Engineering() {
   }, [id])
   return <EnhancedComponent items={items} id={id} />;
 }
+
+
