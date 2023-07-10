@@ -43,63 +43,63 @@ export const items: MenuItem[] = [
 ];
 
 interface ComponentsMap {
-  [LAW_OF_DEMETER]: React.FC;
-  [DESIGN_RULE]: React.FC;
-  [COMMON_PATTERNS]: React.FC;
-  [UNCOMMON_PATTERNS]: React.FC;
+  [LAW_OF_DEMETER]: React.ReactNode;
+  [DESIGN_RULE]: React.ReactNode;
+  [COMMON_PATTERNS]: React.ReactNode;
+  [UNCOMMON_PATTERNS]: React.ReactNode;
 }
 
 interface ComponentsMap2 {
-  [OBSERVER_PATTERN]: React.FC;
-  [DECORATOR_PATTERN]: React.FC;
-  [ADAPTEE_PATTERN]: React.FC;
-  [FACTORY_PATTERN]: React.FC;
-  [SINGLE_PATTERN]: React.FC;
-  [PROXY_PATTERN]: React.FC;
-  [FACADE_PATTERN]: React.FC;
-  [ITERATOR_PATTERN]: React.FC;
+  [OBSERVER_PATTERN]: React.ReactNode;
+  [DECORATOR_PATTERN]: React.ReactNode;
+  [ADAPTEE_PATTERN]: React.ReactNode;
+  [FACTORY_PATTERN]: React.ReactNode;
+  [SINGLE_PATTERN]: React.ReactNode;
+  [PROXY_PATTERN]: React.ReactNode;
+  [FACADE_PATTERN]: React.ReactNode;
+  [ITERATOR_PATTERN]: React.ReactNode;
 
-  [INTERPRETER_PATTERN]: React.FC;
-  [MEDIATOR_PATTERN]: React.FC;
-  [VISITOR_PATTERN]: React.FC;
-  [MEME_PATTERN]: React.FC;
-  [COMMAND_PATTERN]: React.FC;
-  [ACTION_PATTERN]: React.FC;
-  [TEMPLATE_METHOD_PATTERN]: React.FC;
-  [STRATEGY_PATTERN]: React.FC;
-  [FLYWEIGHT_PATTERN]: React.FC;
-  [COMBINATION]: React.FC;
-  [BRIDGE_PATTERN]: React.FC;
-  [PROTOTYPE_PATTERN]: React.FC;
+  [INTERPRETER_PATTERN]: React.ReactNode;
+  [MEDIATOR_PATTERN]: React.ReactNode;
+  [VISITOR_PATTERN]: React.ReactNode;
+  [MEME_PATTERN]: React.ReactNode;
+  [COMMAND_PATTERN]: React.ReactNode;
+  [ACTION_PATTERN]: React.ReactNode;
+  [TEMPLATE_METHOD_PATTERN]: React.ReactNode;
+  [STRATEGY_PATTERN]: React.ReactNode;
+  [FLYWEIGHT_PATTERN]: React.ReactNode;
+  [COMBINATION]: React.ReactNode;
+  [BRIDGE_PATTERN]: React.ReactNode;
+  [PROTOTYPE_PATTERN]: React.ReactNode;
 }
 
 export const componentsMap: ComponentsMap = {
-  [LAW_OF_DEMETER]: () => <UncommonPatterns />,
-  [DESIGN_RULE]: () => <DesignRule />,
-  [COMMON_PATTERNS]: () => <CommonPatterns />,
-  [UNCOMMON_PATTERNS]: () => <LawOfDemeter />,
+  [LAW_OF_DEMETER]: <UncommonPatterns />,
+  [DESIGN_RULE]: <DesignRule />,
+  [COMMON_PATTERNS]: <CommonPatterns />,
+  [UNCOMMON_PATTERNS]: <LawOfDemeter />,
 };
 export const componentsMap2: ComponentsMap2 = {
-  [OBSERVER_PATTERN]: () => <UncommonPatterns />,
-  [DECORATOR_PATTERN]: () => <UncommonPatterns />,
-  [ADAPTEE_PATTERN]: () => <UncommonPatterns />,
-  [FACTORY_PATTERN]: () => <UncommonPatterns />,
-  [SINGLE_PATTERN]: () => <UncommonPatterns />,
-  [PROXY_PATTERN]: () => <UncommonPatterns />,
-  [FACADE_PATTERN]: () => <UncommonPatterns />,
-  [ITERATOR_PATTERN]: () => <UncommonPatterns />,
+  [OBSERVER_PATTERN]: <UncommonPatterns />,
+  [DECORATOR_PATTERN]: <UncommonPatterns />,
+  [ADAPTEE_PATTERN]: <UncommonPatterns />,
+  [FACTORY_PATTERN]: <UncommonPatterns />,
+  [SINGLE_PATTERN]: <UncommonPatterns />,
+  [PROXY_PATTERN]: <UncommonPatterns />,
+  [FACADE_PATTERN]: <UncommonPatterns />,
+  [ITERATOR_PATTERN]: <UncommonPatterns />,
 
-  [INTERPRETER_PATTERN]: () => <UncommonPatterns />,
-  [MEDIATOR_PATTERN]: () => <UncommonPatterns />,
-  [VISITOR_PATTERN]: () => <UncommonPatterns />,
-  [MEME_PATTERN]: () => <UncommonPatterns />,
-  [COMMAND_PATTERN]: () => <UncommonPatterns />,
-  [ACTION_PATTERN]: () => <UncommonPatterns />,
-  [TEMPLATE_METHOD_PATTERN]: () => <UncommonPatterns />,
-  [STRATEGY_PATTERN]: () => <UncommonPatterns />,
-  [FLYWEIGHT_PATTERN]: () => <UncommonPatterns />,
-  [COMBINATION]: () => <UncommonPatterns />,
-  [BRIDGE_PATTERN]: () => <UncommonPatterns />,
-  [PROTOTYPE_PATTERN]: () => <UncommonPatterns />,
+  [INTERPRETER_PATTERN]: <UncommonPatterns />,
+  [MEDIATOR_PATTERN]: <UncommonPatterns />,
+  [VISITOR_PATTERN]: <UncommonPatterns />,
+  [MEME_PATTERN]: <UncommonPatterns />,
+  [COMMAND_PATTERN]: <UncommonPatterns />,
+  [ACTION_PATTERN]: <UncommonPatterns />,
+  [TEMPLATE_METHOD_PATTERN]: <UncommonPatterns />,
+  [STRATEGY_PATTERN]: <UncommonPatterns />,
+  [FLYWEIGHT_PATTERN]: <UncommonPatterns />,
+  [COMBINATION]: <UncommonPatterns />,
+  [BRIDGE_PATTERN]: <UncommonPatterns />,
+  [PROTOTYPE_PATTERN]: <UncommonPatterns />,
 };
 

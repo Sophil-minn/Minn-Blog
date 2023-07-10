@@ -437,11 +437,21 @@ export const nodejsItem = {
 export const perfomanceItem = {
   title: "性能优化",
   description: "性能优化总结沉淀",
+  path: "/performance-optimization",
   list: [
     {
-      title: "渲染优化",
+      title: "思考1",
       tips: "",
-      path: "/",
+      path: "/performance-optimization/optimization1",
+      disabled: false,
+      pathType: "",
+      statusCode: STATE.NEW,
+    },
+    {
+      title: "思考2",
+      tips: "",
+      path: "/performance-optimization/optimization2",
+      disabled: false,
       pathType: "",
       statusCode: STATE.NEW,
     },

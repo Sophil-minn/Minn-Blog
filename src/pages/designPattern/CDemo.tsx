@@ -22,11 +22,11 @@ interface RouteParams3 {
 
 export default function CDemo() {
   const { cid } = useParams() as unknown as RouteParams2 & RouteParams3;
-  const Comp = cid ? componentsMap2?.[cid] || undefined : undefined;
+  const Comp = cid ? componentsMap2?.[cid] || null : undefined;
   return (
     <div>
       {cid}
-      {Comp ? Comp : <div>前端打包</div>}
+      {Comp}
     </div>
   )
 }

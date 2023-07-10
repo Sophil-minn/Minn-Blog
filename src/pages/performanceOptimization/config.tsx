@@ -31,6 +31,6 @@ function getItem(
 }
 
 export const items: MenuItem[] = [
-  getItem('A', 'A', '1'),
-  getItem('B', 'B', '2'),
+  getItem('思考1', 'optimization1', 'optimization1'),
+  getItem('思考2', 'optimization2', 'optimization2'),
 ];
