@@ -1,10 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom';
-import { componentsMap } from './config';
-
-interface RouteParams {
-  id: "optimization1" | "optimization2"
-}
+import { RouteParams, componentsMap } from './config';
 
 export default function CDemo() {
   const { id } = useParams() as unknown as RouteParams;
