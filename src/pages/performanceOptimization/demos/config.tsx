@@ -1,13 +1,14 @@
-import A from "./A";
-import B from "./B";
+
+import Optimization1 from "./Optimization1";
+import Optimization2 from "./Optimization2";
 
 interface ComponentsMap {
-  A: React.FC,
-  B: React.FC,
+  optimization1: React.ReactNode,
+  optimization2: React.ReactNode,
 }
 
 
 export const componentsMap: ComponentsMap = {
-  A: () => <A />,
-  B: () => <B />,
+  optimization1: <Optimization1 />,
+  optimization2: <Optimization2 />,
 };
