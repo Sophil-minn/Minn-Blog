@@ -86,66 +86,66 @@ const gitItem = {
   ],
 };
 // 数据结构篇
-const dataStructureItem = {
-  title: "数据结构",
-  description: "javaScipt数据结构",
+const commandsItem = {
+  title: "操作命令",
+  description: "操作命令",
   list: [
     {
-      title: "栈",
-      tips: "实现栈",
+      title: "Linux",
+      tips: "",
       path: "",
       pathType: "outer",
       statusCode: "",
     },
     {
-      title: "队列",
-      tips: "实现队列，优先队列，循环队列",
+      title: "shell",
+      tips: "",
       path: "",
       pathType: "",
       statusCode: "",
     },
-    {
-      title: "集合",
-      tips: "创建集合、并集、交集、差集、子集",
-      path: "",
-      pathType: "",
-      statusCode: "",
-    },
-    {
-      title: "链表",
-      tips: "创建链表、双向链表",
-      path: "",
-      pathType: "",
-      statusCode: "",
-    },
-    {
-      title: "字典",
-      tips: "实现字典",
-      path: "",
-      pathType: "",
-      statusCode: "",
-    },
-    {
-      title: "树",
-      tips: "实现树",
-      path: "",
-      pathType: "",
-      statusCode: "",
-    },
-    {
-      title: "图",
-      tips: "实现图",
-      path: "",
-      pathType: "",
-      statusCode: "",
-    },
-    {
-      title: "堆",
-      tips: "实现堆",
-      path: "",
-      pathType: "",
-      statusCode: "",
-    },
+    // {
+    //   title: "集合",
+    //   tips: "创建集合、并集、交集、差集、子集",
+    //   path: "",
+    //   pathType: "",
+    //   statusCode: "",
+    // },
+    // {
+    //   title: "链表",
+    //   tips: "创建链表、双向链表",
+    //   path: "",
+    //   pathType: "",
+    //   statusCode: "",
+    // },
+    // {
+    //   title: "字典",
+    //   tips: "实现字典",
+    //   path: "",
+    //   pathType: "",
+    //   statusCode: "",
+    // },
+    // {
+    //   title: "树",
+    //   tips: "实现树",
+    //   path: "",
+    //   pathType: "",
+    //   statusCode: "",
+    // },
+    // {
+    //   title: "图",
+    //   tips: "实现图",
+    //   path: "",
+    //   pathType: "",
+    //   statusCode: "",
+    // },
+    // {
+    //   title: "堆",
+    //   tips: "实现堆",
+    //   path: "",
+    //   pathType: "",
+    //   statusCode: "",
+    // },
   ],
 };
 // 数据结构和算法
@@ -535,13 +535,6 @@ export const perfomanceItem = {
       pathType: "",
       statusCode: STATE.NEW,
     },
-    {
-      title: "requestAnimationFrame",
-      tips: "",
-      path: "/",
-      pathType: "",
-      statusCode: STATE.NEW,
-    },
   ],
 };
 // 软件工程篇
@@ -570,7 +563,7 @@ export const navigationEntranceList: NavInfoProps[] = [
   nodejsItem,
   netWorkItem,
   navigationItem,
-  dataStructureItem,
+  commandsItem,
   // algorithmItem,
   gitItem,
   vueItem
