@@ -17,6 +17,8 @@ const EngineeringDemo = lazy(() => import('../pages/engineering/EngineeringDemo'
 const Engineering = lazy(() => import('../pages/engineering'));
 const WebpackDemo = lazy(() => import('../pages/webpack/demos/CDemo'));
 const Webpack = lazy(() => import('../pages/webpack'));
+const NodejsDemo = lazy(() => import('../pages/nodejs/demos'));
+const Nodejs = lazy(() => import('../pages/nodejs'));
 const GitDemo = lazy(() => import('../pages/git/demos/CDemo'));
 const Git = lazy(() => import('../pages/git'));
 const Home = lazy(() => import('../pages/home'));
@@ -136,6 +138,16 @@ export const routers1 = [
       {
         path: '/webpack/:id',
         element: <WebpackDemo />,
+      }
+    ]
+  },
+  {
+    path: '/nodejs',
+    element: <Nodejs />,
+    children: [
+      {
+        path: '/nodejs/:id',
+        element: <NodejsDemo />,
       }
     ]
   },

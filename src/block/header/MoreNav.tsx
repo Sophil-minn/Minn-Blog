@@ -13,6 +13,7 @@ import Button from "../../components/Button";
 import { STATE } from "./const";
 import { NavInfoProps } from "../../types";
 import classNames from "classnames";
+import { Link } from "react-router-dom";
 
 const dcls = defaultGetPrefixCls("dropdown-content");
 const scls = defaultGetPrefixCls("section-info");
@@ -22,7 +23,7 @@ const { Title, Text } = Typography;
 const SectionInfo = ({ navInfo }: { navInfo: NavInfoProps }) => (
   <div className={scls}>
     <Tooltip title={navInfo.description}>
-      <Title level={5} className="nav-info__title">{navInfo.title}</Title>
+      <Link to={navInfo?.path || '/'}><Title level={5} className="nav-info__title">{navInfo.title}</Title></Link>
     </Tooltip>
     <div className="navInfo-items-wrapper">
       {navInfo.list.map((item, index) => {

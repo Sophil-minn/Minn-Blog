@@ -416,6 +416,7 @@ const netWorkItem = {
 export const nodejsItem = {
   title: "nodejs",
   description: "前端工程化概念及原理学习总结",
+  path: '/nodejs',
   list: [
     {
       title: "入门",
