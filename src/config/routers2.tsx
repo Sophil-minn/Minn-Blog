@@ -59,14 +59,14 @@ export const reactRouters = [
     element: <RManagingState />,
     children: [
       {
-        path: '/react/managing-state/:pid',
+        path: '/react/managing-state/:id',
         element: <CManagingStateDemo />,
-        children: [
-          {
-            path: '/react/managing-state/:pid/:id',
-            element: <MDemo />,
-          },
-        ]
+        // children: [
+        //   {
+        //     path: '/react/managing-state/:pid/:id',
+        //     element: <MDemo />,
+        //   },
+        // ]
       }
     ]
   }

@@ -6,23 +6,11 @@ import PreservingAndResettingState from "../PreservingAndResettingState";
 import ReactingToInputWithState from "../ReactingToInputWithState";
 import ScalingUpWithReducerAndContext from "../ScalingUpWithReducerAndContext";
 import SharingStateBetweenComponents from "../SharingStateBetweenComponents";
-import { CHOOSING_THE_STATE_STRUCTURE, EXTRACTING_STATE_INTO_A_REDUCER, PASSING_DATA_DEEPLY_WITH_CONTEXT, PRESERVING_AND_RESETTING_STATE, REACTING_TO_INPUT_WITH_STATE, SCALING_UP_WITH_REDUCER_ADN_CONTEXT, SHARING_STATE_BETWEEN_COMPONENTS, } from "./const";
 
-interface ComponentsMap {
-  [REACTING_TO_INPUT_WITH_STATE]: React.FC,
-  [CHOOSING_THE_STATE_STRUCTURE]: React.FC,
-  [SHARING_STATE_BETWEEN_COMPONENTS]: React.FC,
-  [PRESERVING_AND_RESETTING_STATE]: React.FC,
-  [EXTRACTING_STATE_INTO_A_REDUCER]: React.FC,
-  [PASSING_DATA_DEEPLY_WITH_CONTEXT]: React.FC,
-  [SCALING_UP_WITH_REDUCER_ADN_CONTEXT]: React.FC,
-}
+import { CHOOSING_THE_STATE_STRUCTURE, EXTRACTING_STATE_INTO_A_REDUCER, MANAGING_STATE, PASSING_DATA_DEEPLY_WITH_CONTEXT, PRESERVING_AND_RESETTING_STATE, REACTING_TO_INPUT_WITH_STATE, SCALING_UP_WITH_REDUCER_ADN_CONTEXT, SHARING_STATE_BETWEEN_COMPONENTS, } from "./const";
 
-interface RComponentsMap {
-  ManagingState: React.FC,
-}
 
-export const componentsMap: ComponentsMap = {
+export const componentsMap: { [key in managingStateProps.RouteIdEnum]?: React.FC } = {
   [REACTING_TO_INPUT_WITH_STATE]: () => <ReactingToInputWithState />,
   [CHOOSING_THE_STATE_STRUCTURE]: () => <ChoosingTheStateStructure />,
   [SHARING_STATE_BETWEEN_COMPONENTS]: () => <SharingStateBetweenComponents />,
@@ -33,6 +21,6 @@ export const componentsMap: ComponentsMap = {
 
 };
 
-export const rComponentsMap: RComponentsMap = {
-  ManagingState: () => <ManagingState />,
+export const rComponentsMap: { [key in managingStateProps.RouteIdEnumParent]?: React.FC } = {
+  [MANAGING_STATE]: () => <ManagingState />,
 }

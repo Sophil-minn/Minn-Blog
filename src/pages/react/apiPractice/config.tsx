@@ -14,14 +14,12 @@ import LayoutEffect from "./demos/LayoutEffect";
 import Memo from "./demos/Memo";
 import ReactAPI from "./ReactAPI";
 import Id from "./demos/Id";
-import { ComponentsMap, MenuItem, RComponentsMap } from './types';
 import Reducer from './demos/Reducer';
 import Ref from './demos/Ref';
 import State from './demos/State';
 import SyncExternalStore from './demos/SyncExternalStore';
 import Transition from './demos/Transition';
 
-// submenu keys of first level
 export const rootSubmenuKeys = ['Hooks', 'Components', 'react-API'];
 
 function getItem(
@@ -75,7 +73,7 @@ export const items: MenuItem[] = [
   ]),
 ];
 
-export const componentsMap: ComponentsMap = {
+export const componentsMap: { [key in reactApiPractice.RouteIdEnum]?: React.FC } = {
   useCallback: () => <Callback />,
   useContext: () => <Context />,
   useDebugValue: () => <DebugValue />,
@@ -93,8 +91,8 @@ export const componentsMap: ComponentsMap = {
   useTransition: () => <Transition />,
 };
 
-export const rComponentsMap: RComponentsMap = {
+export const rComponentsMap: { [key in reactApiPractice.RouteIdEnumParent]?: React.FC } = {
   Hooks: () => <Hooks />,
   Components: () => <Components />,
-  "react-API": () => <ReactAPI />,
+  ReactAPI: () => <ReactAPI />,
 }

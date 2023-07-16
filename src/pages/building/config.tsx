@@ -1,5 +1,4 @@
 import { getMenuItem } from '../../util/config';
-import { MenuItem } from '../react/apiPractice/types';
 import { ROLLUP, WEBPACK, VITE } from './const';
 import Rollup from "./Rollup";
 import Vite from "./Vite";
@@ -13,13 +12,7 @@ export const items: MenuItem[] = [
   getMenuItem('rollup', `/building/${ROLLUP}`, ROLLUP),
 ];
 
-interface ComponentsMap {
-  [WEBPACK]: React.FC;
-  [VITE]: React.FC;
-  [ROLLUP]: React.FC;
-}
-
-export const componentsMap: ComponentsMap = {
+export const componentsMap: { [key in building.RouteIdEnum]?: React.FC } = {
   [WEBPACK]: () => <Webpack />,
   [VITE]: () => <Vite />,
   [ROLLUP]: () => <Rollup />,

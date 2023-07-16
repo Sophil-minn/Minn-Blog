@@ -1,2 +1,2 @@
-export const DATA_STRUCTURE = 'dataStructure';
+export const DATA_STRUCTURE = 'data_structure';
 export const ALGORITHM = 'algorithm';

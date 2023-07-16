@@ -1,5 +1,4 @@
 import { getMenuItem } from '../../util/config';
-import { MenuItem } from '../react/apiPractice/types';
 import UncommonPatterns from './UncommonPatterns';
 import DesignRule from './DesignRule';
 import CommonPatterns from './CommonPatterns';

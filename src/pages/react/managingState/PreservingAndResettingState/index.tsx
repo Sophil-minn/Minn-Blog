@@ -1,10 +1,10 @@
 
 import React from 'react'
 
-export default function ChoosingTheStateStructure() {
+export default function PreservingAndResettingState() {
   return (
     <div>
-      ChoosingTheStateStructure
+      PreservingAndResettingState
     </div>
   )
 }

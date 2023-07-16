@@ -10,11 +10,12 @@ import useReactTheoryData from './hooks/useReactTheoryData';
 import { useParams } from 'react-router-dom';
 import MenuLabel from '../../../components/MenuLabel';
 import { useMemo } from 'react';
+import { MenuItemType } from 'antd/es/menu/hooks/useItems';
 
 export default function ReactTheory(props: any) {
   const { questionId = '' } = useParams();
   const { data, loading } = useReactTheoryData();
-  const menuItems = useMemo(() => getMenuItems(data)?.map(v => ({
+  const menuItems = useMemo(() => getMenuItems(data)?.map((v: { id: string; title: string; }) => ({
     ...v,
     label: <MenuLabel keypath={v.id} path={`/react/react-theory/${v.id}`} label={v.title} />
   })), [data]);
@@ -33,7 +34,7 @@ export default function ReactTheory(props: any) {
                       mode="inline"
                       defaultOpenKeys={['engineering']}
                       style={{ width: 256 }}
-                      items={menuItems}
+                      items={menuItems as any}
                       defaultSelectedKeys={[questionId as string]}
                     />
                   </Card>

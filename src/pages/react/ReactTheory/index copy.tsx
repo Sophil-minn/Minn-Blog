@@ -20,7 +20,7 @@ export default function ReactTheory(props: any) {
   const { anchorItems, contentList = [] } = getTheoryData(data, questionId);
   console.log("🚀 ~ file: index.tsx:20 ~ ReactTheory ~ anchorItems:", anchorItems)
 
-  const menuItems = useMemo(() => getMenuItems(data)?.map(v => ({
+  const menuItems = useMemo(() => getMenuItems(data)?.map((v: { id: string; title: string; }) => ({
     ...v,
     label: <MenuLabel keypath={v.id} path={`/react/react-theory/${v.id}`} label={v.title} />
   })), [data]);

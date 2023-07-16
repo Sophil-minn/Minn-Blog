@@ -1,7 +1,6 @@
 import { Typography } from 'antd';
 import classNames from 'classnames';
 import './index.scss';
-import { ReactTheoryProps } from '../types';
 import Introduction from './Introduction';
 import { getTheoryData } from '../util';
 import { withAnchor } from '../../../../hoc/withAnchor';
@@ -13,7 +12,7 @@ const cls = classNames({
   'min-introductions': true
 });
 
-const Introductions = (props: { data: Record<string, ReactTheoryProps>, questionId: string }) => {
+const Introductions = (props: { data: Record<string, reactTheory.ReactTheoryProps>, questionId: string }) => {
   const { data, questionId } = props;
   const { anchorItems, contentList = [] } = getTheoryData(data, questionId);
 
@@ -25,7 +24,7 @@ const Introductions = (props: { data: Record<string, ReactTheoryProps>, question
           <Title level={2} className='title-2' id={id} > {h2}</Title>
           <Paragraph>{summary}</Paragraph>
           {
-            questionList.map((v, i) => (<Introduction data={v} key={v.id} index={i} />))
+            questionList.map((v: reactTheory.QuestionItemProps, i: number) => (<Introduction data={v} key={v.id} index={i} />))
           }
         </div>
       );

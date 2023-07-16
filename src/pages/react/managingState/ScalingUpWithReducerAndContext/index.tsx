@@ -1,10 +1,10 @@
 
 import React from 'react'
 
-export default function ChoosingTheStateStructure() {
+export default function ScalingUpWithReducerAndContext() {
   return (
     <div>
-      ChoosingTheStateStructure
+      ScalingUpWithReducerAndContext
     </div>
   )
 }

@@ -1,13 +1,11 @@
 import React from 'react'
-import { QuestionItemProps } from '../types';
 import Title from 'antd/es/typography/Title';
 import { Card, List } from 'antd';
 
-export default function Question({ data, index }: { data: QuestionItemProps, index: number }) {
+export default function Question({ data, index }: { data: reactTheory.QuestionItemProps, index: number }) {
   console.log('data: ', data);
   const { question, detail = {} } = data;
   const { description, theory, summary, tips } = detail;
-  console.log('tips: ', tips);
   return (
     <div className='question-and-answer-section'>
       <Title level={4} className='title-4'>{index + 1}、{question}</Title>

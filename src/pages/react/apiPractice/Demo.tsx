@@ -1,17 +1,17 @@
-import React, { useLayoutEffect } from 'react'
-import { Outlet, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { componentsMap, rComponentsMap } from './config';
 import Hooks from './Hooks';
 
-interface RouteParams {
-  pid: "Hooks" | "Components" | "react-API",
-  id: "useCallback" | "useContext" | "useDebugValue" | "useDeferredValue" | "useEffect" | "useId" | "useImperativeHandle" | "useInsertionEffect" | "useLayoutEffect" | "useMemo"
+interface DemoParams {
+  [key: string]: string | undefined;
+  pid?: reactApiPractice.RouteIdEnumParent;
+  id?: reactApiPractice.RouteIdEnum;
 }
+
 export default function Demo() {
-  const { pid, id } = useParams() as unknown as RouteParams;
+  const { pid, id } = useParams<DemoParams>();
   const Comp = pid ? rComponentsMap?.[pid] || undefined : undefined;
   const CComp = id ? componentsMap?.[id] || undefined : undefined;
-
   return (
     <div>
       {CComp ? <CComp /> : (Comp ? < Comp /> : <Hooks />)}

@@ -1,5 +1,4 @@
 import { getMenuItem } from '../../util/config';
-import { MenuItem } from '../react/apiPractice/types';
 
 export const rootSubmenuKeys = ['sub11', 'sub2', 'sub4'];
 

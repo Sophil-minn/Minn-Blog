@@ -1,9 +1,8 @@
-import { ReactTheoryProps } from "../../pages/react/ReactTheory/types";
 import { formatToTreeData } from "../../util/utils";
 import { reactTheory } from "./initialData";
 
 export const fetchReactData = (params: string) => new Promise(resolve => setTimeout(() => {
-  return resolve(reactTheory as ReactTheoryProps);
+  return resolve(reactTheory as reactTheory.ReactTheoryProps);
 }, 1000))
 
 export const fetchReactData2 = (params: string) => new Promise(resolve => setTimeout(() => {

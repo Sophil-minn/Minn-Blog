@@ -1,5 +1,5 @@
 
-export const MANAGING_STATE = 'ManagingState';
+export const MANAGING_STATE = 'managingState';
 export const REACTING_TO_INPUT_WITH_STATE = 'reacting-to-input-with-state';
 export const CHOOSING_THE_STATE_STRUCTURE = 'choosing-the-state-structure';
 export const SHARING_STATE_BETWEEN_COMPONENTS = 'sharing-state-between-components';

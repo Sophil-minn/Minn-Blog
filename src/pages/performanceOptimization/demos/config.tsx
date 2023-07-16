@@ -18,24 +18,9 @@ export interface RouteParams {
 }
 
 
-interface ComponentsMap {
-  optimization1: React.ReactNode,
-  optimization2: React.ReactNode,
-  imgLazyLoad: React.ReactNode,
-  repaintAndReflow: React.ReactNode,
-  renderedOptimization: React.ReactNode,
-  renderOptimization: React.ReactNode,
-  virtualList: React.ReactNode,
-  reduceResourceSize: React.ReactNode,
-  reduceRequests: React.ReactNode,
-  optimizeNetworkConnectivity: React.ReactNode,
-  optimizeResourceLoading: React.ReactNode,
-  requestAnimationFrame: React.ReactNode,
-  webpackOptimize: React.ReactNode,
-}
 
 
-export const componentsMap: ComponentsMap = {
+export const componentsMap: { [key in performanceOptimization.RouteIdEnum]?: React.ReactNode } = {
   optimization1: <Optimization1 />,
   optimization2: <Optimization2 />,
   imgLazyLoad: <ImgLazyLoad />,

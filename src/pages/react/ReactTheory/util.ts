@@ -1,7 +1,7 @@
 import { ICON_ADD_DIR_TYPE } from "../../../components/DirectoryTree/const";
-import { ReactTheoryProps } from "./types";
 
-export const getTreeData =  (data: ReactTheoryProps) => {
+
+export const getTreeData =  (data: reactTheory.ReactTheoryProps) => {
   const arr = Object.entries(data)?.map(([key, value = {}], index) => {
     return { 
       ...value, 
@@ -33,7 +33,7 @@ export const getTreeData =  (data: ReactTheoryProps) => {
   ]
 }
 
-export const getAnchorItems = (data: ReactTheoryProps, questionId: string) => data &&  Object.entries(data)?.map(([key, value], index) => {
+export const getAnchorItems = (data: reactTheory.ReactTheoryProps, questionId: string) => data &&  Object.entries(data)?.map(([key, value], index) => {
   const { h2, id, questionList } = value || {} as any;
   return {
     key: h2,
@@ -51,7 +51,7 @@ export const getAnchorItems = (data: ReactTheoryProps, questionId: string) => da
   }
 }).filter(d => !questionId || d.id === questionId);
 
-export const getMenuItems = (data: ReactTheoryProps) => data &&  Object.entries(data)?.map(([key, value], index) => {
+export const getMenuItems = (data: reactTheory.ReactTheoryProps) => data &&  Object.entries(data)?.map(([key, value], index) => {
   const { h2, id } = value || {} as any;
   return {
     key: h2,
@@ -61,7 +61,7 @@ export const getMenuItems = (data: ReactTheoryProps) => data &&  Object.entries(
   }
 })
 
-export const getTheoryData = (data: Record<string, ReactTheoryProps>, questionId: string) => {
+export const getTheoryData = (data: Record<string, reactTheory.ReactTheoryProps>, questionId: string) => {
   const anchorItems = getAnchorItems(data, questionId);
   const contentData =  questionId ? [data?.[questionId]]: Object.values(data);
   return { contentList: contentData, anchorItems}

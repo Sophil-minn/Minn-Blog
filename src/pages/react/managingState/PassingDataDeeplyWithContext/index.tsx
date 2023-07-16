@@ -1,10 +1,10 @@
 
 import React from 'react'
 
-export default function ChoosingTheStateStructure() {
+export default function PassingDataDeeplyWithContext() {
   return (
     <div>
-      ChoosingTheStateStructure
+      PassingDataDeeplyWithContext
     </div>
   )
 }

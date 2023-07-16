@@ -1,10 +1,9 @@
-import { QuestionItemProps } from '../types';
 import Title from 'antd/es/typography/Title';
 import { Divider, List, Tag, Typography } from 'antd';
 
 const { Text } = Typography;
 
-export default function Introduction({ data, index }: { data: QuestionItemProps, index: number }) {
+export default function Introduction({ data, index }: { data: reactTheory.QuestionItemProps, index: number }) {
   const { question, id, detail = {} } = data;
   const { description, theory, summary, tips } = detail;
   return (
