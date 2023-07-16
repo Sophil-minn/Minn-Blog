@@ -6,6 +6,7 @@ import Container from '../../../block/container';
 import { Card, Col, Menu, MenuProps, Row } from 'antd';
 import { Outlet } from 'react-router-dom';
 import { items, rootSubmenuKeys } from './config';
+import Demo from './demos/Demo';
 
 const cls = classNames({
   'minn-principle': true
@@ -27,7 +28,6 @@ const ManagingState = () => {
 
   }
 
-
   return <Container cls={cls}>
     <Row gutter={8}>
       <Col flex="260px">
@@ -45,8 +45,8 @@ const ManagingState = () => {
       </Col>
       <Col flex="auto">
         <Card>
-          状态管理
-          <Outlet />
+          {/* <Outlet /> */}
+          <Demo />
         </Card>
       </Col>
     </Row>

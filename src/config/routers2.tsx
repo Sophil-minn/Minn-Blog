@@ -1,10 +1,9 @@
 import { lazy } from "react";
 
 const CDemo = lazy(() => import('../pages/react/apiPractice/CDemo'));
-const MDemo = lazy(() => import('../pages/react/managingState/demos/MDemo'));
-const ReactTheory = lazy(() => import('../pages/react/ReactTheory'));
+const ReactTheory = lazy(() => import('../pages/react/reactTheory'));
 const ApiPracticeDemo = lazy(() => import('../pages/react/apiPractice/Demo'));
-const ThinkingInReact = lazy(() => import('../pages/react/ThinkingInReact'));
+const ThinkingInReact = lazy(() => import('../pages/react/thinkingInReact'));
 const ApiPractice = lazy(() => import('../pages/react/apiPractice'));
 const ReactPrinciple = lazy(() => import('../pages/react/reactPrinciple'));
 const RManagingState = lazy(() => import('../pages/react/managingState'));

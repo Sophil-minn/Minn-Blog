@@ -9,6 +9,26 @@ import {
   INTERPRETER_PATTERN, MEDIATOR_PATTERN, VISITOR_PATTERN, MEME_PATTERN, COMMAND_PATTERN,
   ACTION_PATTERN, TEMPLATE_METHOD_PATTERN, STRATEGY_PATTERN, FLYWEIGHT_PATTERN, COMBINATION, BRIDGE_PATTERN, PROTOTYPE_PATTERN
 } from './const';
+import ObserverPattern from './CommonPatterns/ObserverPattern';
+import InterpreterPattern from './UncommonPatterns/InterpreterPattern';
+import MediatorPattern from './UncommonPatterns/MediatorPattern';
+import VisitorPattern from './UncommonPatterns/VisitorPattern';
+import MemePattern from './UncommonPatterns/MemePattern';
+import TemplateMethodPattern from './UncommonPatterns/TemplateMethodPattern';
+import StrategyPattern from './UncommonPatterns/StrategyPattern';
+import CommandPattern from './UncommonPatterns/CommandPattern';
+import ActionPattern from './UncommonPatterns/ActionPattern';
+import FlyweightPattern from './UncommonPatterns/FlyweightPattern';
+import Combination from './UncommonPatterns/Combination';
+import BridgePattern from './UncommonPatterns/BridgePattern';
+import PrototypePattern from './UncommonPatterns/PrototypePattern';
+import DecoratorPattern from './CommonPatterns/DecoratorPattern';
+import AdapteePattern from './CommonPatterns/AdapteePattern';
+import FactoryPattern from './CommonPatterns/FactoryPattern';
+import SinglePattern from './CommonPatterns/SinglePattern';
+import ProxyPattern from './CommonPatterns/ProxyPattern';
+import FacadePattern from './CommonPatterns/FacadePattern';
+import IteratorPattern from './CommonPatterns/IteratorPattern';
 
 export const rootSubmenuKeys = [''];
 
@@ -41,64 +61,33 @@ export const items: MenuItem[] = [
   ]),
 ];
 
-interface ComponentsMap {
-  [LAW_OF_DEMETER]: React.ReactNode;
-  [DESIGN_RULE]: React.ReactNode;
-  [COMMON_PATTERNS]: React.ReactNode;
-  [UNCOMMON_PATTERNS]: React.ReactNode;
-}
-
-interface ComponentsMap2 {
-  [OBSERVER_PATTERN]: React.ReactNode;
-  [DECORATOR_PATTERN]: React.ReactNode;
-  [ADAPTEE_PATTERN]: React.ReactNode;
-  [FACTORY_PATTERN]: React.ReactNode;
-  [SINGLE_PATTERN]: React.ReactNode;
-  [PROXY_PATTERN]: React.ReactNode;
-  [FACADE_PATTERN]: React.ReactNode;
-  [ITERATOR_PATTERN]: React.ReactNode;
-
-  [INTERPRETER_PATTERN]: React.ReactNode;
-  [MEDIATOR_PATTERN]: React.ReactNode;
-  [VISITOR_PATTERN]: React.ReactNode;
-  [MEME_PATTERN]: React.ReactNode;
-  [COMMAND_PATTERN]: React.ReactNode;
-  [ACTION_PATTERN]: React.ReactNode;
-  [TEMPLATE_METHOD_PATTERN]: React.ReactNode;
-  [STRATEGY_PATTERN]: React.ReactNode;
-  [FLYWEIGHT_PATTERN]: React.ReactNode;
-  [COMBINATION]: React.ReactNode;
-  [BRIDGE_PATTERN]: React.ReactNode;
-  [PROTOTYPE_PATTERN]: React.ReactNode;
-}
-
-export const componentsMap: ComponentsMap = {
-  [LAW_OF_DEMETER]: <UncommonPatterns />,
+export const componentsMap: { [key in designPattern.RouteIdEnumParent]?: React.ReactNode } = {
+  [LAW_OF_DEMETER]: <LawOfDemeter />,
   [DESIGN_RULE]: <DesignRule />,
   [COMMON_PATTERNS]: <CommonPatterns />,
-  [UNCOMMON_PATTERNS]: <LawOfDemeter />,
+  [UNCOMMON_PATTERNS]: <UncommonPatterns />,
 };
-export const componentsMap2: ComponentsMap2 = {
-  [OBSERVER_PATTERN]: <UncommonPatterns />,
-  [DECORATOR_PATTERN]: <UncommonPatterns />,
-  [ADAPTEE_PATTERN]: <UncommonPatterns />,
-  [FACTORY_PATTERN]: <UncommonPatterns />,
-  [SINGLE_PATTERN]: <UncommonPatterns />,
-  [PROXY_PATTERN]: <UncommonPatterns />,
-  [FACADE_PATTERN]: <UncommonPatterns />,
-  [ITERATOR_PATTERN]: <UncommonPatterns />,
+export const componentsMap2: { [key in designPattern.RouteIdEnum]?: React.ReactNode } = {
+  [OBSERVER_PATTERN]: <ObserverPattern />,
+  [DECORATOR_PATTERN]: <DecoratorPattern />,
+  [ADAPTEE_PATTERN]: <AdapteePattern />,
+  [FACTORY_PATTERN]: <FactoryPattern />,
+  [SINGLE_PATTERN]: <SinglePattern />,
+  [PROXY_PATTERN]: <ProxyPattern />,
+  [FACADE_PATTERN]: <FacadePattern />,
+  [ITERATOR_PATTERN]: <IteratorPattern />,
 
-  [INTERPRETER_PATTERN]: <UncommonPatterns />,
-  [MEDIATOR_PATTERN]: <UncommonPatterns />,
-  [VISITOR_PATTERN]: <UncommonPatterns />,
-  [MEME_PATTERN]: <UncommonPatterns />,
-  [COMMAND_PATTERN]: <UncommonPatterns />,
-  [ACTION_PATTERN]: <UncommonPatterns />,
-  [TEMPLATE_METHOD_PATTERN]: <UncommonPatterns />,
-  [STRATEGY_PATTERN]: <UncommonPatterns />,
-  [FLYWEIGHT_PATTERN]: <UncommonPatterns />,
-  [COMBINATION]: <UncommonPatterns />,
-  [BRIDGE_PATTERN]: <UncommonPatterns />,
-  [PROTOTYPE_PATTERN]: <UncommonPatterns />,
+  [INTERPRETER_PATTERN]: <InterpreterPattern />,
+  [MEDIATOR_PATTERN]: <MediatorPattern />,
+  [VISITOR_PATTERN]: <VisitorPattern />,
+  [MEME_PATTERN]: <MemePattern />,
+  [COMMAND_PATTERN]: <CommandPattern />,
+  [ACTION_PATTERN]: <ActionPattern />,
+  [TEMPLATE_METHOD_PATTERN]: <TemplateMethodPattern />,
+  [STRATEGY_PATTERN]: <StrategyPattern />,
+  [FLYWEIGHT_PATTERN]: <FlyweightPattern />,
+  [COMBINATION]: <Combination />,
+  [BRIDGE_PATTERN]: <BridgePattern />,
+  [PROTOTYPE_PATTERN]: <PrototypePattern />,
 };
 

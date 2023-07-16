@@ -1,7 +1,7 @@
 import React from 'react'
 import DirectoryTree from '../../../components/DirectoryTree';
 import { Card, Typography } from 'antd';
-import { getTreeData } from '../../react/ReactTheory/util';
+import { getTreeData } from '../../react/reactTheory/util';
 import useData from '../hooks/useData';
 
 const { Title, Paragraph, Text } = Typography;

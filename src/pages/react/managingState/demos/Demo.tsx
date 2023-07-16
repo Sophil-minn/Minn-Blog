@@ -5,7 +5,6 @@ import ManagingState from './ManagingState';
 interface RouteParams {
   [key: string]: string | undefined,
   id: managingStateProps.RouteIdEnum,
-  pid: managingStateProps.RouteIdEnumParent
 }
 export default function Demo() {
   // root组件 匹配

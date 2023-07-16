@@ -21,11 +21,11 @@ interface RouteParams3 {
 }
 
 export default function CDemo() {
-  const { cid } = useParams() as unknown as RouteParams2 & RouteParams3;
+  const { cid } = useParams<{ cid: designPattern.RouteIdEnum }>();
   const Comp = cid ? componentsMap2?.[cid] || null : undefined;
   return (
     <div>
-      {cid}
+      {/* {cid} */}
       {Comp}
     </div>
   )
