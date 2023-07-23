@@ -15,22 +15,22 @@ export const componentsItem = {
   description: "组件开发沉淀",
   path: "/components-development",
   list: [
-    {
-      title: "组件库开发",
-      tips: "组件库开发",
-      path: "/components-development/libary-dev",
-      disabled: false,
-      pathType: "",
-      statusCode: "",
-    },
-    {
-      title: "组件开发环境配置",
-      tips: "组件开发环境配置",
-      path: "/components-development/dev-enviroment",
-      pathType: "",
-      disabled: false,
-      // statusCode: STATE.WAIT_ONLINE
-    },
+    // {
+    //   title: "组件库开发",
+    //   tips: "组件库开发",
+    //   path: "/components-development/libary-dev",
+    //   disabled: false,
+    //   pathType: "",
+    //   statusCode: "",
+    // },
+    // {
+    //   title: "组件开发环境配置",
+    //   tips: "组件开发环境配置",
+    //   path: "/components-development/dev-enviroment",
+    //   pathType: "",
+    //   disabled: false,
+    //   // statusCode: STATE.WAIT_ONLINE
+    // },
     {
       title: "工程化",
       tips: "组件模版工程化",

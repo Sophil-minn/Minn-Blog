@@ -9,10 +9,11 @@ import {
   PlusCircleOutlined,
   PlusCircleFilled,
   PlusSquareOutlined,
-  FolderFilled
+  FolderFilled,
+  PlusSquareFilled
 } from "@ant-design/icons";
 import { ICON_ADD_DIR_TYPE, ICON_ADD_SQUARE_TYPE, ICON_ADD_TYPE, ICON_DIR_FOLD_TYPE, ICON_DIR_TYPE, ICON_FILTER_TYPE, ICON_LEAF_TYPE } from "./const";
-import { List } from "antd";
+import { List, Space } from "antd";
 import FormByConfig from "../FormByConfig";
 const { Item } = List;
 
@@ -22,7 +23,7 @@ export const ICON_MAP = {
   [ICON_ADD_DIR_TYPE]: <PlusCircleOutlined />,
   [ICON_ADD_SQUARE_TYPE]: <PlusSquareOutlined />,
   [ICON_FILTER_TYPE]: <FilterOutlined />,
-  [ICON_DIR_TYPE]: <FolderOutlined />,
+  [ICON_DIR_TYPE]: <FolderOpenFilled />,
   [ICON_DIR_FOLD_TYPE]: <FolderFilled />,
   [ICON_LEAF_TYPE]: <FileWordOutlined />,
 }
@@ -30,7 +31,7 @@ export const ICON_MAP = {
 export const ICON_ACTIVE_MAP = {
   [ICON_ADD_TYPE]: <PlusOutlined style={{ color: '#1677ff' }} />,
   [ICON_ADD_DIR_TYPE]: <PlusCircleFilled style={{ color: '#1677ff' }} />,
-  [ICON_ADD_SQUARE_TYPE]: <PlusCircleFilled style={{ color: '#1677ff' }} />,
+  [ICON_ADD_SQUARE_TYPE]: <PlusSquareFilled style={{ color: '#1677ff' }} />,
   [ICON_FILTER_TYPE]: <FilterFilled style={{ color: '#1677ff' }} />,
   [ICON_DIR_TYPE]: <FolderOpenFilled style={{ color: '#1677ff' }} />,
   [ICON_DIR_FOLD_TYPE]: <FolderFilled style={{ color: '#1677ff' }} />,
@@ -124,3 +125,14 @@ export const getContentMap = ({ form, onFinish, onItemClick, item }: Record<stri
   [ICON_DIR_TYPE]: '你点击了文件夹icon',
   [ICON_DIR_FOLD_TYPE]: '你点击了未展开的文件夹',
 });
+
+export const initIcons = (
+  <Space>
+    <PlusOutlined /><PlusCircleOutlined /><PlusSquareOutlined /><FilterOutlined /><FolderFilled /><FolderOpenFilled />
+  </Space>
+);
+export const activeIcons = (
+  <Space>
+    <PlusOutlined style={{ color: '#1677ff' }} /><PlusCircleFilled style={{ color: '#1677ff' }} /><PlusCircleFilled style={{ color: '#1677ff' }} /><FilterFilled style={{ color: '#1677ff' }} /><FolderFilled style={{ color: '#1677ff' }} /><FolderOpenFilled style={{ color: '#1677ff' }} />
+  </Space>
+);

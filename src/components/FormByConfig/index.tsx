@@ -84,7 +84,7 @@ const FormByConfig = (props: Record<string, any>) => {
       }
 
       return colItem ? (
-        <Col span={span}>
+        <Col span={span} key={label}>
           <Form.Item
             label={label}
             tooltip={tooltip}

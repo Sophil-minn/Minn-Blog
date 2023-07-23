@@ -13,8 +13,8 @@ export default function Engineering() {
   const outlet = useOutlet();
   const { id } = useParams() as { id: string };
   let component = (<>
-    <LibaryDev />
-    <DevEnviroment />
+    {/* <LibaryDev /> */}
+    {/* <DevEnviroment /> */}
     <ComponentEnginering />
     <ComponentTheory />
     <ComponentSettleDown />
