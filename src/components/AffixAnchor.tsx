@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { GlobalContext } from '../App';
-import { Affix, Anchor, Tooltip } from 'antd';
+import {  Anchor, Tooltip } from 'antd';
 import { AnchorItemProps } from '../types';
 
 export default function AffixAnchor({ anchorItems }: { anchorItems?: AnchorItemProps[] }) {
@@ -11,7 +11,6 @@ export default function AffixAnchor({ anchorItems }: { anchorItems?: AnchorItemP
     );
   const items = anchorItems && loop(anchorItems);
   return (
-    <Affix offsetTop={targetOffset - 26}>
       <Anchor
         affix
         offsetTop={targetOffset - 26}
@@ -20,6 +19,5 @@ export default function AffixAnchor({ anchorItems }: { anchorItems?: AnchorItemP
         direction="vertical"
         style={{ height: "calc(100vh - 70px)", backgroundColor: '#fff', overflow: 'auto', paddingBottom: 16 }}
       />
-    </Affix>
   )
 }

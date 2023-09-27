@@ -2,7 +2,7 @@ import { memo } from 'react';
 
 const SlowList = memo(function SlowList({ text }) {
   // 仅打印一次。实际的减速是在 SlowItem 组件内部。
-  console.log('[ARTIFICIALLY SLOW] Rendering 250 <SlowItem />');
+  // console.log('[ARTIFICIALLY SLOW] Rendering 250 <SlowItem />');
 
   let items = [];
   for (let i = 0; i < 205; i++) {

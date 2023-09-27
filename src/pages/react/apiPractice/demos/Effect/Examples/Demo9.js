@@ -12,7 +12,7 @@ function Map({ zoomLevel }) {
 
     const map = mapRef.current;
     map.setZoom(zoomLevel);
-    console.log("Map - zoomLevel: ", zoomLevel);
+    // console.log("Map - zoomLevel: ", zoomLevel);
   }, [zoomLevel]);
 }
 

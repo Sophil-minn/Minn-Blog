@@ -1,14 +1,13 @@
 import { lazy } from "react";
-
-const CDemo = lazy(() => import('../pages/react/apiPractice/CDemo'));
-const ReactTheory = lazy(() => import('../pages/react/reactTheory'));
-const ApiPracticeDemo = lazy(() => import('../pages/react/apiPractice/Demo'));
-const ThinkingInReact = lazy(() => import('../pages/react/thinkingInReact'));
-const ApiPractice = lazy(() => import('../pages/react/apiPractice'));
-const ReactPrinciple = lazy(() => import('../pages/react/reactPrinciple'));
-const RManagingState = lazy(() => import('../pages/react/managingState'));
-const CManagingStateDemo = lazy(() => import('../pages/react/managingState/demos/Demo'));
-const ReactPrincipleDemo = lazy(() => import('../pages/react/reactPrinciple/demos/CDemo'));
+const CDemo = lazy(() => import('../../pages/react/apiPractice/CDemo'));
+const ReactTheory = lazy(() => import('../../pages/react/ReactTheory'));
+const ApiPracticeDemo = lazy(() => import('../../pages/react/apiPractice/Demo'));
+const ThinkingInReact = lazy(() => import('../../pages/react/ThinkingInReact'));
+const ApiPractice = lazy(() => import('../../pages/react/apiPractice'));
+const ReactPrinciple = lazy(() => import('../../pages/react/reactPrinciple'));
+const RManagingState = lazy(() => import('../../pages/react/managingState'));
+const CManagingStateDemo = lazy(() => import('../../pages/react/managingState/demos/Demo'));
+const ReactPrincipleDemo = lazy(() => import('../../pages/react/reactPrinciple/demos/CDemo'));
 
 export const reactRouters = [
   {

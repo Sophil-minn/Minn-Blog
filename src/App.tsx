@@ -1,5 +1,5 @@
 import './index.css';
-import { routeConfig } from './config/routers';
+import routeConfig from './config/routes';
 import { useRoutes } from 'react-router-dom';
 import Header from './block/header';
 import { Suspense, createContext, useCallback, useEffect, useRef, useState } from 'react';

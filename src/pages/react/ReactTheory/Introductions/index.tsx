@@ -1,10 +1,10 @@
 import { Typography } from 'antd';
 import classNames from 'classnames';
 import './index.scss';
-import Introduction from './Introduction';
 import { getTheoryData } from '../util';
 import { withAnchor } from '../../../../hoc/withAnchor';
 import { memo } from 'react';
+import Introduction from './Introduction';
 
 const { Title, Paragraph } = Typography;
 

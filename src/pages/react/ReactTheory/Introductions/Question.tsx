@@ -15,7 +15,7 @@ export default function Question({ data, index }: { data: reactTheory.QuestionIt
           <Title level={5} className='title-4'>{index + 1}.{j + 1}) 、 {v.title}</Title>
           <p>{v.concept}</p>
           {v.methods?.map((k: { title: string; content: string }) => (<div key={k.title}>
-            <div>{k.title}</div>
+            <div>{k.title}</div>2
             <div>{k.content}</div>
           </div>))}
         </Card>
@@ -23,7 +23,7 @@ export default function Question({ data, index }: { data: reactTheory.QuestionIt
 
       {summary && (<Card bordered={false}>
         <Title level={4} className='title-4'>总结:</Title>
-        <List dataSource={summary} renderItem={(item) => <List.Item>{item}</List.Item>} />
+        <List dataSource={summary} renderItem={(item) => <List.Item>{item}</List.Item>} />y
       </Card>
       )}
       <div>{tips && `PS:${tips}`}</div>
