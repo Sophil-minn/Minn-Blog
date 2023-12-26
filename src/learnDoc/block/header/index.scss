@@ -1,0 +1,116 @@
+.min-header {
+  position: relative;
+  width: 100%;
+  min-width: 1000px;
+  height: 64px;
+  z-index: 999;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03),
+    0 1px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+  background-color: #fff;
+  .min-row {
+    padding: 0 20px 0 16px;
+    line-height: 30px;
+    height: 64px;
+    align-items: center;
+    max-width: 1440px;
+   
+    margin: 0 auto;
+  }
+
+  .ant-dropdown.css-dev-only-do-not-override-15rg2km.ant-dropdown-placement-bottom {
+    width: 100%;
+  }
+}
+
+.min-nav-drop-down {
+  width: 100%;
+
+  .min-dropdown-content {
+    position: relative;
+    width: 100%;
+    padding: 24px;
+    background-color: #fff;
+    box-shadow: 2px 3px 2px 1px rgba(0, 0, 0, 0.03),
+      2px 2px 6px 2px rgba(0, 0, 0, 0.02), 2px 2px 3px -2px rgba(0, 0, 0, 0.02);
+
+    h5.ant-typography.nav-info__title {
+      color: #777;
+    }
+  }
+
+  .navInfo-items-wrapper {
+    position: relative;
+    margin-top: 8px;
+
+    .item-title {
+      height: 30px;
+      line-height: 30px;
+    }
+
+    .ant-tag.ant-tag-has-color.state-type {
+      display: inline-block;
+      height: 18px;
+      margin-left: 12px;
+      padding: 2px 5px;
+      font-weight: 400;
+      font-size: 10px;
+      font-family: PingFangSC-Regular;
+      line-height: 18px;
+      border-radius: 2px;
+      &.wait_online {
+        color: rgba(0, 0, 0, 0);
+        background: rgba(0, 0, 0, 0.06);
+        cursor: not-allowed;
+      }
+      &.hot {
+        color: #e02020;
+        background: rgba(224, 32, 32, 0.06);
+        cursor: pointer;
+      }
+      &.new {
+        color: #1677ff;
+        background: rgba(22, 119, 255, 0.06);
+        cursor: pointer;
+      }
+
+      &:hover {
+        color: #1677ff;
+      }
+
+      &:visited {
+        color: #1677ff;
+      }
+
+      &.text {
+        color: rgba(0, 0, 0, 0.25);
+        cursor: text;
+      }
+    }
+  }
+  .git-hub:hover {
+    color: rgba(0, 0, 0, 0.7);
+  }
+}
+
+.ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item:hover .dropdow-nav__list__item,
+.min-dropdown-content .dropdow-nav__list__item:hover {
+  color: #531dab;
+  cursor: pointer;
+  &.disabled {
+    color: #d9d9d9;
+    cursor: no-drop;
+  }
+}
+.ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item .dropdow-nav__list__item,
+.min-dropdown-content .dropdow-nav__list__item {
+  color: #8c8c8c;
+  &.disabled {
+    color: #d9d9d9;
+    cursor: no-drop;
+  }
+}
+
+.min-input-suffix {
+  transform: scale(1);
+  margin-right: -4px;
+}

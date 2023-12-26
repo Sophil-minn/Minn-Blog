@@ -1,0 +1,12 @@
+import { withAnchor } from '../../hoc/withAnchor';
+import {{componentName}}Info from './{{componentName}}Info';
+import {  {{dirName}}AnchorItems } from './config';
+import './index.scss';
+
+export default function index() {
+  const EnhancedComponent = withAnchor({{componentName}}Info)
+  const items = {{dirName}};
+  return <EnhancedComponent anchorItems={ {{dirName}}AnchorItems } />;
+}
+
+
