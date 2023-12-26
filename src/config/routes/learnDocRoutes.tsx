@@ -19,7 +19,7 @@ const NodejsDemo = lazy(() => import('../../learnDoc/pages/nodejs/demos'));
 const Nodejs = lazy(() => import('../../learnDoc/pages/nodejs'));
 const GitDemo = lazy(() => import('../../learnDoc/pages/git/demos/CDemo'));
 const Git = lazy(() => import('../../learnDoc/pages/git'));
-const Home = lazy(() => import('../../learnDoc/pages/home'));
+// const Home = lazy(() => import('../../learnDoc/pages/home'));
 const G6Demo = lazy(() => import('../../learnDoc/pages/g6'));
 const G6TreeDemo = lazy(() => import('../../learnDoc/pages/g6/G6TreeDemo'));
 const MindMapping = lazy(() => import('../../learnDoc/pages/g6/MindMapping'));
@@ -42,10 +42,6 @@ export const learnDocRoutes = [
   {
     path: '/',
     element: <Engineering />
-  },
-  {
-    path: '/home',
-    element: <Home />
   },
   {
     path: '/g6',

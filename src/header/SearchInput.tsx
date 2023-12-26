@@ -2,7 +2,7 @@ import { Col, Input, Space } from "antd";
 import "./index.scss";
 // import SVGImg from '../../img/command.png';
 import { useEffect, useRef } from "react";
-import CommandKSuffix from "../../../components/CommandKSuffix";
+import CommandKSuffix from "../components/CommandKSuffix";
 
 export default function SearchInput({ onSearch }: { onSearch: (e: any) => void }) {
   const inputRef = useRef(null);
