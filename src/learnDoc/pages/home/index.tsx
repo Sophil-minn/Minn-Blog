@@ -1,6 +1,6 @@
 import { Affix, Anchor, Col, Row } from 'antd';
 import React, { useContext } from 'react'
-import { GlobalContext } from '../../App';
+import { GlobalContext } from '../../';
 import './index.scss';
 
 export default function InfoContent() {

@@ -1,9 +1,7 @@
-import { routers1 } from "./routers1";
-import { reactRouters } from "./routers2";
+import { learnDocRoutes } from "./learnDocRoutes";
 
 const routeConfig = [
-  ...reactRouters,
-  ...routers1,
+  ...learnDocRoutes,
 ];
 
 export default routeConfig;

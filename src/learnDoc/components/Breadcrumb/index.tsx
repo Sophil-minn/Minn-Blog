@@ -1,5 +1,5 @@
 import { Breadcrumb } from 'antd'
-import { BreadCrumbItemsProps } from '../../types'
+import { BreadCrumbItemsProps } from '../../../types'
 import './index.scss';
 
 export default function index({ items }: { items: BreadCrumbItemsProps[] }) {

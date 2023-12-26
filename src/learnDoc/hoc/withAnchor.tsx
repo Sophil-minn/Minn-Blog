@@ -1,5 +1,5 @@
 import { Col, Row, Skeleton, Spin } from "antd";
-import { AnchorItemProps } from "../types";
+import { AnchorItemProps } from "../../types";
 import { Suspense, lazy } from "react";
 
 const AffixAnchor = lazy(() => import("../components/AffixAnchor"));

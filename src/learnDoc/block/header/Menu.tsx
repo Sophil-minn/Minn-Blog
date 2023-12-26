@@ -11,14 +11,14 @@ function Menu() {
   return (
     <Col>
       <Space>
-        <DropdownNav navigationItem={factoryItem} />
+        {/* <DropdownNav navigationItem={factoryItem} />
         <DropdownNav navigationItem={reactItems} />
         <DropdownNav navigationItem={componentsItem} />
         <DropdownNav navigationItem={webpackItem} />
         <DropdownNav navigationItem={perfomanceItem} />
         <DropdownNav navigationItem={algorithmItem} />
         <DropdownNav navigationItem={designPatternItem} />
-        <MoreNav navigationList={navigationEntranceList} title="更多" />
+        <MoreNav navigationList={navigationEntranceList} title="更多" /> */}
         <ToGithub />
       </Space>
     </Col>

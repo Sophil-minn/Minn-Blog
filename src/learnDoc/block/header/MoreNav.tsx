@@ -11,7 +11,7 @@ import { defaultGetPrefixCls } from "../../util/utils";
 import "./index.scss";
 import Button from "../../components/Button";
 import { STATE } from "./const";
-import { NavInfoProps } from "../../types";
+import { NavInfoProps } from "../../../types";
 import classNames from "classnames";
 import { Link } from "react-router-dom";
 

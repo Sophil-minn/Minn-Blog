@@ -1,5 +1,5 @@
 import { Tooltip } from "antd";
-import { AnchorItemProps } from "../../../types";
+import { AnchorItemProps } from "../../../../types";
 
 export const callbackAnchorItems = [
   {

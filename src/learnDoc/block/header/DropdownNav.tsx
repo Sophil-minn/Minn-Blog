@@ -1,9 +1,9 @@
 import { Dropdown, MenuProps, Typography } from 'antd'
-import { NavInfoProps } from '../../types';
+import { NavInfoProps } from '../../../types';
 import { Link, useNavigate } from 'react-router-dom';
-import Button from '../../components/Button';
 import classNames from 'classnames';
 import { memo, useMemo } from 'react';
+import Button from '../../components/Button';
 
 const { Text } = Typography;
 

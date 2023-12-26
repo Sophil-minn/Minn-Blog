@@ -1,5 +1,4 @@
-import './index.css';
-import routeConfig from './config/routes';
+import routeConfig from '../config/routes';
 import { useRoutes } from 'react-router-dom';
 import Header from './block/header';
 import { Suspense, createContext, useCallback, useEffect, useRef, useState } from 'react';
@@ -7,7 +6,7 @@ import { Skeleton, Spin } from 'antd';
 
 export const GlobalContext = createContext<{ targetOffset?: number | undefined }>({ targetOffset: 0 });
 
-function App() {
+function Index() {
   const routes = useRoutes(routeConfig);
   const topRef = useRef<{ getClientHeight: () => number }>();
   const [targetOffset, setTargetOffset] = useState<number>();
@@ -32,4 +31,4 @@ function App() {
   );
 }
 
-export default App;
+export default Index;

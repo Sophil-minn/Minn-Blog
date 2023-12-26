@@ -1,7 +1,7 @@
 import { useContext } from 'react'
-import { GlobalContext } from '../App';
 import {  Anchor, Tooltip } from 'antd';
-import { AnchorItemProps } from '../types';
+import { AnchorItemProps } from '../../types';
+import { GlobalContext } from '..';
 
 export default function AffixAnchor({ anchorItems }: { anchorItems?: AnchorItemProps[] }) {
   const { targetOffset } = useContext(GlobalContext) as any;

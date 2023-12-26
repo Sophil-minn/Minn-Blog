@@ -1,6 +1,5 @@
 import { Col, Input, Space } from "antd";
 import "./index.scss";
-import Tag from "../../components/Tag";
 // import SVGImg from '../../img/command.png';
 import { useEffect, useRef } from "react";
 import CommandKSuffix from "../../components/CommandKSuffix";

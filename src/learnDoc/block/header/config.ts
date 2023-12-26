@@ -1,5 +1,5 @@
 
-import { NavInfoProps } from "../../types";
+import { NavInfoProps } from "../../../types";
 import { STATE } from "./const";
 import { reactItems } from "./reactItems";
 import { vueItems } from "./vueItems";

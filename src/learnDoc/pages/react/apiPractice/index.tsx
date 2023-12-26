@@ -6,8 +6,8 @@ import Container from '../../../block/container';
 import { Affix, Card, Col, Menu, MenuProps, Row } from 'antd';
 import { Outlet, useParams } from 'react-router-dom';
 import { items, rootSubmenuKeys } from './config';
-import { GlobalContext } from '../../../App';
 import Hooks from './Hooks';
+import { GlobalContext } from '../../../';
 
 const cls = classNames({
   'minn-apiPractice': true
