@@ -1,4 +1,4 @@
-import { formatToTreeData } from "../../util/utils";
+import { formatToTreeData } from "../../learnDoc/util/utils";
 import { reactTheory } from "./initialData";
 
 export const fetchReactData = (params: string) => new Promise(resolve => setTimeout(() => {

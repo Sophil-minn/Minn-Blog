@@ -3,7 +3,7 @@ import { lazy } from "react";
 import ComponentSettleDown from "../../learnDoc/pages/componentsDevelopment/ComponentSettleDown";
 
 const Home = lazy(() => import('../../home'));
-const Detail = lazy(() => import('../../home/detail'));
+const Detail = lazy(() => import('../../home/Detail'));
 const NotFound = lazy(() => import('../../learnDoc/pages/NotFound'));
 
 const routeConfig = [

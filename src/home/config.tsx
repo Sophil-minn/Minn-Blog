@@ -1,13 +1,32 @@
 import { ColumnsType } from "antd/es/table";
 import { DataType } from "./types";
 import { Space, Tag } from "antd";
+import { Link } from "react-router-dom";
+import ComponentSettleDown from "../learnDoc/pages/componentsDevelopment/ComponentSettleDown";
+import { ReactNode } from "react";
+import Demo1 from "./demo1";
+import { HomeOutlined } from "@ant-design/icons";
+
+export const breadItems = [
+  {
+    href: '/',
+    title: <HomeOutlined />,
+  },
+  {
+    title: (
+      <>
+        <span>示例详情</span>
+      </>
+    ),
+  },
+];
 
 export const columns: ColumnsType<DataType> = [
   {
     title: '名称',
     dataIndex: 'name',
     key: 'name',
-    render: (text) => <a>{text}</a>,
+    render: (text, record) => <Link to={`/home/detail/demo${record.id}`}>{text}</Link>,
   },
   {
     title: '类型',
@@ -34,13 +53,18 @@ export const columns: ColumnsType<DataType> = [
       </>
     ),
   },
-  {
-    title: '动作',
-    key: 'action',
-    render: (_, record) => (
-      <Space size="middle">
-        <a>查看</a>
-      </Space>
-    ),
-  },
+  // {
+  //   title: '动作',
+  //   key: 'action',
+  //   render: (_, record) => (
+  //     <Space size="middle">
+  //       <a>查看</a>
+  //     </Space>
+  //   ),
+  // },
 ];
+
+export const detailMap: Record<string, ReactNode> = {
+  "demo1": <Demo1 />
+}
+
